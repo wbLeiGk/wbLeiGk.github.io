@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>路由器数据层 | QK</title>
+    
+    
+        <meta name="keywords" content="network">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+<meta name="keywords" content="network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由器数据层">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/router-data-plane/index.html">
+<meta property="og:site_name" content="QK">
+<meta property="og:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:23:25.328Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="路由器数据层">
+<meta name="twitter:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">QK</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            algorithm
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/10/task-shchedule-weight/">基于权重的任务调度</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            android
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            network
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="/2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file active"><a href="/2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-router-data-plane" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/network/">network</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/network/">network</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/12/09/router-data-plane/">
+            <time datetime="2018-12-09T09:10:21.000Z" itemprop="datePublished">2018-12-09</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            路由器数据层
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>网络层有两个关键的功能</p>
+<ul>
+<li><p><strong>转发</strong></p>
+<p>当一个数据包到达输入端口时，router 移动数据包到合适的输出端口</p>
+</li>
+<li><p><strong>路由</strong></p>
+<p>在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置</p>
+</li>
+</ul>
+<p>本篇重点放在路由器转发上面</p>
+<h2 id="router-component"><a href="#router-component" class="headerlink" title="router component"></a>router component</h2><ul>
+<li><p><strong>input   ports</strong></p>
+<p> 执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检索，然后输出到合适的 output ports</p>
+</li>
+<li><p><strong>output  ports</strong></p>
+<p>存储从switch fabric 处过来的数据包，然后转发这些这些数据包到出口[outgoing link：链接到链路层和物理层]</p>
+</li>
+<li><p><strong>switch  fabric</strong></p>
+<p>  连接 input port 和output port</p>
+</li>
+<li><p>routing processor</p>
+<p>执行control-plane 功能，一般用于路由协议</p>
+</li>
+</ul>
+<h2 id="forward-based-information"><a href="#forward-based-information" class="headerlink" title="forward based information"></a>forward based information</h2><p>一般来说，转发大致基于两种情况</p>
+<ul>
+<li><p><strong>基于目的IP</strong></p>
+<p>  此种方式根据数据包目的IP，然后对照路由表，选择合适的输出端口</p>
+</li>
+<li><p><strong>基于全部信息</strong></p>
+<p>  相对的，此种方式就不仅仅依据目的IP了，与此同时参考的信息还会有：源目的、网络拥塞状态等</p>
+</li>
+</ul>
+<h2 id="switch-fabric"><a href="#switch-fabric" class="headerlink" title="switch fabric"></a>switch fabric</h2><p>switch fabric是路由器的核心，数据包从input port 穿过switch fabric 然后到 output port ，switch fabric 有一下几种实现方式</p>
+<ul>
+<li><p>switching via memory</p>
+<p>  传统的router实现方式，数据包从input port 到达之后，通过中断的方式通知 router processor，然后共享内存复制数据包到合适的output ports buffers</p>
+</li>
+<li><p>switching via bus</p>
+<p>  input port 直接通过bus 传输数据包到output port,由于bus只有一条，因此不能同时传输数据，转发速度受制于bus的转发速度</p>
+</li>
+<li><p>switching via an interconnection network</p>
+<p>  interconnection network 使用cross-bar 的方式，这就意味着N-N的转发方式</p>
+</li>
+</ul>
+<h2 id="queue-delay"><a href="#queue-delay" class="headerlink" title="queue  delay"></a>queue  delay</h2><p>无论是input port 还是output port 都会发生queue delay ,也就是wait的意思</p>
+<ul>
+<li><p>input port queue</p>
+<p> 当switch fabric 处理速度赶不上 input port 速度的时候</p>
+</li>
+<li><p>output port queue</p>
+<p>多个数据包被转发到相同的output ports，当output ports buffer 满了的时候，就会发生packet drop 事件</p>
+</li>
+</ul>
+<h2 id="outgoing-link-packet-schedule"><a href="#outgoing-link-packet-schedule" class="headerlink" title="outgoing link packet schedule"></a>outgoing link packet schedule</h2><ul>
+<li><p>FIFO</p>
+<p>最先进入queue的数据包最新被转发出去</p>
+</li>
+<li><p>priority</p>
+<p>根据优先级/权重对数据包进行分类[class i]，然后循环遍历classes,输出queue 中的数据包</p>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2018/12/10/task-shchedule-weight/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    基于权重的任务调度
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/12/05/android-NDK/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">android NDK</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            lwb &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
