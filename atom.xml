@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-10T06:40:25.873Z</updated>
+  <updated>2019-02-17T03:04:00.894Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生活小记</title>
+    <link href="http://yoursite.com/2019/02/16/myselfprinciple/"/>
+    <id>http://yoursite.com/2019/02/16/myselfprinciple/</id>
+    <published>2019-02-16T00:38:45.000Z</published>
+    <updated>2019-02-17T03:04:00.894Z</updated>
+    
+    <content type="html"><![CDATA[<p>2019 / 2 / 16  乌鲁木齐机场</p><p>打开电脑随手写下了这篇文章，就想到哪写到哪了</p><hr><p>[ 02 / 16 上午]</p><p>与昨日，我与母亲倾诉了内心的想法：我到底改往何方</p><p>母亲回了我一句：去年我曾劝过你，留在事业单位，现在你后悔嘛</p><p>我愣了一下</p><hr><p>[ 02 / 15 下午]</p><p>在乌市出发前碰到了我儿时的同学 【张】</p><p>于是开玩笑道：给我5元钱，我帮你承担 [考研] 成绩的压力</p><p>晚上，我们在一起吃了个饭，我问他想去哪</p><p>他话语间流露，想要出去走走，不想呆在新疆了，他说这个地方他呆够了，现在他特别想到处逛逛</p><p>“你准备在成家？”</p><p>他说：“在江苏吧，也许其他地方…”</p><p>晚上的《流浪地球》挺好看的</p><hr><p>晚上，继昨天一样，失眠了</p><p>我已经不记得儿时曾经发过什么誓言，想要成为什么样的人</p><p>我也不知道我是不是成为了自己讨厌的人</p><p>. . .</p><hr><p>今年我26 ，而我的路，我不知道该向哪里</p><p>甚至看书，有时候都在发呆</p><p>我不知道您是否被这么一句话所影响 :  走正确的路</p><p>什么是正确的路啊</p><p>蒙上眼睛，走那个方向都是前方</p><p>. . .</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2019 / 2 / 16  乌鲁木齐机场&lt;/p&gt;
+&lt;p&gt;打开电脑随手写下了这篇文章，就想到哪写到哪了&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;[ 02 / 16 上午]&lt;/p&gt;
+&lt;p&gt;与昨日，我与母亲倾诉了内心的想法：我到底改往何方&lt;/p&gt;
+&lt;p&gt;母亲回了我一句：去年我曾劝过你，留在事业
+      
+    
+    </summary>
+    
+      <category term="个人生活" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA%E7%94%9F%E6%B4%BB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>基于权重的任务调度</title>
