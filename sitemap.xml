@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/02/17/gonovice/</loc>
+    
+    <lastmod>2019-02-17T05:32:19.430Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/05/android-NDK/</loc>
+    
+    <lastmod>2019-02-17T03:57:51.857Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/09/router-data-plane/</loc>
+    
+    <lastmod>2019-02-17T03:11:47.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/10/task-shchedule-weight/</loc>
+    
+    <lastmod>2019-02-17T03:11:31.319Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/02/16/myselfprinciple/</loc>
     
     <lastmod>2019-02-17T03:04:00.894Z</lastmod>
@@ -16,20 +44,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/12/10/task-shchedule-weight/</loc>
-    
-    <lastmod>2018-12-10T06:40:25.873Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/09/router-data-plane/</loc>
-    
-    <lastmod>2018-12-09T10:23:25.328Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/11/15/TCP-transport-institution/</loc>
     
     <lastmod>2018-12-09T09:10:41.007Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/</loc>
     
     <lastmod>2018-12-09T09:08:16.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/12/05/android-NDK/</loc>
-    
-    <lastmod>2018-12-09T09:07:04.957Z</lastmod>
     
   </url>
   
