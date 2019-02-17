@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/02/17/goGoroutine/</loc>
+    <loc>http://yoursite.com/2019/02/17/gonovice/</loc>
     
-    <lastmod>2019-02-17T14:25:48.730Z</lastmod>
+    <lastmod>2019-02-17T14:28:28.004Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/02/17/gonovice/</loc>
+    <loc>http://yoursite.com/2019/02/17/goGoroutine/</loc>
     
-    <lastmod>2019-02-17T14:23:58.081Z</lastmod>
+    <lastmod>2019-02-17T14:27:57.006Z</lastmod>
     
   </url>
   
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
