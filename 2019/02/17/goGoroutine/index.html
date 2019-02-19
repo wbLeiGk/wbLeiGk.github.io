@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>(2) go并发 | QK</title>
+    <title>(2) go并发概述 1 | QK</title>
     
     
-        <meta name="keywords" content="(2) go并发">
+        <meta name="keywords" content="(2) go并发概述 1">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="todo">
+    <meta name="description" content="并发关键字go  GoLang 使用go 关键字进行多并发操作 123456789//example 1go func()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;//example 2func hello()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;go hello() 同步操作: channelGoLang 使用Cha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(2) go并发">
+<meta property="og:title" content="(2) go并发概述 1">
 <meta property="og:url" content="http://yoursite.com/2019/02/17/goGoroutine/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="todo">
+<meta property="og:description" content="并发关键字go  GoLang 使用go 关键字进行多并发操作 123456789//example 1go func()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;//example 2func hello()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;go hello() 同步操作: channelGoLang 使用Cha">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-17T14:27:57.006Z">
+<meta property="og:updated_time" content="2019-02-19T11:58:33.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(2) go并发">
-<meta name="twitter:description" content="todo">
+<meta name="twitter:title" content="(2) go并发概述 1">
+<meta name="twitter:description" content="并发关键字go  GoLang 使用go 关键字进行多并发操作 123456789//example 1go func()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;//example 2func hello()&amp;#123;  fmt.Println(&quot;hello world&quot;)&amp;#125;go hello() 同步操作: channelGoLang 使用Cha">
     
 
     
@@ -193,7 +193,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../gonovice/">(1) go初识</a></li>  <li class="file active"><a href="">(2) go并发</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../gonovice/">(1) go初识</a></li>  <li class="file active"><a href="">(2) go并发概述 1</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -298,7 +298,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            (2) go并发
+            (2) go并发概述 1
         </h1>
     
 
@@ -311,13 +311,17 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发关键字go"><span class="toc-number">1.</span> <span class="toc-text">并发关键字go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步操作-channel"><span class="toc-number">2.</span> <span class="toc-text">同步操作: channel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等待channel-操作-select"><span class="toc-number">3.</span> <span class="toc-text">等待channel 操作 : select</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">4.</span> <span class="toc-text">定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#timeer"><span class="toc-number">4.1.</span> <span class="toc-text">timeer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ticker"><span class="toc-number">4.2.</span> <span class="toc-text">ticker</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <p>todo</p>
-
+            <h2 id="并发关键字go"><a href="#并发关键字go" class="headerlink" title="并发关键字go"></a>并发关键字go</h2><p>  GoLang 使用go 关键字进行多并发操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example 1</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example 2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> hello()</span><br></pre></td></tr></table></figure>
+<h2 id="同步操作-channel"><a href="#同步操作-channel" class="headerlink" title="同步操作: channel"></a>同步操作: channel</h2><p>GoLang 使用Channels 进行多个协程之间进行同步操纵，它更像是一个管道，发送值到管道，再从值取回来</p>
+<h2 id="等待channel-操作-select"><a href="#等待channel-操作-select" class="headerlink" title="等待channel 操作 : select"></a>等待channel 操作 : select</h2><p>go 与 channel 结合select 是一个强大的工作<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">  c1 &lt;- <span class="string">"hello"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">  c2 &lt;- <span class="string">"world"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> index := <span class="number">0</span>; index &lt; <span class="number">2</span>; index++ &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> msg1 := &lt;-c1:</span><br><span class="line">    fmt.Println(<span class="string">"the msg1 value is : "</span>, msg1)</span><br><span class="line">  <span class="keyword">case</span> msg2 := &lt;-c2:</span><br><span class="line">    fmt.Println(<span class="string">"the msg2 value is : "</span>, msg2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h3 id="timeer"><a href="#timeer" class="headerlink" title="timeer"></a>timeer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只执行指定时间 一次</span></span><br><span class="line">mytime:=time.NewTimer(time.second)</span><br><span class="line">&lt;-mytime.C</span><br><span class="line">mytime.stop()</span><br></pre></td></tr></table></figure>
+<h3 id="ticker"><a href="#ticker" class="headerlink" title="ticker"></a>ticker</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">myticker:=time.NewTicker(time.second)</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  &lt;-myticker.C</span><br><span class="line">  fmt.Println(time.now())</span><br><span class="line">&#125;</span><br><span class="line">myticker.stop()</span><br></pre></td></tr></table></figure>
             </div>
         
         <footer class="article-footer">

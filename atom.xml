@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-17T14:27:57.006Z</updated>
+  <updated>2019-02-19T11:58:33.990Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,20 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>(2) go并发</title>
+    <title>(2) go并发概述 1</title>
     <link href="http://yoursite.com/2019/02/17/goGoroutine/"/>
     <id>http://yoursite.com/2019/02/17/goGoroutine/</id>
     <published>2019-02-17T14:24:47.000Z</published>
-    <updated>2019-02-17T14:27:57.006Z</updated>
+    <updated>2019-02-19T11:58:33.990Z</updated>
     
-    <content type="html"><![CDATA[<p>todo</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="并发关键字go"><a href="#并发关键字go" class="headerlink" title="并发关键字go"></a>并发关键字go</h2><p>  GoLang 使用go 关键字进行多并发操作</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example 1</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example 2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> hello()</span><br></pre></td></tr></table></figure><h2 id="同步操作-channel"><a href="#同步操作-channel" class="headerlink" title="同步操作: channel"></a>同步操作: channel</h2><p>GoLang 使用Channels 进行多个协程之间进行同步操纵，它更像是一个管道，发送值到管道，再从值取回来</p><h2 id="等待channel-操作-select"><a href="#等待channel-操作-select" class="headerlink" title="等待channel 操作 : select"></a>等待channel 操作 : select</h2><p>go 与 channel 结合select 是一个强大的工作<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">  c1 &lt;- <span class="string">"hello"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">  c2 &lt;- <span class="string">"world"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> index := <span class="number">0</span>; index &lt; <span class="number">2</span>; index++ &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> msg1 := &lt;-c1:</span><br><span class="line">    fmt.Println(<span class="string">"the msg1 value is : "</span>, msg1)</span><br><span class="line">  <span class="keyword">case</span> msg2 := &lt;-c2:</span><br><span class="line">    fmt.Println(<span class="string">"the msg2 value is : "</span>, msg2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h3 id="timeer"><a href="#timeer" class="headerlink" title="timeer"></a>timeer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只执行指定时间 一次</span></span><br><span class="line">mytime:=time.NewTimer(time.second)</span><br><span class="line">&lt;-mytime.C</span><br><span class="line">mytime.stop()</span><br></pre></td></tr></table></figure><h3 id="ticker"><a href="#ticker" class="headerlink" title="ticker"></a>ticker</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">myticker:=time.NewTicker(time.second)</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  &lt;-myticker.C</span><br><span class="line">  fmt.Println(time.now())</span><br><span class="line">&#125;</span><br><span class="line">myticker.stop()</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;todo&lt;/p&gt;
-
+        &lt;h2 id=&quot;并发关键字go&quot;&gt;&lt;a href=&quot;#并发关键字go&quot; class=&quot;headerlink&quot; title=&quot;并发关键字go&quot;&gt;&lt;/a&gt;并发关键字go&lt;/h2&gt;&lt;p&gt;  GoLang 使用go 关键字进行多并发操作&lt;/p&gt;
+&lt;figure class=&quot;highli
       
     
     </summary>

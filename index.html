@@ -189,7 +189,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/17/gonovice/">(1) go初识</a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">(2) go并发</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/17/gonovice/">(1) go初识</a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">(2) go并发概述 1</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -295,7 +295,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="2019/02/17/goGoroutine/">(2) go并发</a>
+            <a class="article-title" href="2019/02/17/goGoroutine/">(2) go并发概述 1</a>
         </h1>
     
 
@@ -314,11 +314,30 @@
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="并发关键字go"><a href="#并发关键字go" class="headerlink" title="并发关键字go"></a>并发关键字go</h2><p>  GoLang 使用go 关键字进行多并发操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example 1</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example 2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> hello()</span><br></pre></td></tr></table></figure>
+<h2 id="同步操作-channel"><a href="#同步操作-channel" class="headerlink" title="同步操作: channel"></a>同步操作: channel</h2><p>GoLang 使用Channels 进行多个协程之间进行同步操纵，它更像是一个管道，发送值到管道，再从值取回来</p>
+<h2 id="等待channel-操作-select"><a href="#等待channel-操作-select" class="headerlink" title="等待channel 操作 : select"></a>等待channel 操作 : select</h2><p>go 与 channel 结合select 是一个强大的工作<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">  c1 &lt;- <span class="string">"hello"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">  c2 &lt;- <span class="string">"world"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> index := <span class="number">0</span>; index &lt; <span class="number">2</span>; index++ &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> msg1 := &lt;-c1:</span><br><span class="line">    fmt.Println(<span class="string">"the msg1 value is : "</span>, msg1)</span><br><span class="line">  <span class="keyword">case</span> msg2 := &lt;-c2:</span><br><span class="line">    fmt.Println(<span class="string">"the msg2 value is : "</span>, msg2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h3 id="timeer"><a href="#timeer" class="headerlink" title="timeer"></a>timeer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只执行指定时间 一次</span></span><br><span class="line">mytime:=time.NewTimer(time.second)</span><br><span class="line">&lt;-mytime.C</span><br><span class="line">mytime.stop()</span><br></pre></td></tr></table></figure>
+<p>
+                
             
         
         
-            <p>todo</p>
-
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/02/17/goGoroutine/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
