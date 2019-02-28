@@ -3,27 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>TCP 传输机制 | QK</title>
+    <title>go与cpp （1） | QK</title>
     
     
-        <meta name="keywords" content="network">
+        <meta name="keywords" content="go与cpp （1）">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程  TCP 流控制流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量  La">
-<meta name="keywords" content="network">
+    <meta name="description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP 传输机制">
-<meta property="og:url" content="http://yoursite.com/2018/11/15/TCP-transport-institution/index.html">
+<meta property="og:title" content="go与cpp （1）">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/goAndCpp/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程  TCP 流控制流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量  La">
+<meta property="og:description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/11/15/TCP-transport-institution/dataflow.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/15/TCP-transport-institution/congestion.png">
-<meta property="og:updated_time" content="2018-12-09T09:10:41.007Z">
+<meta property="og:updated_time" content="2019-02-28T16:43:44.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP 传输机制">
-<meta name="twitter:description" content="说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程  TCP 流控制流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量  La">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/15/TCP-transport-institution/dataflow.png">
+<meta name="twitter:title" content="go与cpp （1）">
+<meta name="twitter:description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
     
 
     
@@ -154,16 +150,16 @@
                             &nbsp;
                             algorithm
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/10/task-shchedule-weight/">基于权重的任务调度</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/10/task-shchedule-weight/">基于权重的任务调度</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file active"><a href="">TCP 传输机制</a></li>  <li class="file"><a href="../../../12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -172,12 +168,12 @@
                             &nbsp;
                             个人生活
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../../2019/02/16/life_record1/">生活小记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../02/16/life_record1/">生活小记</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             编程语言
                         </a>
@@ -188,16 +184,16 @@
                             &nbsp;
                             android
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">实现二叉树平衡</a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">go与cpp （1）</a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">(2) go并发概述 1</a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">(1) go初识</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">实现二叉树平衡</a></li>  <li class="file active"><a href="">go与cpp （1）</a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">(2) go并发概述 1</a></li>  <li class="file"><a href="../../../02/17/gonovice/">(1) go初识</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -272,7 +268,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-TCP-transport-institution" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-goAndCpp" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -282,20 +278,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/network/">network</a>
+        <a class="article-category-link" href="../../../../categories/编程语言/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程语言/go/">go</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/network/">network</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2018-11-15T00:40:55.000Z" itemprop="datePublished">2018-11-15</time>
+            <time datetime="2019-02-28T16:04:57.000Z" itemprop="datePublished">2019-03-01</time>
         </a>
     </div>
 
@@ -307,7 +298,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            TCP 传输机制
+            go与cpp （1）
         </h1>
     
 
@@ -320,35 +311,40 @@
             
         
         
-            <p>说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程</p>
-<p><img src="dataflow.png" alt=""></p>
-<h2 id="TCP-流控制"><a href="#TCP-流控制" class="headerlink" title="TCP 流控制"></a>TCP 流控制</h2><p>流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量</p>
-<ul>
-<li>LastByteRead：从缓冲区最后读取的位置</li>
-<li>LastByteRcvd：从缓冲区最后接收数据的位置</li>
-<li>RcvBuffer：缓冲区的大小<br><em>LastByteRcvd-LastByteRead&lt;=RcvBuffer</em></li>
-</ul>
-<p>因而，我们要将通常将window size 设置成 cwnd = RcvBuffer-LastByteRcvd-LastByteRead，从而保证接收缓冲区不被溢出。相应的发送缓冲区 LastByteSent−LastByteAcked≤ cwnd</p>
-<p>运用这一规则，在网络攻击中将windows size的值设置为1，就构成了http slow 攻击。</p>
-<h2 id="TCP-拥塞控制"><a href="#TCP-拥塞控制" class="headerlink" title="TCP 拥塞控制"></a>TCP 拥塞控制</h2><p>首先大部分TCP拥塞控制时端对端的。相对应的有一个<a href="#网络协助方式">网络协助方式</a>（network-assist）</p>
-<p>如果说流控制是控制避免TCP 缓冲区溢出，那么congestion control 就是在网络状态不好时，对TCP 发送流量进行控制，从而避免大量数据包丢失。</p>
-<p>拥塞控制在TCP数据段中没有相应字段表示，但是还有有一个字段与他相关，那是ACK这个字段，拥塞能控制会根据接收到的ACK情况从而调整他的发送速率。</p>
-<p>在TCP 发送数据过程中有三个阶段：<br><img src="congestion.png" alt="">此图来自《computer networking top to down》</p>
-<p>从上图的状态图可以看到：</p>
-<ul>
-<li>在slow start:一旦正确接收到ack,那么cwnd增长时指数级别的，一旦发生数据超时，拥塞控制状态中，此时cwnd数值除以2。或者接收到3此重复的ACK（超时之前），进入快速重传阶段。</li>
-<li>拥塞控制：在这个阶段，cwnd数据增长就比较慢了，由于各个平台实现TCP差异，但是总的原则不会变，他增长速率，同样的在这个状态下，一旦发送超时，或者ACK重复的情况，依旧会Cwnd 数值减半</li>
-<li>快速恢复：这个状态不是必要存在的，进入此状态的条件时ACK 重复，此状态结束之后，一般会进入拥塞控制阶段</li>
-</ul>
-<h2 id="TCP-流量竞争"><a href="#TCP-流量竞争" class="headerlink" title="TCP 流量竞争"></a>TCP 流量竞争</h2><p> 一般来说，理想情况下，TCP连接时会平分网络节点的吞吐量的，但是由于每个TCP通过的路径的可能会有所差异，导致的网络状态的波动之类的情况，导致拥塞控制，可能会造成TCP流量的不平均的情况，因而，每个应用程序中TCP的连接数量的不同也会竞争流量，从而导致应用程序得到节点吞吐量不一样。</p>
-<p> 当然UDP 可能就不会出现这种情况，因为不存在拥塞控制这一机制，收到就接收，收不到就收不到。</p>
-<h2 id="网络协助方式"><a href="#网络协助方式" class="headerlink" title="网络协助方式"></a>网络协助方式</h2><p>此种方式时应用网络数据包丢失之类从而造成的拥塞控制对发送者进行一种反馈情况。</p>
-<p>简单来说，TCP end-to-end 拥塞控制的形式，是根据ACK的情况进行判断网络状态，没有任何网络层参与，但是现在网络协助这种方式，是网络层根据网络状态直接将状态信息发送给接收端或者发送端的一种行为。</p>
-<ul>
-<li>网络层反馈给发送者：将网络状态直接发送给发送端</li>
-<li>网络层发聩给接收者，由接收者发送给发送者： 接收端收到网络状态信息后，将此信息与ACK一起发送给发送端</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总的来说，TCP一直在处于发展中，目前而言也有类似其他的协议如DCCP(datagram congestion control Protocol)、DCTCP(data center TCP)、QUIC(quick udp internet connection,google 使用)、TFRC(TCP-friendly rate control,传输速率更平稳)、STTP….无论哪一种使用，哪一种更好，不仅仅取决其技术性，也取决社会行，商业性。</p>
+            <p>今天晚上我想说的是 go 中的数组和切片</p>
+<p>自然而言的也想起了cpp中的一些玩意</p>
+<p>数组:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array:=[<span class="number">2</span>]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">array:=[...]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br></pre></td></tr></table></figure></p>
+<p>切片：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">slice:=<span class="built_in">make</span>([]<span class="keyword">int</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">var</span> slice []<span class="keyword">int</span></span><br></pre></td></tr></table></figure></p>
+<p>好像也没太大的区别嘛</p>
+<p>从声明上看，唯一的差别就是数组固定了长度，切片没有固定的长度</p>
+<p>嗯 ~ ，其他差别呢~</p>
+<p><strong>数组比较</strong></p>
+<p>如果在cpp 中呢<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> b[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> &#125;;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"the value is equality ? :"</span> &lt;&lt;boolalpha &lt;&lt;(a == b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//output is : false</span></span><br></pre></td></tr></table></figure></p>
+<p>想想也是呢， 好歹人家也是数组也是可以当指针用来着，在不同的内存空间来着，地址不同，自然也就不同</p>
+<p>但是在go中<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array1:=[<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">array2:=[...]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">array1==array</span><br><span class="line"><span class="comment">//output: true</span></span><br></pre></td></tr></table></figure></p>
+<p>相等的~！ 嗯~  在go中，好像把数组当成了一 基本类型再用</p>
+<p>那你想啊，这不是还有切片啊</p>
+<p>不过这个切片的确是不能比较的，他们只能和nil 进行比较</p>
+<p>这个切片是scale型，又区别cpp的数组，行为倒是和vector容器有些相似~</p>
+<p>因为内部同样有两个变量可控制，你可以理解为下面的形式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span>&#123;</span><br><span class="line">    ptr * <span class="keyword">int</span><span class="comment">//or other type //uint float32...</span></span><br><span class="line">    <span class="built_in">len</span> ,<span class="built_in">cap</span> <span class="keyword">uint</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦超过容量cap ,人家也是要扩展的，这时候可能返回的指针会发生~~~~</p>
+<p>切片人家还是安全性的</p>
+<p>你要判断一个切片是否为空，最好使用len()函数</p>
+<p>而不是使用 slice==nil的形式 ，因为</p>
+<p><strong>slice:=[]int{}</strong> 这种情况下 切片不为空</p>
+<p>好像说了半天，也不知道切片是干嘛的</p>
+<p>嗯~</p>
+<p>其实切片就是一个可以<strong>添加/修改/返回元素子序列</strong>的操作</p>
+<p><strong>append()</strong>:用来添加一个/多个元素 ，或者自身 /其他切片</p>
+<p><strong>slice[:]</strong>：用来返回子序列的 ，也返回了一个<strong>新的切片</strong>和原来的没关系</p>
+<p>由于这种特性~</p>
+<p>使得切片也变得相当灵活~</p>
+<p>比如你可以完全用它实现一个stack/queue 数据结构 </p>
+<p>用它拼接字符串</p>
+<p>自由的插入字符</p>
+<p>. .  .</p>
+<p>sleeping </p>
 
             </div>
         
@@ -361,19 +357,10 @@
     
 <nav id="article-nav">
     
-        <a href="../../../12/05/android-NDK/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    android NDK
-                
-            </div>
-        </a>
     
-    
-        <a href="../../13/TCP-IP-demultipexing-multiplexing/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../../02/25/life-record2/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">复路分解与多复路</div>
+            <div class="article-nav-title">生活小记2</div>
         </a>
     
 </nav>
