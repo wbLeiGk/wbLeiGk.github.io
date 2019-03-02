@@ -3,22 +3,22 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>go与cpp （1） | QK</title>
+    <title>数据类型&lt;数组/切片/结构体&gt; | QK</title>
     
     
-        <meta name="keywords" content="go与cpp （1）">
+        <meta name="keywords" content="数据类型&lt;数组/切片/结构体&gt;">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go与cpp （1）">
+<meta property="og:title" content="数据类型&lt;数组&#x2F;切片&#x2F;结构体&gt;">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/goAndCpp/index.html">
 <meta property="og:site_name" content="QK">
 <meta property="og:description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T16:43:44.720Z">
+<meta property="og:updated_time" content="2019-03-02T07:56:01.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go与cpp （1）">
+<meta name="twitter:title" content="数据类型&lt;数组&#x2F;切片&#x2F;结构体&gt;">
 <meta name="twitter:description" content="今天晚上我想说的是 go 中的数组和切片 自然而言的也想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看">
     
 
@@ -168,7 +168,7 @@
                             &nbsp;
                             个人生活
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../02/16/life_record1/">生活小记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/16/life_record1/">生活小记</a></li>  <li class="file"><a href="../../../02/25/life-record2/">生活小记2</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -193,11 +193,11 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">实现二叉树平衡</a></li>  <li class="file active"><a href="">go与cpp （1）</a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">(2) go并发概述 1</a></li>  <li class="file"><a href="../../../02/17/gonovice/">(1) go初识</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  <li class="file active"><a href="">数据类型<数组 切片="" 结构体=""></数组></a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -298,7 +298,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            go与cpp （1）
+            数据类型&lt;数组/切片/结构体&gt;
         </h1>
     
 
@@ -343,6 +343,9 @@
 <p>比如你可以完全用它实现一个stack/queue 数据结构 </p>
 <p>用它拼接字符串</p>
 <p>自由的插入字符</p>
+<hr>
+<p><strong>结构体</strong></p>
+<p>结构体是基本类型的集合，在golang 中结构体支持anonymous struct，从而避免重复定义。</p>
 <p>. .  .</p>
 <p>sleeping </p>
 
@@ -356,6 +359,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="../goDataMap/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    数据类型&lt;map&gt;
+                
+            </div>
+        </a>
     
     
         <a href="../../../02/25/life-record2/" id="article-nav-older" class="article-nav-link-wrap">
