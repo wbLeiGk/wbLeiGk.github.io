@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/10/task-shchedule-weight/</loc>
+    
+    <lastmod>2019-03-03T04:56:40.483Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/01/goAndCpp/</loc>
     
     <lastmod>2019-03-02T10:27:02.509Z</lastmod>
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/12/10/task-shchedule-weight/</loc>
-    
-    <lastmod>2019-02-17T03:11:31.319Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2019-01-31T10:52:58.271Z</lastmod>
@@ -100,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     

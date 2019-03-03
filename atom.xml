@@ -235,17 +235,17 @@
   </entry>
   
   <entry>
-    <title>基于权重的任务调度</title>
+    <title>求二叉树的路径和(path sum)</title>
     <link href="http://yoursite.com/2018/12/10/task-shchedule-weight/"/>
     <id>http://yoursite.com/2018/12/10/task-shchedule-weight/</id>
     <published>2018-12-10T06:36:12.000Z</published>
-    <updated>2019-02-17T03:11:31.319Z</updated>
+    <updated>2019-03-03T04:56:40.483Z</updated>
     
     <summary type="html">
     
     </summary>
     
-      <category term="algorithm" scheme="http://yoursite.com/categories/algorithm/"/>
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
   </entry>
