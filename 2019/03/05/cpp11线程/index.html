@@ -3,27 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>cpp缓冲与流对象 | QK</title>
+    <title>cpp11线程 | QK</title>
     
     
-        <meta name="keywords" content="cpp缓冲与流对象">
+        <meta name="keywords" content="cpp11线程">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="如上图就是cpp 流的结构~ ios_base : 定义了所有流独立于字符类型和字符特征的共有的属性，这个类由流状态函数/流格式标记函数组成 basic_ios&amp;lt;&amp;gt; :定了所有流共有的属性但是依赖于字符类型和字符特征，这个属性包含了使用了派生自basic_streambuf&amp;lt;&amp;gt;的流缓冲区，这个缓冲区执行确切的读写能力。 basic_istream&amp;lt;&amp;gt; &amp;amp;">
+    <meta name="description" content="本来不想动~，想多看一点其他书~，但还是强迫自己写下这篇cpp11的线程概述~ 关于cpp的线程详解有一本书讲的蛮不错~，前一阵子再看《cpp concurrency in action》 主讲线程细节  一 、线程1.上层接口1.1 asnc() and Futuresaysnc() :提供一个可运行在后台的接口，其功能实现调用通过回调函数future&amp;lt;&amp;gt; : 让你等待一个线程的运行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cpp缓冲与流对象">
-<meta property="og:url" content="http://yoursite.com/2019/03/04/cpp缓冲与流对象/index.html">
+<meta property="og:title" content="cpp11线程">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/cpp11线程/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="如上图就是cpp 流的结构~ ios_base : 定义了所有流独立于字符类型和字符特征的共有的属性，这个类由流状态函数/流格式标记函数组成 basic_ios&amp;lt;&amp;gt; :定了所有流共有的属性但是依赖于字符类型和字符特征，这个属性包含了使用了派生自basic_streambuf&amp;lt;&amp;gt;的流缓冲区，这个缓冲区执行确切的读写能力。 basic_istream&amp;lt;&amp;gt; &amp;amp;">
+<meta property="og:description" content="本来不想动~，想多看一点其他书~，但还是强迫自己写下这篇cpp11的线程概述~ 关于cpp的线程详解有一本书讲的蛮不错~，前一阵子再看《cpp concurrency in action》 主讲线程细节  一 、线程1.上层接口1.1 asnc() and Futuresaysnc() :提供一个可运行在后台的接口，其功能实现调用通过回调函数future&amp;lt;&amp;gt; : 让你等待一个线程的运行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/cpp缓冲与流对象/iosArchitect.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/cpp缓冲与流对象/fileArchi.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/cpp缓冲与流对象/stringArchi.png">
-<meta property="og:updated_time" content="2019-03-04T16:13:32.156Z">
+<meta property="og:updated_time" content="2019-03-05T15:43:19.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cpp缓冲与流对象">
-<meta name="twitter:description" content="如上图就是cpp 流的结构~ ios_base : 定义了所有流独立于字符类型和字符特征的共有的属性，这个类由流状态函数/流格式标记函数组成 basic_ios&amp;lt;&amp;gt; :定了所有流共有的属性但是依赖于字符类型和字符特征，这个属性包含了使用了派生自basic_streambuf&amp;lt;&amp;gt;的流缓冲区，这个缓冲区执行确切的读写能力。 basic_istream&amp;lt;&amp;gt; &amp;amp;">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/04/cpp缓冲与流对象/iosArchitect.png">
+<meta name="twitter:title" content="cpp11线程">
+<meta name="twitter:description" content="本来不想动~，想多看一点其他书~，但还是强迫自己写下这篇cpp11的线程概述~ 关于cpp的线程详解有一本书讲的蛮不错~，前一阵子再看《cpp concurrency in action》 主讲线程细节  一 、线程1.上层接口1.1 asnc() and Futuresaysnc() :提供一个可运行在后台的接口，其功能实现调用通过回调函数future&amp;lt;&amp;gt; : 让你等待一个线程的运行">
     
 
     
@@ -197,7 +193,7 @@
                             &nbsp;
                             cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file active"><a href="">cpp11线程</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -281,7 +277,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-cpp缓冲与流对象" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-cpp11线程" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -299,7 +295,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-03-04T13:50:56.000Z" itemprop="datePublished">2019-03-04</time>
+            <time datetime="2019-03-05T13:45:03.000Z" itemprop="datePublished">2019-03-05</time>
         </a>
     </div>
 
@@ -311,7 +307,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            cpp缓冲与流对象
+            cpp11线程
         </h1>
     
 
@@ -322,94 +318,53 @@
         
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-、线程"><span class="toc-number">1.</span> <span class="toc-text">一 、线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-上层接口"><span class="toc-number">1.1.</span> <span class="toc-text">1.上层接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-asnc-and-Futures"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 asnc() and Futures</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-底层接口-：thread"><span class="toc-number">1.2.</span> <span class="toc-text">2. 底层接口 ：thread</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-detached-threads"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 detached threads</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Prromises"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 Prromises</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-packeaged-task-lt-gt"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 packeaged_task&lt;&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-、同步"><span class="toc-number">2.</span> <span class="toc-text">二 、同步</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-、异步"><span class="toc-number">3.</span> <span class="toc-text">三 、异步</span></a></li></ol>
+                </div>
+            
         
         
-            <h2 id=""><a href="#" class="headerlink" title=""></a><img src="iosArchitect.png" alt="流类图"></h2><p>如上图就是cpp 流的结构~</p>
-<p><strong>ios_base</strong> : 定义了所有流独立于字符类型和字符特征的共有的属性，这个类由流状态函数/流格式标记函数组成</p>
-<p><strong>basic_ios&lt;&gt;</strong> :定了所有流共有的属性但是依赖于字符类型和字符特征，这个属性包含了使用了派生自basic_streambuf&lt;&gt;的流缓冲区，这个缓冲区执行确切的读写能力。</p>
-<p><strong>basic_istream&lt;&gt; &amp;&amp; bacsic_ostream&lt;&gt;</strong>  : 虚继承了basic_ios&lt;&gt; ，分别用来读写</p>
-<p><strong>basic_iostream&lt;&gt;</strong> : 派生自basic_istream&lt;&gt; &amp;&amp; bacsic_ostream&lt;&gt; 可以用来读和写</p>
-<p><strong>basic_streambuf&lt;&gt;</strong> : 是iostream 库的核心，定了接口用来写向流和从流中读取字符，这些接口可以被其他流使用执行读写能力</p>
-<h2 id="1-责任划分"><a href="#1-责任划分" class="headerlink" title="1. 责任划分"></a>1. 责任划分</h2><p>  派生自basic_ios只用来处理数据的格式、流的状态，而字符的读写被basic_streambuf&lt;&gt;执行，流缓冲区提供给其他流接口用来处理字符读写{socket、graphic、user interface component}</p>
-<h2 id="2-流对象类别"><a href="#2-流对象类别" class="headerlink" title="2. 流对象类别"></a>2. 流对象类别</h2><ol>
-<li>标准输入输出 :iostream 、istream 、ostream</li>
-<li>文件流 : fstream</li>
-<li>字符流 : stringstream</li>
-</ol>
-<h2 id="3-流的状态"><a href="#3-流的状态" class="headerlink" title="3. 流的状态"></a>3. 流的状态</h2><ol>
-<li>goodbit: 一切都是正常的，没有任何bit位被设置</li>
-<li>eofbit : 到达文件结尾</li>
-<li>failbit: 发生错误，i/o操作不成功</li>
-<li>badbit : 致命的错误，产生未定义状态</li>
-</ol>
-<p>对应的函数：good()、eof()、fail()、bad()、rdstate()、clear()、setstate()</p>
-<h2 id="4-标准输入输出函数"><a href="#4-标准输入输出函数" class="headerlink" title="4. 标准输入输出函数"></a>4. 标准输入输出函数</h2><p>&lt;&lt; &amp;&amp; &gt;&gt;两个操作符是带有格式格式的输入输出方式，如果用户想用原生态数据（没有格式化），可以使用流的成员函数</p>
-<h3 id="4-1-输入成员函数"><a href="#4-1-输入成员函数" class="headerlink" title="4.1 输入成员函数"></a>4.1 输入成员函数</h3><ol>
-<li>get()</li>
-<li>getline()</li>
-<li>read()</li>
-<li>readsome()</li>
-</ol>
-<h3 id="4-2-输出成员函数"><a href="#4-2-输出成员函数" class="headerlink" title="4.2 输出成员函数"></a>4.2 输出成员函数</h3><ol>
-<li>put()</li>
-<li>write()</li>
-<li>flush()</li>
-</ol>
-<h3 id="4-3-流的辅助类-sentry"><a href="#4-3-流的辅助类-sentry" class="headerlink" title="4.3 流的辅助类 sentry"></a>4.3 流的辅助类 sentry</h3><p>辅助类形式<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">sentry <span class="title">se</span><span class="params">(strm)</span></span>; <span class="comment">// indirect pre- and postprocessing</span></span><br><span class="line"><span class="keyword">if</span> (se) &#123;</span><br><span class="line">... <span class="comment">// the actual processing</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>哨兵类用来做流对象的预处理和后处理的工作~</p>
-<p>这些操作包括：同步几个流，检查流是否正常，是否跳过空格，实现特定任务{多线程环境下，完成相应的锁定}</p>
-<h3 id="4-4-流格式操作"><a href="#4-4-流格式操作" class="headerlink" title="4.4 流格式操作"></a>4.4 流格式操作</h3><p>头文件<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>而对应的format 在std::ios::XXX</p>
-<h4 id="4-4-1-成员函数"><a href="#4-4-1-成员函数" class="headerlink" title="4.4.1 成员函数"></a>4.4.1 成员函数</h4><p>流对象中</p>
+            <p>本来不想动~，想多看一点其他书~，但还是强迫自己写下这篇cpp11的线程概述~</p>
+<p>关于cpp的线程详解有一本书讲的蛮不错~，前一阵子再看《cpp concurrency in action》 主讲线程细节</p>
+<hr>
+<h1 id="一-、线程"><a href="#一-、线程" class="headerlink" title="一 、线程"></a>一 、线程</h1><h2 id="1-上层接口"><a href="#1-上层接口" class="headerlink" title="1.上层接口"></a>1.上层接口</h2><h3 id="1-1-asnc-and-Futures"><a href="#1-1-asnc-and-Futures" class="headerlink" title="1.1 asnc() and Futures"></a>1.1 asnc() and Futures</h3><p><strong>aysnc()</strong> :提供一个可运行在后台的接口，其功能实现调用通过回调函数<br><strong>future&lt;&gt;</strong> : 让你等待一个线程的运行结果，返回值或者异常<br><strong>shared_future&lt;&gt;</strong> : 与future不同的是，future取回的值只能被处理一次，而shared_future 可以被处理多次</p>
+<p>example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">this_thread::sleep_for(chrono::seconds(<span class="number">2</span>));</span><br><span class="line"><span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   main()&#123;</span><br><span class="line">       <span class="keyword">auto</span> result = future&lt;<span class="keyword">int</span>&gt;(async([]() &#123;<span class="keyword">return</span> <span class="number">2</span>; &#125;)).get()+getValue();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"the value is :"</span> &lt;&lt; result &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>async() 函数有三个可选的状态</p>
 <ol>
-<li>setf</li>
-<li>unsetf</li>
-<li>flag </li>
-<li>copyfmt</li>
-<li>imbue  //set local object [internationalization]</li>
-<li>getloc  //get the local object [internationalization]</li>
+<li>立刻运行 launch::async=0x1</li>
+<li>推迟运行，在适当的机会运行 launch::deferred =0x2</li>
+<li>默认状态，可能是立刻运行或者推迟运行 launch::async|launch::deferred</li>
 </ol>
-<h4 id="4-4-2全局函数"><a href="#4-4-2全局函数" class="headerlink" title="4.4.2全局函数"></a>4.4.2全局函数</h4><p>这些函数在iomanip头文件中</p>
+<p>但是这三种状态都可以使用get()函数从而进行任务变化为运行的状态</p>
+<p>而wait() 系列的函数则是被动的东岱，而不是强迫任务开始，get()则不然，是强迫你任务开始，而wait()对应三种状态：</p>
 <ol>
-<li>setiosflags</li>
-<li>resetiosflags</li>
-<li>… </li>
+<li>future_status::ready</li>
+<li>future_status::deferred</li>
+<li>future_status::timeout</li>
 </ol>
-<h2 id="5-文件流"><a href="#5-文件流" class="headerlink" title="5. 文件流"></a>5. 文件流</h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="fileArchi.png" alt="文件流类图"></h2><p>文件流派生自标准输入输出流，主要用于文件的读写</p>
-<h3 id="5-1-文件打开标记"><a href="#5-1-文件打开标记" class="headerlink" title="5.1 文件打开标记"></a>5.1 文件打开标记</h3><ol>
-<li>in</li>
-<li>out</li>
-<li>app<br>而这三者可以任意组合</li>
-</ol>
-<h3 id="5-2-文件随机处理指针"><a href="#5-2-文件随机处理指针" class="headerlink" title="5.2 文件随机处理指针"></a>5.2 文件随机处理指针</h3><p>输入流：</p>
+<p>So, let me make clear: If you start to use async(), you should pass all objects necessary to process the passed functionality by value so that async() uses only local copies. If copying is too expensive, ensure that the objects are passed as constant reference and that mutable is not used</p>
+<h2 id="2-底层接口-：thread"><a href="#2-底层接口-：thread" class="headerlink" title="2. 底层接口 ：thread"></a>2. 底层接口 ：thread</h2><p>thrad 使用方式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">thread <span class="title">t</span><span class="params">(function object)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <ol>
-<li>tellg</li>
-<li>seekg</li>
+<li>thread 没有launch 策略，c++标准库尽可能的开始一个传入的函数对象，如果不可行，会抛出一个system_error的错误</li>
+<li>没有接口可以处理线程的输出结构和返回值，你只能获取一个独一无二的线程ID</li>
+<li>如果一个异常发生，而你没有捕获，那么程序将立刻中断，给线程传递一个外部的异常指针变量exception_ptrs</li>
+<li>你必须执行join()或者detach()操作，否则程序将发生中断</li>
+<li>如果你让线程在后台运行，一旦main() 函数结束，所有的线程将会立刻中断</li>
 </ol>
-<p>输出流：</p>
-<ol>
-<li>tellp</li>
-<li>seekp</li>
-</ol>
-<h2 id="6-字符串流"><a href="#6-字符串流" class="headerlink" title="6. 字符串流"></a>6. 字符串流</h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="stringArchi.png" alt="字符串流类图"></h2><h3 id="6-1-成员函数"><a href="#6-1-成员函数" class="headerlink" title="6.1 成员函数"></a>6.1 成员函数</h3><p>输出流</p>
-<ol>
-<li>str() : 返回一个字符串</li>
-<li>str(string) : 把string 设置成</li>
-</ol>
-<p>输入流：<br>“&gt;&gt;” 操作符，用来将缓冲区的数据输入到特定的类型</p>
-<h2 id="7-输入流和输出流的连接"><a href="#7-输入流和输出流的连接" class="headerlink" title="7. 输入流和输出流的连接"></a>7. 输入流和输出流的连接</h2><p>通常而言，你需要连接两个流，比如可能需要确保在读取输入之前在屏幕上写入要求输入的文本，读写使用同一个流，操作相同的流使用不同的数据格式</p>
-<h3 id="7-1-成员函数"><a href="#7-1-成员函数" class="headerlink" title="7.1 成员函数"></a>7.1 成员函数</h3><ol>
-<li>tie() :返回一个已经绑定到流上的输出流指针</li>
-<li>tie(ostream *strm) : 设置输出流对象，返回之前的流指针</li>
-</ol>
-<h3 id="7-2流缓冲区的绑定-释放"><a href="#7-2流缓冲区的绑定-释放" class="headerlink" title="7.2流缓冲区的绑定/释放"></a>7.2流缓冲区的绑定/释放</h3><ol>
-<li>rdbuf() :返回流缓冲区的指针</li>
-<li>rdbuf(streambuf* ) :设置流缓冲区，返回之前的缓冲区对象指针。</li>
-</ol>
-<p>利用流缓冲区的绑定和释放，我们可以实现重定向的作用<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">redirect</span><span class="params">(ostream&amp;)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"the first row"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  redirect(<span class="built_in">cout</span>);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"the last row"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">redirect</span> <span class="params">(ostream&amp; strm)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// save output buffer of the stream</span></span><br><span class="line"><span class="comment">// - use unique pointer with deleter that ensures to restore</span></span><br><span class="line"><span class="comment">// the original output buffer at the end of the function</span></span><br><span class="line">  <span class="keyword">auto</span> del = [&amp;](streambuf* p) &#123;</span><br><span class="line">  strm.rdbuf(p);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">unique_ptr</span>&lt;streambuf,<span class="keyword">decltype</span>(del)&gt; origBuffer(strm.rdbuf(),del);</span><br><span class="line">  <span class="comment">// redirect ouput into the file redirect.txt</span></span><br><span class="line">  <span class="function">ofstream <span class="title">file</span><span class="params">(<span class="string">"redirect.txt"</span>)</span></span>;</span><br><span class="line">  strm.rdbuf (file.rdbuf());</span><br><span class="line">  file &lt;&lt; <span class="string">"one row for the file"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  strm &lt;&lt; <span class="string">"one row for the stream"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125; <span class="comment">// closes file AND its buffer automatically</span></span><br></pre></td></tr></table></figure></p>
-<p>基本上基础关于流的基础知识也就是这么多~</p>
-<p>对于流缓冲区的使用，用户自定义模式~，这一步，将单独写一篇博客用来描述</p>
-<p>sleeping~</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function">thread <span class="title">t</span><span class="params">([]() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>; this_thread::sleep_for(chrono::seconds(<span class="number">3</span>)); &#125;)</span></span>;</span><br><span class="line">t.join();</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-detached-threads"><a href="#2-1-detached-threads" class="headerlink" title="2.1 detached threads"></a>2.1 detached threads</h3><p>分离线程如果使用了非局部变量很容易成为一个问题，因为你一旦分离了线程，就意味了你失去了对它的控制，那么至于它运行多久，我们就不知道了。因为有可能在非局部变量生命周期结束的时候，线程有可能还没有结束，那么你的线程很可能会出现问题。因此，强烈将以，你传递给线程从copy-value 的方式，而不是引用的方式。</p>
+<h3 id="2-2-Prromises"><a href="#2-2-Prromises" class="headerlink" title="2.2 Prromises"></a>2.2 Prromises</h3><p>为了能够取回线程中的值，像async()一样，我们使用promises函数特性辅助<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// start thread using a promise to store the outcome</span></span><br><span class="line"><span class="built_in">std</span>::promise&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; p;</span><br><span class="line"><span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">([](<span class="built_in">string</span> &amp;b)&#123;b=<span class="number">12</span>;&#125;,<span class="built_in">std</span>::ref(p))</span></span>;</span><br><span class="line">t.detach();</span><br><span class="line">...</span><br><span class="line"><span class="comment">// create a future to process the outcome</span></span><br><span class="line"><span class="built_in">std</span>::future&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; f(p.get_future());</span><br><span class="line"><span class="comment">// process the outcome</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"result: "</span> &lt;&lt; f.get() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-packeaged-task-lt-gt"><a href="#2-3-packeaged-task-lt-gt" class="headerlink" title="2.3 packeaged_task&lt;&gt;"></a>2.3 packeaged_task&lt;&gt;</h3><p>aysnc() 让你处理立刻执行还是推迟，然后返回结果，有时候，你可能需要自己决定什么时间怎么执行一个任务，那么packaged_task&lt;&gt;就是这个目的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">compute</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</span><br><span class="line"><span class="built_in">std</span>::packaged_task&lt;<span class="keyword">double</span>(<span class="keyword">int</span>,<span class="keyword">int</span>)&gt; task(compute); <span class="comment">// create a task</span></span><br><span class="line"><span class="built_in">std</span>::future&lt;<span class="keyword">double</span>&gt; f = task.get_future(); <span class="comment">// get its future</span></span><br><span class="line">...</span><br><span class="line">task(<span class="number">7</span>,<span class="number">5</span>); <span class="comment">// start the task (typically in a separate thread)</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">double</span> res = f.get(); <span class="comment">// wait for its end and process result/exception</span></span><br></pre></td></tr></table></figure></p>
+<p>note:</p>
+<p>thread.native_handle(): Returns a platform-specific type native_handle_type fornonportable extensions</p>
+<p>unsigned int std::thread::hardware_concurrency ()<br>• Returns the number of possible threads.</p>
+<p>• This value is just a hint and does not guarantee to be exact.</p>
+<p>• Returns 0 if the number is not computable or well defined.</p>
+<hr>
+<h1 id="二-、同步"><a href="#二-、同步" class="headerlink" title="二 、同步"></a>二 、同步</h1><p>todo</p>
+<hr>
+<h1 id="三-、异步"><a href="#三-、异步" class="headerlink" title="三 、异步"></a>三 、异步</h1><p>todo</p>
 
             </div>
         
@@ -422,19 +377,10 @@
     
 <nav id="article-nav">
     
-        <a href="../../05/cpp11线程/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    cpp11线程
-                
-            </div>
-        </a>
     
-    
-        <a href="../../03/goWeb/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../04/cpp缓冲与流对象/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">GoWeb &lt;1&gt;</div>
+            <div class="article-nav-title">cpp缓冲与流对象</div>
         </a>
     
 </nav>
