@@ -155,7 +155,7 @@
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -198,7 +198,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -337,7 +337,7 @@
                     <p></p><p>本来不想动~，想多看一点其他书~，但还是强迫自己写下这篇cpp11的线程概述~</p>
 <p>关于cpp的线程详解有一本书讲的蛮不错~，前一阵子再看《cpp concurrency in action》 主讲线程细节</p>
 <hr>
-<h1 id="一-、线程"><a href="#一-、线程" class="headerlink" title="一 、线程"></a>一 、线程</h1><h2 id="1-上层接口"><a href="#1-上层接口" class="headerlink" title="1.上层接口"></a>1.上层接口</h2><h3 id="1-1-asnc-and-Futures"><a href="#1-1-asnc-and-Futures" class="headerlink" title="1.1 asnc() and Futures"></a>1.1 asnc() and Futures</h3><p><strong>aysnc()</strong> :提供一个可运行在后台的接口，其功能实现调用通过回调函数<br><strong>future&lt;&gt;</strong> : 让你等待一个线程的运行结果，返回值或者异常<br><strong>shared_future&lt;&gt;</strong> : 与future不同的是，future取回的值只能被处理一次，而shared_future 可以被处理多次</p>
+<h1 id="一-、线程"><a href="#一-、线程" class="headerlink" title="一 、线程"></a>一 、线程</h1><h2 id="上层接口"><a href="#上层接口" class="headerlink" title="上层接口"></a>上层接口</h2><h3 id="1-asnc-and-Futures"><a href="#1-asnc-and-Futures" class="headerlink" title="1 asnc() and Futures"></a>1 asnc() and Futures</h3><p><strong>aysnc()</strong> :提供一个可运行在后台的接口，其功能实现调用通过回调函数<br><strong>future&lt;&gt;</strong> : 让你等待一个线程的运行结果，返回值或者异常<br><strong>shared_future&lt;&gt;</strong> : 与future不同的是，future取回的值只能被处理一次，而shared_future 可以被处理多次</p>
 <p>example:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">this_thread::sleep_for(chrono::seconds(<span class="number">2</span>));</span><br><span class="line"><span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   main()&#123;</span><br><span class="line">       <span class="keyword">auto</span> result = future&lt;<span class="keyword">int</span>&gt;(async([]() &#123;<span class="keyword">return</span> <span class="number">2</span>; &#125;)).get()+getValue();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"the value is :"</span> &lt;&lt; result &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
 <p>
                 
