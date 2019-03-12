@@ -189,7 +189,7 @@
                             &nbsp;
                             cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -274,6 +274,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-gonovice" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../categories/编程语言/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程语言/go/">go</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="../../2019/02/17/gonovice/">
+            <time datetime="2019-02-17T04:03:45.000Z" itemprop="datePublished">2019-02-17</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="../../2019/02/17/gonovice/">概述（1）</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h3> <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name nametype</span><br><span class="line"><span class="comment">// for example </span></span><br><span class="line"><span class="keyword">var</span> myvar <span class="keyword">int</span> /<span class="keyword">float32</span> /<span class="keyword">string</span> /<span class="keyword">bool</span></span><br><span class="line"><span class="keyword">var</span> myvar = <span class="number">12</span> /<span class="number">12.2</span>/<span class="literal">true</span>/<span class="string">"hello"</span> <span class="comment">//infer the var type</span></span><br><span class="line">myvar := <span class="number">12</span> /<span class="number">12.2</span>/<span class="literal">true</span>/<span class="string">"hello"</span> <span class="comment">//must use : operator characteristic</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//pointer</span></span><br><span class="line"><span class="keyword">var</span> name *nametype</span><br><span class="line"></span><br><span class="line"><span class="comment">//切片和数组类似，不过切片比数组支持更多的操作</span></span><br><span class="line"><span class="comment">//你可以将其理解为数量不等的集合</span></span><br><span class="line"><span class="comment">//申请0个空间是一种位置，随后使用的时候，可以在进行申请空间</span></span><br><span class="line"><span class="comment">//相对而言，slice更加方便一些</span></span><br><span class="line"><span class="comment">//array</span></span><br><span class="line"><span class="keyword">var</span> arrayname [][]<span class="keyword">int</span> /<span class="keyword">float32</span>/<span class="keyword">string</span> /<span class="keyword">bool</span></span><br><span class="line"><span class="comment">//slices</span></span><br><span class="line">silces:=<span class="built_in">make</span>(<span class="keyword">type</span>,length)</span><br><span class="line"><span class="comment">//map dictionary</span></span><br><span class="line">mapName:=<span class="built_in">make</span>(<span class="keyword">map</span>[key-<span class="keyword">type</span>]value-<span class="keyword">type</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><p>控制结构只有三种形式：</p>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> [[initialize][;condition;][caculate]]&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="if-条件"><a href="#if-条件" class="headerlink" title="if 条件"></a>if 条件</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [initialize ;][condition]&#123;</span><br><span class="line"></span><br><span class="line">&#125;[<span class="keyword">else</span> <span class="keyword">if</span>&#123;&#125;][<span class="keyword">else</span>&#123;&#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="switch-条件"><a href="#switch-条件" class="headerlink" title="switch 条件"></a>switch 条件</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> [condition] &#123;</span><br><span class="line">    <span class="keyword">case</span> [result[condition]]:</span><br><span class="line">        [<span class="keyword">break</span>]</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        [<span class="keyword">break</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="../../2019/02/17/gonovice/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-life_record1" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
