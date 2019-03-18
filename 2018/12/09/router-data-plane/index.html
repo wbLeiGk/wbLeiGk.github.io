@@ -6,18 +6,17 @@
     <title>路由器数据层 | QK</title>
     
     
-        <meta name="keywords" content="network">
+        <meta name="keywords" content="路由器数据层">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
-<meta name="keywords" content="network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="路由器数据层">
 <meta property="og:url" content="http://yoursite.com/2018/12/09/router-data-plane/index.html">
 <meta property="og:site_name" content="QK">
 <meta property="og:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-17T03:11:47.580Z">
+<meta property="og:updated_time" content="2019-03-18T14:49:19.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路由器数据层">
 <meta name="twitter:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
@@ -154,13 +153,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../10/task-shchedule-weight/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file active"><a href="">路由器数据层</a></li>  <li class="file"><a href="../../../11/15/TCP-transport-institution/">TCP 传输机制</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -178,7 +177,7 @@
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/工具screen/">工具screen</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/工具screen/">screen</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -212,7 +211,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">概述（2）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -224,6 +223,15 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">路由器数据层</a></li>  <li class="file"><a href="../../../11/15/TCP-transport-institution/">TCP 传输机制</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="../../../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
@@ -306,15 +314,10 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/network/">network</a>
+        <a class="article-category-link" href="../../../../categories/计算机网络/">计算机网络</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/network/">network</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>

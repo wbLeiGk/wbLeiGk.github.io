@@ -6,11 +6,10 @@
     <title>TCP 传输机制 | QK</title>
     
     
-        <meta name="keywords" content="network">
+        <meta name="keywords" content="TCP 传输机制">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程  TCP 流控制流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量  La">
-<meta name="keywords" content="network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP 传输机制">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/TCP-transport-institution/index.html">
@@ -19,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/11/15/TCP-transport-institution/dataflow.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/15/TCP-transport-institution/congestion.png">
-<meta property="og:updated_time" content="2018-12-09T09:10:41.007Z">
+<meta property="og:updated_time" content="2019-03-18T14:48:19.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP 传输机制">
 <meta name="twitter:description" content="说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程  TCP 流控制流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量  La">
@@ -157,13 +156,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/10/task-shchedule-weight/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../../12/09/router-data-plane/">路由器数据层</a></li>  <li class="file active"><a href="">TCP 传输机制</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -181,7 +180,7 @@
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/工具screen/">工具screen</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/工具screen/">screen</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -215,7 +214,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">概述（2）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -227,6 +226,15 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/09/router-data-plane/">路由器数据层</a></li>  <li class="file active"><a href="">TCP 传输机制</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="../../../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
@@ -309,15 +317,10 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/network/">network</a>
+        <a class="article-category-link" href="../../../../categories/计算机网络/">计算机网络</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/network/">network</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
