@@ -3,26 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>复路分解与多复路 | QK</title>
+    <title>设计模式 | QK</title>
     
     
-        <meta name="keywords" content="network">
+        <meta name="keywords" content="设计模式">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="复路分离与多复路发生在传输层的一种行为。  demultiplexing: At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of deliveri">
-<meta name="keywords" content="network">
+    <meta name="description" content="开此分类的原因，是因为有人在吃饭的时候向我问起了设计模式 关于设计模式的几大原则 1、单一职责原则功能职责边界划分清楚，当一个功能crash/uncorrect ,不会影响另一个功能模块 2、里氏替换原则子类继承父类的时候，尽量不去覆盖和重写父类的方法，这样就算，传入参数发生了变动（父类-&amp;gt;子类），也不会影响原对象的功能（父类） 3、依赖倒置原则与面向接口编程很像，设计功能类时，考虑到可扩展">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复路分解与多复路">
-<meta property="og:url" content="http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/设计模式/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="复路分离与多复路发生在传输层的一种行为。  demultiplexing: At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of deliveri">
+<meta property="og:description" content="开此分类的原因，是因为有人在吃饭的时候向我问起了设计模式 关于设计模式的几大原则 1、单一职责原则功能职责边界划分清楚，当一个功能crash/uncorrect ,不会影响另一个功能模块 2、里氏替换原则子类继承父类的时候，尽量不去覆盖和重写父类的方法，这样就算，传入参数发生了变动（父类-&amp;gt;子类），也不会影响原对象的功能（父类） 3、依赖倒置原则与面向接口编程很像，设计功能类时，考虑到可扩展">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/figure1.1.png">
-<meta property="og:updated_time" content="2018-12-09T09:08:16.856Z">
+<meta property="og:updated_time" content="2019-03-18T13:15:00.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复路分解与多复路">
-<meta name="twitter:description" content="复路分离与多复路发生在传输层的一种行为。  demultiplexing: At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of deliveri">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/figure1.1.png">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="开此分类的原因，是因为有人在吃饭的时候向我问起了设计模式 关于设计模式的几大原则 1、单一职责原则功能职责边界划分清楚，当一个功能crash/uncorrect ,不会影响另一个功能模块 2、里氏替换原则子类继承父类的时候，尽量不去覆盖和重写父类的方法，这样就算，传入参数发生了变动（父类-&amp;gt;子类），也不会影响原对象的功能（父类） 3、依赖倒置原则与面向接口编程很像，设计功能类时，考虑到可扩展">
     
 
     
@@ -153,16 +150,16 @@
                             &nbsp;
                             Leetcode
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/10/task-shchedule-weight/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/10/task-shchedule-weight/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">复路分解与多复路</a></li>  <li class="file"><a href="../../15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../../12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -171,12 +168,12 @@
                             &nbsp;
                             个人生活
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../../2019/02/16/life_record1/">生活小记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../02/16/life_record1/">生活小记</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             编程
                         </a>
@@ -187,7 +184,7 @@
                             &nbsp;
                             android
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -196,7 +193,7 @@
                             &nbsp;
                             cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../05/cpp11线程/">cpp11线程</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -205,20 +202,20 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../01/goDataMap/">数据类型<map></map></a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             设计模式
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="../../../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -289,7 +286,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-TCP-IP-demultipexing-multiplexing" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-设计模式" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -299,20 +296,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/network/">network</a>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/设计模式/">设计模式</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="../../../../tags/network/">network</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2018-11-13T12:37:21.000Z" itemprop="datePublished">2018-11-13</time>
+            <time datetime="2019-03-18T12:21:20.000Z" itemprop="datePublished">2019-03-18</time>
         </a>
     </div>
 
@@ -324,7 +316,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            复路分解与多复路
+            设计模式
         </h1>
     
 
@@ -337,44 +329,14 @@
             
         
         
-            <p>复路分离与多复路发生在传输层的一种行为。</p>
-<ul>
-<li><p><strong>demultiplexing:</strong></p>
-<p>At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of delivering the data in a transport-layer segment to the correct socket is called <strong>demultiplexing</strong></p>
-</li>
-<li><p><strong>multiplexing:</strong></p>
-<p>The job of gathering data chunks at the source host from different sockets, encapsulating each data chunk with header information (that will later be used in demultiplexing) to create segments, and passing the segments to the network layer is called multiplexing</p>
-<p>中文含义</p>
-</li>
-<li><p><strong>复路分离</strong></p>
-<p>在接收端，传输层根据数据段中的头字段特定字段[UDP：源port/目的port、TCP：源IP/port,目的IP/port]对数据帧进行分类，派送到不同的socket通道中，这个过程就是<strong>复路分离</strong></p>
-</li>
-<li><p><strong>多复路</strong></p>
-<p>传输层从上层应用层中不同的应用（socket）接收数据，然后封装成一个数据帧，派送到网络层，这个过程是<strong>多复路</strong></p>
-<p>那么具体流程是什么样的，请见下图</p>
-<p><img src="figure1.1.png" alt=""></p>
-</li>
-</ul>
-<hr>
-<h2 id="怎么看待socket"><a href="#怎么看待socket" class="headerlink" title="怎么看待socket"></a>怎么看待socket</h2><ul>
-<li><strong>socket 是接口</strong></li>
-</ul>
-<p>开发人员如果进行网络编程，使用socket 是不少的，现在比较常见的传输层协议常见TCP,UDP,SCTP,DCCP。socket是传输层与应用层的抽象网络接口，因此网络数据不可能直接通过应用层直接送到网络层，反之亦然，开发人员在应用层对socket拥有一切控制权，但是在传输层只有少量的控制权。</p>
-<ul>
-<li><strong>用socket干什么</strong></li>
-</ul>
-<p>上述所讲，socket 是接口，是建立在应用层和传输层之间的抽象层，因此对于低层的协议/数据，我们丝毫不用关心。举个例子，我们现在使用ftp 协议，我们只需要关系ftp中的对话规则，我怎么知道对话规则，直接找到RFC 文档，找到协议规则。不需要关心这个数据怎么传输到对方的。我们只需要做到知道两件事：<1>我发送了什么 <2> 我接收到了什么。这样看来，使用socket 就像是一个黑匣子，放进去什么东西，出来了什么东西。就是这么简单？ 对，就是这样</2></1></p>
-<hr>
-<h2 id="TCP-和-UDP-建立通信的区别"><a href="#TCP-和-UDP-建立通信的区别" class="headerlink" title="TCP 和 UDP 建立通信的区别"></a>TCP 和 UDP 建立通信的区别</h2><ul>
-<li><p><strong>UDP</strong></p>
-<p>if two UDP segments have different source IP addresses and/or source port numbers, but have the same destination IP address and destination port number, then the two segments will be directed to the same destination process via <strong>the same destination socket</strong>.</p>
-</li>
-<li><p><strong>TCP</strong></p>
-<p>In particular, and in contrast with UDP, two arriving TCP segments with different source IP addresses or source port numbers will (with the exception of a TCP segment carrying the original connectionestablishment request) be <strong>directed to two different sockets</strong></p>
-<p>socket 是跨进程的，是一个系统资源，通过上述两段文字，从字面上看，TCP 是每来一个客户端，便建立一个socket 资源，UDP 则始终是一条socket 接收使用。但是善于利用的人，可针对这些特点，进行恶意的消耗资源</p>
-</li>
-</ul>
-<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>本文只是针对了TCP/UDP 在网络框架（TCP/IP 5层结构）中一个大概的位置和作用，需要更加进行了解的请移步<a href="https://www.bau.edu.jo/UserPortal/UserProfile/PostsAttach/10617_1870_1.pdf" target="_blank" rel="noopener">computer_network_top_to_down</a></p>
+            <p>开此分类的原因，是因为有人在吃饭的时候向我问起了设计模式</p>
+<p>关于设计模式的几大原则</p>
+<h3 id="1、单一职责原则"><a href="#1、单一职责原则" class="headerlink" title="1、单一职责原则"></a><strong>1、单一职责原则</strong></h3><p>功能职责边界划分清楚，当一个功能crash/uncorrect ,不会影响另一个功能模块</p>
+<h3 id="2、里氏替换原则"><a href="#2、里氏替换原则" class="headerlink" title="2、里氏替换原则"></a><strong>2、里氏替换原则</strong></h3><p>子类继承父类的时候，尽量不去覆盖和重写父类的方法，这样就算，传入参数发生了变动（父类-&gt;子类），也不会影响原对象的功能（父类）</p>
+<h3 id="3、依赖倒置原则"><a href="#3、依赖倒置原则" class="headerlink" title="3、依赖倒置原则"></a><strong>3、依赖倒置原则</strong></h3><p>与面向接口编程很像，设计功能类时，考虑到可扩展性，一般我们在本类中维持一个接口，这样我们不用修改接口，直接通过实现接口，来完成功能的可扩展性</p>
+<h3 id="4、接口隔离原则"><a href="#4、接口隔离原则" class="headerlink" title="4、接口隔离原则"></a><strong>4、接口隔离原则</strong></h3><p>这个更像是数据库范式中的第三范式，我们应该完全实现接口中的方法，而不是部分实现，从而接口不是最小职责的原则</p>
+<h3 id="5、迪米特法则"><a href="#5、迪米特法则" class="headerlink" title="5、迪米特法则"></a><strong>5、迪米特法则</strong></h3><p>高内聚低耦合，也就是对外提供统一的接口，其他类或者自己不访问其他类的内部数据</p>
+<h3 id="6、开闭原则"><a href="#6、开闭原则" class="headerlink" title="6、开闭原则"></a><strong>6、开闭原则</strong></h3><p>很模糊的一个设计原则，只针对原有代码进行扩展，而不修改，更像是针对接口进行扩展，而不修改原有接口的内容</p>
 
             </div>
         
@@ -387,15 +349,11 @@
     
 <nav id="article-nav">
     
-        <a href="../../15/TCP-transport-institution/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    TCP 传输机制
-                
-            </div>
-        </a>
     
+        <a href="../../12/CPPTopologicOrder/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">拓扑排序</div>
+        </a>
     
 </nav>
 

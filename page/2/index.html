@@ -155,7 +155,7 @@
                             &nbsp;
                             network
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -171,7 +171,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            编程语言
+                            编程
                         </a>
                          <ul class="unstyled" id="tree"> 
                     <li class="directory">
@@ -189,7 +189,7 @@
                             &nbsp;
                             cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -198,7 +198,16 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -274,6 +283,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-goGoroutine" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/go/">go</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="../../2019/02/17/goGoroutine/">
+            <time datetime="2019-02-17T14:24:47.000Z" itemprop="datePublished">2019-02-17</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="../../2019/02/17/goGoroutine/">概述（2）</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="并发关键字go"><a href="#并发关键字go" class="headerlink" title="并发关键字go"></a>并发关键字go</h2><p>  GoLang 使用go 关键字进行多并发操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example 1</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example 2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> hello()</span><br></pre></td></tr></table></figure>
+<h2 id="同步操作-channel"><a href="#同步操作-channel" class="headerlink" title="同步操作: channel"></a>同步操作: channel</h2><p>GoLang 使用Channels 进行多个协程之间进行同步操纵，它更像是一个管道，发送值到管道，再从值取回来</p>
+<h2 id="等待channel-操作-select"><a href="#等待channel-操作-select" class="headerlink" title="等待channel 操作 : select"></a>等待channel 操作 : select</h2><p>go 与 channel 结合select 是一个强大的工作<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">  c1 &lt;- <span class="string">"hello"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">  c2 &lt;- <span class="string">"world"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> index := <span class="number">0</span>; index &lt; <span class="number">2</span>; index++ &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> msg1 := &lt;-c1:</span><br><span class="line">    fmt.Println(<span class="string">"the msg1 value is : "</span>, msg1)</span><br><span class="line">  <span class="keyword">case</span> msg2 := &lt;-c2:</span><br><span class="line">    fmt.Println(<span class="string">"the msg2 value is : "</span>, msg2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h3 id="timeer"><a href="#timeer" class="headerlink" title="timeer"></a>timeer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只执行指定时间 一次</span></span><br><span class="line">mytime:=time.NewTimer(time.second)</span><br><span class="line">&lt;-mytime.C</span><br><span class="line">mytime.stop()</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="../../2019/02/17/goGoroutine/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-gonovice" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -284,7 +379,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../categories/编程语言/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程语言/go/">go</a>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/go/">go</a>
     </div>
 
                         
@@ -633,7 +728,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../categories/编程语言/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程语言/android/">android</a>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/android/">android</a>
     </div>
 
                         
