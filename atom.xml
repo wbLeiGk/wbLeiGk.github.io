@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-18T14:40:49.138Z</updated>
+  <updated>2019-03-18T14:44:21.328Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/03/18/%E5%B7%A5%E5%85%B7screen/"/>
     <id>http://yoursite.com/2019/03/18/工具screen/</id>
     <published>2019-03-18T14:00:40.000Z</published>
-    <updated>2019-03-18T14:40:49.138Z</updated>
+    <updated>2019-03-18T14:44:21.328Z</updated>
     
     <content type="html"><![CDATA[<p>玩过Linux的多多少少听过 screen 这个玩意~</p><p>sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务</p><p>比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen</p><p>回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享</p><p>相同会话进程组~</p><p>他就像你在本地shell执行程序一样，其实是在绘画断开的时候阻断了信号signup信号</p><p>是我最喜爱的工具之一</p><p><strong>创建会话开始</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen</span><br></pre></td></tr></table></figure></p><p><strong>创建任务</strong><br>为了方便attach session ，一般使用下面的方式进行创建任务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">screen -S session name [task]</span><br><span class="line">//for example </span><br><span class="line">screen -S  modifycpp vim hello.cpp</span><br></pre></td></tr></table></figure></p><p><strong>暂停任务</strong></p><p>暂停当前工作，返回shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a d</span><br></pre></td></tr></table></figure></p><p><strong>创建新的shell</strong><br>创建一个新的shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a c</span><br></pre></td></tr></table></figure></p><p><strong>会话窗口切换</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a p // 前一个窗口</span><br><span class="line">ctrl+a n //下一个窗口</span><br></pre></td></tr></table></figure></p><p><strong>附加会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -x [session id]/[session name]</span><br></pre></td></tr></table></figure></p><p><strong>查看会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure></p><p>以上是我比较常用的几个命令吧。</p>]]></content>
     
@@ -37,7 +37,7 @@
     
     </summary>
     
-      <category term="-工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
