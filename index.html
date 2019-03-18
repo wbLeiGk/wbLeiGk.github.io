@@ -153,18 +153,9 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            network
-                        </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
                             个人生活
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/16/life_record1/">生活小记</a></li>  <li class="file"><a href="2019/02/25/life-record2/">生活小记2</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="2019/02/16/life_record1/">生活小记</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -207,7 +198,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -227,7 +218,7 @@
                             &nbsp;
                             计算机网络
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/12/09/router-data-plane/">路由器数据层</a></li>  <li class="file"><a href="2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="2018/12/09/router-data-plane/">路由器数据层</a></li>  <li class="file"><a href="2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
@@ -301,6 +292,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-go接口小得" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/">go</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/03/18/go接口小得/">
+            <time datetime="2019-03-18T14:52:09.000Z" itemprop="datePublished">2019-03-18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/03/18/go接口小得/">接口interface 心得（1）</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>看到go 语言的接口一个与众不同的地方~</p>
+<p>我的印象中，在go中，基本上是以下这种行为</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> people <span class="keyword">interface</span> &#123;</span><br><span class="line">	getOccupation() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span>  student <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"><span class="keyword">type</span> worker <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(stu student)</span><span class="title">getOccupation</span><span class="params">()</span> <span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"student"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(wk worker)</span><span class="title">getOccupation</span><span class="params">()</span> <span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"worker"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printOccupation</span><span class="params">(pe people)</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"the occupation is : "</span>,pe.getOccupation())</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	printOccupation(student&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于上面的代码没什么出奇的地方</p>
+<p>请看下面一段代码<br><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ioreader <span class="keyword">interface</span> &#123;</span><br><span class="line">	MyReader()[]<span class="keyword">byte</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> fileExcute <span class="keyword">interface</span> &#123;</span><br><span class="line">	MyReader()[]<span class="keyword">byte</span></span><br><span class="line">	MyWrite([]<span class="keyword">byte</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MyFlush2</span><span class="params">(io ioreader)</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"code snippet is executing: MyFlush2"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MyFlush</span><span class="params">(io fileExcute)</span></span>&#123;</span><br><span class="line">	MyFlush2(io)</span><br><span class="line">	fmt.Println(<span class="string">"code snippet is executing: MyFlush"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Myfile <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(file Myfile)</span> <span class="title">MyReader</span><span class="params">()</span> []<span class="title">byte</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> []<span class="keyword">byte</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(fil Myfile)</span> <span class="title">MyWrite</span><span class="params">([]<span class="keyword">byte</span>)</span></span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	MyFlush(Myfile&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/03/18/go接口小得/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-工具screen" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1015,92 +1092,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/01/goAndCpp/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-life-record2" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/个人生活/">个人生活</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/02/25/life-record2/">
-            <time datetime="2019-02-25T14:46:48.000Z" itemprop="datePublished">2019-02-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/02/25/life-record2/">生活小记2</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>2019 / 2 / 25  </p>
-<p>能够阻挡得似乎是你</p>
-<p>能够说服你的还是你</p>
-<p>能够原谅你的还是你</p>
-<p>.  .   .</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/02/25/life-record2/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
