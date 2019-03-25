@@ -198,7 +198,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -218,9 +218,9 @@
                             &nbsp;
                             计算机网络
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../2018/12/09/router-data-plane/">路由器数据层</a></li>  <li class="file"><a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file"><a href="../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -292,6 +292,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-goAndCpp" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/go/">go</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="../../2019/03/01/goAndCpp/">
+            <time datetime="2019-02-28T16:04:57.000Z" itemprop="datePublished">2019-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="../../2019/03/01/goAndCpp/">数据类型 &lt;数组&amp;切片&amp;结构体&gt;</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>今天晚上我想说的是 go 中的数组和切片</p>
+<p>自然而言的也想起了cpp中的一些玩意</p>
+<p>数组:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array:=[<span class="number">2</span>]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">array:=[...]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br></pre></td></tr></table></figure></p>
+<p>切片：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">slice:=<span class="built_in">make</span>([]<span class="keyword">int</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">var</span> slice []<span class="keyword">int</span></span><br></pre></td></tr></table></figure></p>
+<p>好像也没太大的区别嘛</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="../../2019/03/01/goAndCpp/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-life-record2" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1071,94 +1157,8 @@
 
 
     
-        <article id="post-TCP-IP-demultipexing-multiplexing" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../categories/计算机网络/">计算机网络</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">
-            <time datetime="2018-11-13T12:37:21.000Z" itemprop="datePublished">2018-11-13</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>复路分离与多复路发生在传输层的一种行为。</p>
-<ul>
-<li><p><strong>demultiplexing:</strong></p>
-<p>At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of delivering the data in a transport-layer segment to the correct socket is called <strong>demultiplexing</strong></p>
-</li>
-<p>
-                
-            
-        
-        
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="../../2018/11/13/TCP-IP-demultipexing-multiplexing/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="../../">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="../../">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span><a class="page-number" href="../3/">3</a><a class="extend next" rel="next" href="../3/">下一页 &raquo;</a>
         </nav>
     
 </section>

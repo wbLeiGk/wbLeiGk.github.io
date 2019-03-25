@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>screen | QK</title>
+    <title>c#加载cppdll | QK</title>
     
     
-        <meta name="keywords" content="screen">
+        <meta name="keywords" content="c#加载cppdll">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+    <meta name="description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
 <meta property="og:type" content="article">
-<meta property="og:title" content="screen">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/工具screen/index.html">
+<meta property="og:title" content="c#加载cppdll">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/c-加载cppdll/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+<meta property="og:description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T14:49:26.555Z">
+<meta property="og:updated_time" content="2019-03-25T08:39:30.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="screen">
-<meta name="twitter:description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+<meta name="twitter:title" content="c#加载cppdll">
+<meta name="twitter:description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
     
 
     
@@ -162,13 +162,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/25/life-record2/">生活小记2</a></li>  <li class="file"><a href="../../../02/16/life_record1/">生活小记</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">screen</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/工具screen/">screen</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -202,7 +202,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -211,7 +211,7 @@
                             &nbsp;
                             设计模式
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../设计模式/">设计模式</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -224,7 +224,7 @@
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="../../25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file active"><a href="">c#加载cppdll</a></li>  <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -295,7 +295,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-工具screen" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-c-加载cppdll" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -303,17 +303,12 @@
                 
                     <div class="article-meta">
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/工具/">工具</a>
-    </div>
-
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-03-18T14:00:40.000Z" itemprop="datePublished">2019-03-18</time>
+            <time datetime="2019-03-25T07:44:58.000Z" itemprop="datePublished">2019-03-25</time>
         </a>
     </div>
 
@@ -325,7 +320,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            screen
+            c#加载cppdll
         </h1>
     
 
@@ -338,22 +333,14 @@
             
         
         
-            <p>玩过Linux的多多少少听过 screen 这个玩意~</p>
-<p>sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务</p>
-<p>比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen</p>
-<p>回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享</p>
-<p>相同会话进程组~</p>
-<p>他就像你在本地shell执行程序一样，其实是在绘画断开的时候阻断了信号signup信号</p>
-<p>是我最喜爱的工具之一</p>
-<p><strong>创建会话开始</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen</span><br></pre></td></tr></table></figure></p>
-<p><strong>创建任务</strong><br>为了方便attach session ，一般使用下面的方式进行创建任务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">screen -S session name [task]</span><br><span class="line">//for example </span><br><span class="line">screen -S  modifycpp vim hello.cpp</span><br></pre></td></tr></table></figure></p>
-<p><strong>暂停任务</strong></p>
-<p>暂停当前工作，返回shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a d</span><br></pre></td></tr></table></figure></p>
-<p><strong>创建新的shell</strong><br>创建一个新的shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a c</span><br></pre></td></tr></table></figure></p>
-<p><strong>会话窗口切换</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a p // 前一个窗口</span><br><span class="line">ctrl+a n //下一个窗口</span><br></pre></td></tr></table></figure></p>
-<p><strong>附加会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -x [session id]/[session name]</span><br></pre></td></tr></table></figure></p>
-<p><strong>查看会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure></p>
-<p>以上是我比较常用的几个命令吧。</p>
+            <p>来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式</p>
+<h3 id="1-cpp-c-封装成dll"><a href="#1-cpp-c-封装成dll" class="headerlink" title="1. cpp/c 封装成dll"></a>1. cpp/c 封装成dll</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c/cpp<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> __declspec(dllexport) myPrint()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> __declspec(dllexport) a(<span class="keyword">int</span> b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>项目属性：dll</p>
+<hr>
+<h3 id="2-c-调用端"><a href="#2-c-调用端" class="headerlink" title="2. c# 调用端"></a>2. c# 调用端</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c#控制台程序<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hellocaller</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern void myPrint();</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern int a(int b);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"LoadLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">LoadLibrary</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpLibFileName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"GetProcAddress"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetProcAddress</span><span class="params">(<span class="keyword">int</span> hModule,</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpProcName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"FreeLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">FreeLibrary</span><span class="params">(<span class="keyword">int</span> hModule)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="function">delegate <span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> hModule = LoadLibrary(@<span class="string">"..\\hello\\Release\\hello.dll"</span>);</span><br><span class="line">            <span class="comment">//if(hModule == 0) </span></span><br><span class="line">            <span class="comment">//    return false;</span></span><br><span class="line">            IntPtr intPtr = GetProcAddress(hModule, <span class="string">"a"</span>);</span><br><span class="line">            A a = (A)Marshal.GetDelegateForFunctionPointer(intPtr, typeof(A));</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(a(<span class="number">3</span>));</span><br><span class="line">            <span class="comment">//myPrint();</span></span><br><span class="line">            FreeLibrary(hModule);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<!-- ## 参考资料
+> - []()
+> - []() -->
 
             </div>
         
@@ -366,19 +353,10 @@
     
 <nav id="article-nav">
     
-        <a href="../go接口小得/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    接口interface 心得（1）
-                
-            </div>
-        </a>
     
-    
-        <a href="../设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../18/go接口小得/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">设计模式</div>
+            <div class="article-nav-title">接口interface 心得（1）</div>
         </a>
     
 </nav>

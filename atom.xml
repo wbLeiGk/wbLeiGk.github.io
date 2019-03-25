@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-18T16:00:39.546Z</updated>
+  <updated>2019-03-25T08:39:30.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>c#加载cppdll</title>
+    <link href="http://yoursite.com/2019/03/25/c-%E5%8A%A0%E8%BD%BDcppdll/"/>
+    <id>http://yoursite.com/2019/03/25/c-加载cppdll/</id>
+    <published>2019-03-25T07:44:58.000Z</published>
+    <updated>2019-03-25T08:39:30.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式</p><h3 id="1-cpp-c-封装成dll"><a href="#1-cpp-c-封装成dll" class="headerlink" title="1. cpp/c 封装成dll"></a>1. cpp/c 封装成dll</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c/cpp<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> __declspec(dllexport) myPrint()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> __declspec(dllexport) a(<span class="keyword">int</span> b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>项目属性：dll</p><hr><h3 id="2-c-调用端"><a href="#2-c-调用端" class="headerlink" title="2. c# 调用端"></a>2. c# 调用端</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c#控制台程序<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hellocaller</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern void myPrint();</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern int a(int b);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"LoadLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">LoadLibrary</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpLibFileName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"GetProcAddress"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetProcAddress</span><span class="params">(<span class="keyword">int</span> hModule,</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpProcName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"FreeLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">FreeLibrary</span><span class="params">(<span class="keyword">int</span> hModule)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="function">delegate <span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> hModule = LoadLibrary(@<span class="string">"..\\hello\\Release\\hello.dll"</span>);</span><br><span class="line">            <span class="comment">//if(hModule == 0) </span></span><br><span class="line">            <span class="comment">//    return false;</span></span><br><span class="line">            IntPtr intPtr = GetProcAddress(hModule, <span class="string">"a"</span>);</span><br><span class="line">            A a = (A)Marshal.GetDelegateForFunctionPointer(intPtr, typeof(A));</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(a(<span class="number">3</span>));</span><br><span class="line">            <span class="comment">//myPrint();</span></span><br><span class="line">            FreeLibrary(hModule);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><!-- ## 参考资料> - []()> - []() -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式&lt;/p&gt;
+&lt;h3 id=&quot;1-cpp-c-封装成dll&quot;&gt;&lt;a href=&quot;#1-cpp-c-封装成dll&quot; class=&quot;headerlink&quot; title=&quot;1. cpp/c 封装成dll&quot;&gt;&lt;/a&gt;1
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>接口interface 心得（1）</title>
@@ -510,32 +532,6 @@
         &lt;p&gt;说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;dataflow.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;TCP-流控制&quot;&gt;&lt;a href=&quot;#TCP-流
-      
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>复路分解与多复路</title>
-    <link href="http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/"/>
-    <id>http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/</id>
-    <published>2018-11-13T12:37:21.000Z</published>
-    <updated>2019-03-18T14:53:02.220Z</updated>
-    
-    <content type="html"><![CDATA[<p>复路分离与多复路发生在传输层的一种行为。</p><ul><li><p><strong>demultiplexing:</strong></p><p>At the receiving end, the transport layer examines these fields to identify the receiving socket and then directs the segment to that socket. This job of delivering the data in a transport-layer segment to the correct socket is called <strong>demultiplexing</strong></p></li><li><p><strong>multiplexing:</strong></p><p>The job of gathering data chunks at the source host from different sockets, encapsulating each data chunk with header information (that will later be used in demultiplexing) to create segments, and passing the segments to the network layer is called multiplexing</p><p>中文含义</p></li><li><p><strong>复路分离</strong></p><p>在接收端，传输层根据数据段中的头字段特定字段[UDP：源port/目的port、TCP：源IP/port,目的IP/port]对数据帧进行分类，派送到不同的socket通道中，这个过程就是<strong>复路分离</strong></p></li><li><p><strong>多复路</strong></p><p>传输层从上层应用层中不同的应用（socket）接收数据，然后封装成一个数据帧，派送到网络层，这个过程是<strong>多复路</strong></p><p>那么具体流程是什么样的，请见下图</p><p><img src="figure1.1.png" alt=""></p></li></ul><hr><h2 id="怎么看待socket"><a href="#怎么看待socket" class="headerlink" title="怎么看待socket"></a>怎么看待socket</h2><ul><li><strong>socket 是接口</strong></li></ul><p>开发人员如果进行网络编程，使用socket 是不少的，现在比较常见的传输层协议常见TCP,UDP,SCTP,DCCP。socket是传输层与应用层的抽象网络接口，因此网络数据不可能直接通过应用层直接送到网络层，反之亦然，开发人员在应用层对socket拥有一切控制权，但是在传输层只有少量的控制权。</p><ul><li><strong>用socket干什么</strong></li></ul><p>上述所讲，socket 是接口，是建立在应用层和传输层之间的抽象层，因此对于低层的协议/数据，我们丝毫不用关心。举个例子，我们现在使用ftp 协议，我们只需要关系ftp中的对话规则，我怎么知道对话规则，直接找到RFC 文档，找到协议规则。不需要关心这个数据怎么传输到对方的。我们只需要做到知道两件事：<1>我发送了什么 <2> 我接收到了什么。这样看来，使用socket 就像是一个黑匣子，放进去什么东西，出来了什么东西。就是这么简单？ 对，就是这样</2></1></p><hr><h2 id="TCP-和-UDP-建立通信的区别"><a href="#TCP-和-UDP-建立通信的区别" class="headerlink" title="TCP 和 UDP 建立通信的区别"></a>TCP 和 UDP 建立通信的区别</h2><ul><li><p><strong>UDP</strong></p><p>if two UDP segments have different source IP addresses and/or source port numbers, but have the same destination IP address and destination port number, then the two segments will be directed to the same destination process via <strong>the same destination socket</strong>.</p></li><li><p><strong>TCP</strong></p><p>In particular, and in contrast with UDP, two arriving TCP segments with different source IP addresses or source port numbers will (with the exception of a TCP segment carrying the original connectionestablishment request) be <strong>directed to two different sockets</strong></p><p>socket 是跨进程的，是一个系统资源，通过上述两段文字，从字面上看，TCP 是每来一个客户端，便建立一个socket 资源，UDP 则始终是一条socket 接收使用。但是善于利用的人，可针对这些特点，进行恶意的消耗资源</p></li></ul><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>本文只是针对了TCP/UDP 在网络框架（TCP/IP 5层结构）中一个大概的位置和作用，需要更加进行了解的请移步<a href="https://www.bau.edu.jo/UserPortal/UserProfile/PostsAttach/10617_1870_1.pdf" target="_blank" rel="noopener">computer_network_top_to_down</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;复路分离与多复路发生在传输层的一种行为。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;demultiplexing:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;At the receiving end, the transport layer examines these fie
       
     
     </summary>
