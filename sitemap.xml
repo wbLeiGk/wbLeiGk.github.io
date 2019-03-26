@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/03/26/git%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-03-26T14:29:24.905Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/18/%E5%B7%A5%E5%85%B7screen/</loc>
+    
+    <lastmod>2019-03-26T13:51:09.139Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/04/cpp%E7%BC%93%E5%86%B2%E4%B8%8E%E6%B5%81%E5%AF%B9%E8%B1%A1/</loc>
     
     <lastmod>2019-03-26T13:44:55.069Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>http://yoursite.com/2018/11/13/TCP-IP-demultipexing-multiplexing/</loc>
     
     <lastmod>2019-03-18T14:53:02.220Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/18/%E5%B7%A5%E5%85%B7screen/</loc>
-    
-    <lastmod>2019-03-18T14:49:26.555Z</lastmod>
     
   </url>
   

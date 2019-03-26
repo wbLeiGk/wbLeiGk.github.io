@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>screen | QK</title>
+    <title>git简单使用 | QK</title>
     
     
-        <meta name="keywords" content="screen">
+        <meta name="keywords" content="git简单使用">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+    <meta name="description" content="选择git，而不是svn的原因，可能是因为git，在个人PC上自成版本库，而svn则不行，需要联网（局域网 or 广域网） 而对于我常用的命令也不多，可能就那么几个，以下做个简单描述 首先弄清楚几个概念 工作区： 就是你在电脑上看到的目录(.git隐藏目录版本库除外) 版本库(Repository)： 工作区有一个隐藏目录.git文件夹，这是版本库。其中版本库里面存了很多东西，其中最重要的就是st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="screen">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/工具screen/index.html">
+<meta property="og:title" content="git简单使用">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/git简单使用/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+<meta property="og:description" content="选择git，而不是svn的原因，可能是因为git，在个人PC上自成版本库，而svn则不行，需要联网（局域网 or 广域网） 而对于我常用的命令也不多，可能就那么几个，以下做个简单描述 首先弄清楚几个概念 工作区： 就是你在电脑上看到的目录(.git隐藏目录版本库除外) 版本库(Repository)： 工作区有一个隐藏目录.git文件夹，这是版本库。其中版本库里面存了很多东西，其中最重要的就是st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T13:51:09.139Z">
+<meta property="og:updated_time" content="2019-03-26T14:29:24.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="screen">
-<meta name="twitter:description" content="玩过Linux的多多少少听过 screen 这个玩意~ sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务 比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen 回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享 相同会话进程组~ 他就像你在本地shell执行程序一样，其">
+<meta name="twitter:title" content="git简单使用">
+<meta name="twitter:description" content="选择git，而不是svn的原因，可能是因为git，在个人PC上自成版本库，而svn则不行，需要联网（局域网 or 广域网） 而对于我常用的命令也不多，可能就那么几个，以下做个简单描述 首先弄清楚几个概念 工作区： 就是你在电脑上看到的目录(.git隐藏目录版本库除外) 版本库(Repository)： 工作区有一个隐藏目录.git文件夹，这是版本库。其中版本库里面存了很多东西，其中最重要的就是st">
     
 
     
@@ -168,7 +168,7 @@
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">screen</a></li>  <li class="file"><a href="../../26/git简单使用/">git简单使用</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/工具screen/">screen</a></li>  <li class="file active"><a href="">git简单使用</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -209,7 +209,7 @@
                             &nbsp;
                             元编程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../cpp特化/">cpp SFINAE</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -238,7 +238,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../go接口小得/">接口interface 心得（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../../02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../02/17/gonovice/">概述（1）</a></li>  <li class="file"><a href="../../01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface 心得（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -247,7 +247,7 @@
                             &nbsp;
                             设计模式
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../设计模式/">设计模式</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -331,7 +331,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-工具screen" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-git简单使用" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -349,7 +349,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-03-18T14:00:40.000Z" itemprop="datePublished">2019-03-18</time>
+            <time datetime="2019-03-26T13:49:13.000Z" itemprop="datePublished">2019-03-26</time>
         </a>
     </div>
 
@@ -361,7 +361,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            screen
+            git简单使用
         </h1>
     
 
@@ -374,22 +374,22 @@
             
         
         
-            <p>玩过Linux的多多少少听过 screen 这个玩意~</p>
-<p>sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务</p>
-<p>比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen</p>
-<p>回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享</p>
-<p>相同会话进程组~</p>
-<p>他就像你在本地shell执行程序一样，其实是在绘画断开的时候阻断了信号signup信号</p>
-<p>是我最喜爱的工具之一</p>
-<p><strong>创建会话开始</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen</span><br></pre></td></tr></table></figure></p>
-<p><strong>创建任务</strong><br>为了方便attach session ，一般使用下面的方式进行创建任务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">screen -S session name [task]</span><br><span class="line">//for example </span><br><span class="line">screen -S  modifycpp vim hello.cpp</span><br></pre></td></tr></table></figure></p>
-<p><strong>暂停任务</strong></p>
-<p>暂停当前工作，返回shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a d</span><br></pre></td></tr></table></figure></p>
-<p><strong>创建新的shell</strong><br>创建一个新的shell 窗口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a c</span><br></pre></td></tr></table></figure></p>
-<p><strong>会话窗口切换</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+a p // 前一个窗口</span><br><span class="line">ctrl+a n //下一个窗口</span><br></pre></td></tr></table></figure></p>
-<p><strong>附加会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -x [session id]/[session name]</span><br></pre></td></tr></table></figure></p>
-<p><strong>查看会话</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure></p>
-<p>以上是我比较常用的几个命令吧。</p>
+            <p>选择git，而不是svn的原因，可能是因为git，在个人PC上自成版本库，而svn则不行，需要联网（局域网 or 广域网）</p>
+<p>而对于我常用的命令也不多，可能就那么几个，以下做个简单描述</p>
+<p>首先弄清楚几个概念</p>
+<p><strong>工作区：</strong></p>
+<p>就是你在电脑上看到的目录(.git隐藏目录版本库除外)</p>
+<p><strong>版本库(Repository)：</strong></p>
+<p>工作区有一个隐藏目录.git文件夹，这是版本库。其中版本库里面存了很多东西，其中最重要的就是stage(暂存区，可以理解为缓冲区，一次性提交多个修改)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。master分支指向提交</p>
+<p>我们前面说过使用Git提交文件到版本库有两步：<br>第一步：是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。<br>第二步：使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支上。</p>
+<h3 id="1-初始化-or-添加远程库"><a href="#1-初始化-or-添加远程库" class="headerlink" title="1. 初始化 or 添加远程库"></a>1. 初始化 or 添加远程库</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地库初始化 </span></span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 远程库关联</span></span><br><span class="line">git remote add origin https://yourRepository</span><br><span class="line"></span><br><span class="line"><span class="comment"># 远程库克隆</span></span><br><span class="line">git <span class="built_in">clone</span>  https://yourRepository</span><br><span class="line"><span class="comment"># 目前本地git 拥有远程库查看</span></span><br><span class="line">git remote show</span><br></pre></td></tr></table></figure>
+<h3 id="2-代码（文本）修改-增加、删除、修改文件"><a href="#2-代码（文本）修改-增加、删除、修改文件" class="headerlink" title="2. 代码（文本）修改 {增加、删除、修改文件}"></a>2. 代码（文本）修改 {增加、删除、修改文件}</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 增加文件 or 修改文件</span></span><br><span class="line">git add modifyOraddFile.*</span><br><span class="line"><span class="comment"># 删除文件没有对应 添加缓冲区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前修改状态</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交到版本库</span></span><br><span class="line">git commit -m <span class="string">"add | modify | delete file , or repaire bug function etc"</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-代码版本回溯"><a href="#3-代码版本回溯" class="headerlink" title="3. 代码版本回溯"></a>3. 代码版本回溯</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 回退到上个/上上个/上上上个/..... 山里有个庙个版本</span></span><br><span class="line">git reset --hard HEAD^ <span class="comment"># ^是回退版本的个数</span></span><br><span class="line"><span class="comment"># 回退特定版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看版本号</span></span><br><span class="line">git reflog</span><br><span class="line"><span class="comment">#回退版本号</span></span><br><span class="line">git reset --hard <span class="string">"version ID"</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-分支操作"><a href="#4-分支操作" class="headerlink" title="4. 分支操作"></a>4. 分支操作</h3><p>常用于bug修复，但是我不喜欢使用stash 这个命令，更喜欢新建分支，因为清晰明了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看分支</span></span><br><span class="line">git branch</span><br><span class="line"><span class="comment"># 新建分支并切换</span></span><br><span class="line">git checkout -b branchName <span class="comment">#新建当前分支，以当前分支为基础</span></span><br><span class="line"><span class="comment"># 分支切换</span></span><br><span class="line">git checkout branchName</span><br><span class="line"><span class="comment"># 分支删除</span></span><br><span class="line">git branch -d branchName</span><br></pre></td></tr></table></figure>
+<h3 id="5-分支合并"><a href="#5-分支合并" class="headerlink" title="5. 分支合并"></a>5. 分支合并</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 合并分支代码branchName 到当前分支代码</span></span><br><span class="line">git merge branchName</span><br></pre></td></tr></table></figure>
+<h3 id="6-分支推送"><a href="#6-分支推送" class="headerlink" title="6.分支推送"></a>6.分支推送</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推送分支</span></span><br><span class="line">git push origin branchName</span><br></pre></td></tr></table></figure>
+<p>打完收工~ </p>
 
             </div>
         
@@ -402,19 +402,10 @@
     
 <nav id="article-nav">
     
-        <a href="../go接口小得/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    接口interface 心得（1）
-                
-            </div>
-        </a>
     
-    
-        <a href="../设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../cpp特化/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">设计模式</div>
+            <div class="article-nav-title">cpp SFINAE</div>
         </a>
     
 </nav>
