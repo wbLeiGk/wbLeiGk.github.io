@@ -178,18 +178,54 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            android
+                            cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            cpp
+                            STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="2019/03/05/cpp11线程/">cpp11线程</a></li>  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -198,7 +234,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -292,6 +328,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-cpp特化" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/元编程/">元编程</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/03/26/cpp特化/">
+            <time datetime="2019-03-26T10:17:55.000Z" itemprop="datePublished">2019-03-26</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/03/26/cpp特化/">cpp SFINAE</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>cpp 模板SFINAE(“Substitution Failure Is Not An Error”)</p>
+<p>下面是一段引文，来自网站 <a href="https://en.cppreference.com/w/" target="_blank" rel="noopener">https://en.cppreference.com/w/</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This rule applies during overload resolution of function templates: When substituting the explicitly specified <span class="keyword">or</span> deduced type <span class="keyword">for</span> the <span class="keyword">template</span> parameter fails, the specialization is discarded from the overload <span class="built_in">set</span> instead of causing a compile error.</span><br><span class="line"></span><br><span class="line">This feature is used in <span class="keyword">template</span> metaprogramming.</span><br></pre></td></tr></table></figure>
+<p>推断辅助函数：decay_t / decltype</p>
+<p>涉及：函数重载（overload） / 参数计算后进栈</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/03/26/cpp特化/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-c-加载cppdll" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -302,7 +424,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/DLL交互/">DLL交互</a>
     </div>
 
                         
@@ -646,7 +768,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/算法/">算法</a>
     </div>
 
                         
@@ -713,7 +835,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/多线程/">多线程</a>
     </div>
 
                         
@@ -799,7 +921,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/STL-类对象/">STL(类对象)</a>
     </div>
 
                         
@@ -1006,92 +1128,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/02/个人博客简介/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-goDataMap" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/">go</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/03/01/goDataMap/">
-            <time datetime="2019-03-01T13:35:48.000Z" itemprop="datePublished">2019-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/03/01/goDataMap/">数据类型&lt;map&gt;</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>今天周五 ~</p>
-<p>同事离职里，是一个很不错的人~</p>
-<p>下班后一起开心的吃了一个饭~</p>
-<hr>
-<p>map 该怎么说这个数据结构呢,map 有键值对的组成的，内置hash算法对值时刻进行放置</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/03/01/goDataMap/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

@@ -178,18 +178,54 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            android
+                            cpp
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            cpp
+                            STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  <li class="file"><a href="../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/05/cpp11线程/">cpp11线程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/12/CPPTopologicOrder/">拓扑排序</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -198,7 +234,7 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/02/22/GoTree/">数据类型<平衡树></平衡树></a></li>  <li class="file"><a href="../../2019/03/01/goDataMap/">数据类型<map></map></a></li>  <li class="file"><a href="../../2019/03/01/goAndCpp/">数据类型 <数组&切片&结构体></数组&切片&结构体></a></li>  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface 心得（1）</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/02/17/goGoroutine/">概述（2）</a></li>  <li class="file"><a href="../../2019/02/17/gonovice/">概述（1）</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -292,6 +328,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-goDataMap" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/go/">go</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="../../2019/03/01/goDataMap/">
+            <time datetime="2019-03-01T13:35:48.000Z" itemprop="datePublished">2019-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="../../2019/03/01/goDataMap/">数据类型&lt;map&gt;</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>今天周五 ~</p>
+<p>同事离职里，是一个很不错的人~</p>
+<p>下班后一起开心的吃了一个饭~</p>
+<hr>
+<p>map 该怎么说这个数据结构呢,map 有键值对的组成的，内置hash算法对值时刻进行放置</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="../../2019/03/01/goDataMap/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-goAndCpp" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -990,7 +1112,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/android/">android</a>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/cpp/DLL交互/">DLL交互</a>
     </div>
 
                         
@@ -1058,92 +1180,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="../../2018/12/05/android-NDK/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-TCP-transport-institution" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../categories/计算机网络/">计算机网络</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="../../2018/11/15/TCP-transport-institution/">
-            <time datetime="2018-11-15T00:40:55.000Z" itemprop="datePublished">2018-11-15</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>说起TCP，第一印象是什么，嗯，可靠，面向连接。面向连接是每一个连接都是独立的。而对于可靠性，我的理解逻辑则按照下面的流程</p>
-<p><img src="dataflow.png" alt=""></p>
-<h2 id="TCP-流控制"><a href="#TCP-流控制" class="headerlink" title="TCP 流控制"></a>TCP 流控制</h2><p>流控制涉及到了TCP中windows size fidld,对于TCP而言，在每一个TCP成功建立的连接都会初始化两个缓冲区，发送缓冲区和接收缓冲区，window size 的字段就是为了防止缓冲区数据溢出从而做出了设置，对于接收者，我们假设有两个变量</p>
-<ul>
-<li>LastByteRead：从缓冲区最后读取的位置</li>
-<p>
-                
-            
-        
-        
-            </p></ul></div>   
-            <div class="article-more-link">
-                <a href="../../2018/11/15/TCP-transport-institution/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
