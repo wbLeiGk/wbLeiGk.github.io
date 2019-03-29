@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-29T05:02:01.233Z</updated>
+  <updated>2019-03-29T05:08:24.991Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2019/03/29/vscode-sshFS%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
     <id>http://yoursite.com/2019/03/29/vscode-sshFS文件系统/</id>
     <published>2019-03-29T04:45:45.000Z</published>
-    <updated>2019-03-29T05:02:01.233Z</updated>
+    <updated>2019-03-29T05:08:24.991Z</updated>
     
-    <content type="html"><![CDATA[<p>如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做</p><p>第一种档案：<br>1、打开ssh<br>2、打开vim 编辑</p><p>第二种方案：<br>1、打开samba or ftp 服务<br>2、打开映射的文件系统直接编辑</p><p>第三种:<br>我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。</p><p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br>4、connect as workspace folder</p><p>同样你也可以配合另一个插件，体验更好。<br>plugins name : ssh tooling</p><p>配置文件与ssh的配置文件一致，这个插件的作用就是执行了命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -F ssh.config</span><br></pre></td></tr></table></figure></p><!-- ## 参考资料> - []()> - []() -->]]></content>
+    <content type="html"><![CDATA[<p>如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做</p><p>第一种方案：<br>1、打开ssh<br>2、打开vim 编辑</p><p>第二种方案：<br>1、打开samba or ftp 服务<br>2、打开映射的文件系统直接编辑</p><p>第三种:<br>我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。</p><p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br>4、connect as workspace folder</p><p>同样你也可以配合另一个插件，体验更好。<br>plugins name : ssh tooling</p><p>配置文件与ssh的配置文件一致，这个插件的作用就是执行了命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -F ssh.config</span><br></pre></td></tr></table></figure></p><!-- ## 参考资料> - []()> - []() -->]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做&lt;/p&gt;
-&lt;p&gt;第一种档案：&lt;br&gt;1、打开ssh&lt;br&gt;2、打开vim 编辑&lt;/p&gt;
+&lt;p&gt;第一种方案：&lt;br&gt;1、打开ssh&lt;br&gt;2、打开vim 编辑&lt;/p&gt;
 &lt;p&gt;第二种方案：&lt;br&gt;1、打开samba or ftp 服务&lt;br&gt;2、打开映射的文件系统直接编辑&lt;/p&gt;
 &lt;p&gt;第三种
       
