@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>路由器数据层 | QK</title>
+    <title>vscode_sshFS文件系统 | QK</title>
     
     
-        <meta name="keywords" content="路由器数据层">
+        <meta name="keywords" content="vscode_sshFS文件系统">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+    <meta name="description" content="如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做 第一种档案：1、打开ssh2、打开vim 编辑 第二种方案：1、打开samba or ftp 服务2、打开映射的文件系统直接编辑 第三种:我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。 步骤：1、vscode 搜索插件： ssh fs &amp;amp; in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="路由器数据层">
-<meta property="og:url" content="http://yoursite.com/2018/12/09/路由器数据层/index.html">
+<meta property="og:title" content="vscode_sshFS文件系统">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/vscode-sshFS文件系统/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+<meta property="og:description" content="如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做 第一种档案：1、打开ssh2、打开vim 编辑 第二种方案：1、打开samba or ftp 服务2、打开映射的文件系统直接编辑 第三种:我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。 步骤：1、vscode 搜索插件： ssh fs &amp;amp; in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T04:33:01.426Z">
+<meta property="og:updated_time" content="2019-03-29T05:02:01.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="路由器数据层">
-<meta name="twitter:description" content="网络层有两个关键的功能  转发 当一个数据包到达输入端口时，router 移动数据包到合适的输出端口  路由 在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置   本篇重点放在路由器转发上面 router component input   ports  执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检">
+<meta name="twitter:title" content="vscode_sshFS文件系统">
+<meta name="twitter:description" content="如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做 第一种档案：1、打开ssh2、打开vim 编辑 第二种方案：1、打开samba or ftp 服务2、打开映射的文件系统直接编辑 第三种:我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。 步骤：1、vscode 搜索插件： ssh fs &amp;amp; in">
     
 
     
@@ -144,13 +144,13 @@
         
         
          <ul class="unstyled" id="tree"> 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../../../2019/03/18/工具screen/">screen</a></li>  <li class="file"><a href="../../../../2019/03/29/vscode-sshFS文件系统/">vscode_sshFS文件系统</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../18/工具screen/">screen</a></li>  <li class="file active"><a href="">vscode_sshFS文件系统</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -166,7 +166,7 @@
                             &nbsp;
                             一个人的独处
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/02/16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="../../../../2019/02/25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="../../../02/25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -191,7 +191,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -200,7 +200,7 @@
                             &nbsp;
                             STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../../../2019/03/27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -209,7 +209,7 @@
                             &nbsp;
                             元编程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/cpp特化/">cpp SFINAE</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -218,7 +218,7 @@
                             &nbsp;
                             多线程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -236,7 +236,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -245,7 +245,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../../../2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../../2019/02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -256,7 +256,7 @@
                             &nbsp;
                             数据结构与算法
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../../2019/02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -265,18 +265,18 @@
                             &nbsp;
                             设计模式
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             计算机网络
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../11/15/TCP 传输机制/">TCP 传输机制</a></li>  <li class="file"><a href="../../../11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file active"><a href="">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/15/TCP 传输机制/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/12/09/路由器数据层/">路由器数据层</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -285,9 +285,9 @@
                             &nbsp;
                             项目构建
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../28/Cmake/">Cmake 简单结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="../../../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -358,7 +358,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-路由器数据层" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-vscode-sshFS文件系统" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -368,7 +368,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/计算机网络/">计算机网络</a>
+        <a class="article-category-link" href="../../../../categories/工具/">工具</a>
     </div>
 
                         
@@ -376,7 +376,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2018-12-09T09:10:21.000Z" itemprop="datePublished">2018-12-09</time>
+            <time datetime="2019-03-29T04:45:45.000Z" itemprop="datePublished">2019-03-29</time>
         </a>
     </div>
 
@@ -388,7 +388,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            路由器数据层
+            vscode_sshFS文件系统
         </h1>
     
 
@@ -399,70 +399,23 @@
         
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    
+                </div>
+            
         
         
-            <p>网络层有两个关键的功能</p>
-<ul>
-<li><p><strong>转发</strong></p>
-<p>当一个数据包到达输入端口时，router 移动数据包到合适的输出端口</p>
-</li>
-<li><p><strong>路由</strong></p>
-<p>在整个网络中，局域网/广域网等 数据包从源地址到目的路之间的传输路径，而路径的选择时路由，一般路由可能时路由算法控制，或者手动设置</p>
-</li>
-</ul>
-<p>本篇重点放在路由器转发上面</p>
-<h2 id="router-component"><a href="#router-component" class="headerlink" title="router component"></a>router component</h2><ul>
-<li><p><strong>input   ports</strong></p>
-<p> 执行物理层/链路层功能，同时还会执行检索功能对输入的数据进行检索，然后输出到合适的 output ports</p>
-</li>
-<li><p><strong>output  ports</strong></p>
-<p>存储从switch fabric 处过来的数据包，然后转发这些这些数据包到出口[outgoing link：链接到链路层和物理层]</p>
-</li>
-<li><p><strong>switch  fabric</strong></p>
-<p>  连接 input port 和output port</p>
-</li>
-<li><p>routing processor</p>
-<p>执行control-plane 功能，一般用于路由协议</p>
-</li>
-</ul>
-<h2 id="forward-based-information"><a href="#forward-based-information" class="headerlink" title="forward based information"></a>forward based information</h2><p>一般来说，转发大致基于两种情况</p>
-<ul>
-<li><p><strong>基于目的IP</strong></p>
-<p>  此种方式根据数据包目的IP，然后对照路由表，选择合适的输出端口</p>
-</li>
-<li><p><strong>基于全部信息</strong></p>
-<p>  相对的，此种方式就不仅仅依据目的IP了，与此同时参考的信息还会有：源目的、网络拥塞状态等</p>
-</li>
-</ul>
-<h2 id="switch-fabric"><a href="#switch-fabric" class="headerlink" title="switch fabric"></a>switch fabric</h2><p>switch fabric是路由器的核心，数据包从input port 穿过switch fabric 然后到 output port ，switch fabric 有一下几种实现方式</p>
-<ul>
-<li><p>switching via memory</p>
-<p>  传统的router实现方式，数据包从input port 到达之后，通过中断的方式通知 router processor，然后共享内存复制数据包到合适的output ports buffers</p>
-</li>
-<li><p>switching via bus</p>
-<p>  input port 直接通过bus 传输数据包到output port,由于bus只有一条，因此不能同时传输数据，转发速度受制于bus的转发速度</p>
-</li>
-<li><p>switching via an interconnection network</p>
-<p>  interconnection network 使用cross-bar 的方式，这就意味着N-N的转发方式</p>
-</li>
-</ul>
-<h2 id="queue-delay"><a href="#queue-delay" class="headerlink" title="queue  delay"></a>queue  delay</h2><p>无论是input port 还是output port 都会发生queue delay ,也就是wait的意思</p>
-<ul>
-<li><p>input port queue</p>
-<p> 当switch fabric 处理速度赶不上 input port 速度的时候</p>
-</li>
-<li><p>output port queue</p>
-<p>多个数据包被转发到相同的output ports，当output ports buffer 满了的时候，就会发生packet drop 事件</p>
-</li>
-</ul>
-<h2 id="outgoing-link-packet-schedule"><a href="#outgoing-link-packet-schedule" class="headerlink" title="outgoing link packet schedule"></a>outgoing link packet schedule</h2><ul>
-<li><p>FIFO</p>
-<p>最先进入queue的数据包最新被转发出去</p>
-</li>
-<li><p>priority</p>
-<p>根据优先级/权重对数据包进行分类[class i]，然后循环遍历classes,输出queue 中的数据包</p>
-</li>
-</ul>
+            <p>如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做</p>
+<p>第一种档案：<br>1、打开ssh<br>2、打开vim 编辑</p>
+<p>第二种方案：<br>1、打开samba or ftp 服务<br>2、打开映射的文件系统直接编辑</p>
+<p>第三种:<br>我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。</p>
+<p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br>4、connect as workspace folder</p>
+<p>同样你也可以配合另一个插件，体验更好。<br>plugins name : ssh tooling</p>
+<p>配置文件与ssh的配置文件一致，这个插件的作用就是执行了命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -F ssh.config</span><br></pre></td></tr></table></figure></p>
+<!-- ## 参考资料
+> - []()
+> - []() -->
 
             </div>
         
@@ -475,19 +428,10 @@
     
 <nav id="article-nav">
     
-        <a href="../../10/求二叉树的路径和/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    求二叉树的路径和(path sum)
-                
-            </div>
-        </a>
     
-    
-        <a href="../../05/android-NDK/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../28/Cmake/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">android NDK</div>
+            <div class="article-nav-title">Cmake 简单结构</div>
         </a>
     
 </nav>
