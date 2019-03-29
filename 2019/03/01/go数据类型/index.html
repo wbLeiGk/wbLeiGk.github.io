@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>数据类型 | QK</title>
+    
+    
+        <meta name="keywords" content="数据类型">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="go 中的数组和切片 自然而言的让我想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看，唯一的差别就是数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据类型">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/go数据类型/index.html">
+<meta property="og:site_name" content="QK">
+<meta property="og:description" content="go 中的数组和切片 自然而言的让我想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看，唯一的差别就是数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-29T04:37:21.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据类型">
+<meta name="twitter:description" content="go 中的数组和切片 自然而言的让我想起了cpp中的一些玩意 数组:1234array:=[2]int&amp;#123;&amp;#125;//orarray:=[...]int&amp;#123;&amp;#125;//or 切片：12345slice:=[]int&amp;#123;&amp;#125;//orslice:=make([]int,0)//orvar slice []int 好像也没太大的区别嘛 从声明上看，唯一的差别就是数">
+    
+
+    
+
+    
+        <link rel="icon" href="../../../../favicon.ico">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/open-sans/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="../../../../libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../../../../libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="../../../../index.html" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">QK</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="../../../../index.html">首页</a>
+                
+                    <a class="main-nav-link" href="../../../../about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="../../../../index.html">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="../../../../about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../18/工具screen/">screen</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活杂记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            一个人的独处
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="../../../02/25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            cpp
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL(类对象)
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            go
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            go web
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基本知识
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file active"><a href="">数据类型</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据结构与算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../18/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/09/路由器数据层/">路由器数据层</a></li>  <li class="file"><a href="../../../../2018/11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP 传输机制/">TCP 传输机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            项目构建
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-go数据类型" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/go/">go</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/go/基本知识/">基本知识</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="">
+            <time datetime="2019-02-28T16:04:57.000Z" itemprop="datePublished">2019-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            数据类型
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>go 中的数组和切片</p>
+<p>自然而言的让我想起了cpp中的一些玩意</p>
+<p>数组:<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array:=[<span class="number">2</span>]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">array:=[...]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br></pre></td></tr></table></figure></p>
+<p>切片：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">slice:=<span class="built_in">make</span>([]<span class="keyword">int</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">var</span> slice []<span class="keyword">int</span></span><br></pre></td></tr></table></figure></p>
+<p>好像也没太大的区别嘛</p>
+<p>从声明上看，唯一的差别就是数组固定了长度，切片没有固定的长度</p>
+<p>嗯 ~ ，其他差别呢~</p>
+<p><strong>数组比较</strong></p>
+<p>如果在cpp 中呢<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> b[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> &#125;;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"the value is equality ? :"</span> &lt;&lt;boolalpha &lt;&lt;(a == b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//output is : false</span></span><br></pre></td></tr></table></figure></p>
+<p>想想也是呢， 好歹人家也是数组也是可以当指针用来着，在不同的内存空间来着，地址不同，自然也就不同</p>
+<p>但是在go中<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array1:=[<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">array2:=[...]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">array1==array</span><br><span class="line"><span class="comment">//output: true</span></span><br></pre></td></tr></table></figure></p>
+<p>相等的~！ 嗯~  在go中，好像把数组当成了一 基本类型再用</p>
+<p>那你想啊，这不是还有切片啊</p>
+<p>不过这个切片的确是不能比较的，他们只能和nil 进行比较</p>
+<p>这个切片是scale型，又区别cpp的数组，行为倒是和vector容器有些相似~</p>
+<p>因为内部同样有两个变量可控制，你可以理解为下面的形式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span>&#123;</span><br><span class="line">    ptr * <span class="keyword">int</span><span class="comment">//or other type //uint float32...</span></span><br><span class="line">    <span class="built_in">len</span> ,<span class="built_in">cap</span> <span class="keyword">uint</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦超过容量cap ,人家也是要扩展的，这时候可能返回的指针会发生~~~~</p>
+<p>切片人家还是安全性的</p>
+<p>你要判断一个切片是否为空，最好使用len()函数</p>
+<p>而不是使用 slice==nil的形式 ，因为</p>
+<p><strong>slice:=[]int{}</strong> 这种情况下 切片不为空</p>
+<p>好像说了半天，也不知道切片是干嘛的</p>
+<p>嗯~</p>
+<p>其实切片就是一个可以<strong>添加/修改/返回元素子序列</strong>的操作</p>
+<p><strong>append()</strong>:用来添加一个/多个元素 ，或者自身 /其他切片</p>
+<p><strong>slice[:]</strong>：用来返回子序列的 ，也返回了一个<strong>新的切片</strong>和原来的没关系</p>
+<p>由于这种特性~</p>
+<p>使得切片也变得相当灵活~</p>
+<p>比如你可以完全用它实现一个stack/queue 数据结构 </p>
+<p>用它拼接字符串</p>
+<p>自由的插入字符</p>
+<hr>
+<p><strong>结构体</strong></p>
+<p>结构体是基本类型的集合，在golang 中结构体支持anonymous struct，从而避免重复定义。</p>
+<hr>
+<p><strong>map</strong></p>
+<p>map 该怎么说这个数据结构呢,map 有键值对的组成的，内置hash算法对值时刻进行放置</p>
+<p>cpp 中关于map的容器都有<strong>map/unorder_map /mutilmap /unorder_map</strong> 四种类型，其中<strong>mutil 前缀表示key可以重复</strong> ,unorder前缀用来表示插入值的时候不需要排序，一般没有什么特殊的要求~,我们在cpp 中都是使用unordered_map这种容易。</p>
+<p>在golang中的map 其实和unordered_map这种容器很相似，具体体现：1&gt;key是唯一的 2&gt;内部没有排序</p>
+<ul>
+<li>golang map声明<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mymap <span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">type</span> <span class="comment">//nil</span></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">mymap:=<span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">type</span>) <span class="comment">//len==0,but mymap!=nil</span></span><br><span class="line"></span><br><span class="line">mymap[<span class="string">"string"</span>]=<span class="keyword">int</span>(<span class="number">2</span>)<span class="comment">// 例子</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//嵌套map</span></span><br><span class="line"><span class="keyword">var</span> mymap <span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">int</span></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">mymap:=<span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">map</span>[<span class="keyword">type</span>]<span class="keyword">int</span>)</span><br><span class="line">myint:=mymap[<span class="keyword">type</span>][<span class="keyword">type</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>看起来的好像map使用挺方便的，实际上，在我们插入的时候，进行了key的<strong>比较</strong>~，这里的比较不是排序的比较，而是操作符“==”的比较，那么至少就要求我们要对map变量key必须key可以比较。</p>
+<p>那我们知道在golang 中slice /float 很难进行比较多的，但是我们又想让他们成为我们的key，这时候我们就要将这些 key 做一些处理，将其转化为我们可以比较的类型/方式</p>
+<hr>
+<p><strong>map 的排序输出</strong></p>
+<p>我们知道map输出的元素是不一定的，但是有时候，我们需要将其排序输出那么该怎么办~</p>
+<p>实际上，我们可以采用一种折中的方式进行处理，首先我们使用range 函数将 key set进行排序，之后通过索引map的key进行输出，从而达到，排序输出的目的</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="../../02/个人博客简介/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    个人博客简介
+                
+            </div>
+        </a>
+    
+    
+        <a href="../../../02/25/一个人的独处2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">我成为了那个自己讨厌的人了嘛</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            lwb &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>概述 | QK</title>
+    
+    
+        <meta name="keywords" content="概述">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="变量变量 12345678910111213141516171819var name nametype// for example var myvar int /float32 /string /boolvar myvar = 12 /12.2/true/&quot;hello&quot; //infer the var typemyvar := 12 /12.2/true/&quot;hello&quot; //must use :">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概述">
+<meta property="og:url" content="http://yoursite.com/2019/02/17/go概述/index.html">
+<meta property="og:site_name" content="QK">
+<meta property="og:description" content="变量变量 12345678910111213141516171819var name nametype// for example var myvar int /float32 /string /boolvar myvar = 12 /12.2/true/&quot;hello&quot; //infer the var typemyvar := 12 /12.2/true/&quot;hello&quot; //must use :">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-29T04:37:29.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概述">
+<meta name="twitter:description" content="变量变量 12345678910111213141516171819var name nametype// for example var myvar int /float32 /string /boolvar myvar = 12 /12.2/true/&quot;hello&quot; //infer the var typemyvar := 12 /12.2/true/&quot;hello&quot; //must use :">
+    
+
+    
+
+    
+        <link rel="icon" href="../../../../favicon.ico">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/open-sans/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="../../../../libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../../../../libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="../../../../index.html" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">QK</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="../../../../index.html">首页</a>
+                
+                    <a class="main-nav-link" href="../../../../about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="../../../../index.html">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="../../../../about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../../03/18/工具screen/">screen</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活杂记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            一个人的独处
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="../../25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            cpp
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL(类对象)
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../../03/27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            go
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            go web
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基本知识
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../03/01/go数据类型/">数据类型</a></li>  <li class="file active"><a href="">概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据结构与算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../../03/18/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/09/路由器数据层/">路由器数据层</a></li>  <li class="file"><a href="../../../../2018/11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP 传输机制/">TCP 传输机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            项目构建
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="../../../03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-go概述" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/go/">go</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/go/基本知识/">基本知识</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="">
+            <time datetime="2019-02-17T04:03:45.000Z" itemprop="datePublished">2019-02-17</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            概述
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量-1"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制结构"><span class="toc-number">2.</span> <span class="toc-text">控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for-循环"><span class="toc-number">2.1.</span> <span class="toc-text">for 循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-条件"><span class="toc-number">2.2.</span> <span class="toc-text">if 条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch-条件"><span class="toc-number">2.3.</span> <span class="toc-text">switch 条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历"><span class="toc-number">3.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通函数"><span class="toc-number">4.1.</span> <span class="toc-text">普通函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可变参数函数"><span class="toc-number">4.2.</span> <span class="toc-text">可变参数函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名函数"><span class="toc-number">4.3.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包函数"><span class="toc-number">4.4.</span> <span class="toc-text">闭包函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归函数"><span class="toc-number">4.5.</span> <span class="toc-text">递归函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构体与方法-接口"><span class="toc-number">5.</span> <span class="toc-text">结构体与方法/接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发关键字go"><span class="toc-number">6.</span> <span class="toc-text">并发关键字go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步操作-channel"><span class="toc-number">7.</span> <span class="toc-text">同步操作: channel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等待channel-操作-select"><span class="toc-number">8.</span> <span class="toc-text">等待channel 操作 : select</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">9.</span> <span class="toc-text">定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#timeer"><span class="toc-number">9.1.</span> <span class="toc-text">timeer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ticker"><span class="toc-number">9.2.</span> <span class="toc-text">ticker</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h3> <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name nametype</span><br><span class="line"><span class="comment">// for example </span></span><br><span class="line"><span class="keyword">var</span> myvar <span class="keyword">int</span> /<span class="keyword">float32</span> /<span class="keyword">string</span> /<span class="keyword">bool</span></span><br><span class="line"><span class="keyword">var</span> myvar = <span class="number">12</span> /<span class="number">12.2</span>/<span class="literal">true</span>/<span class="string">"hello"</span> <span class="comment">//infer the var type</span></span><br><span class="line">myvar := <span class="number">12</span> /<span class="number">12.2</span>/<span class="literal">true</span>/<span class="string">"hello"</span> <span class="comment">//must use : operator characteristic</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//pointer</span></span><br><span class="line"><span class="keyword">var</span> name *nametype</span><br><span class="line"></span><br><span class="line"><span class="comment">//切片和数组类似，不过切片比数组支持更多的操作</span></span><br><span class="line"><span class="comment">//你可以将其理解为数量不等的集合</span></span><br><span class="line"><span class="comment">//申请0个空间是一种位置，随后使用的时候，可以在进行申请空间</span></span><br><span class="line"><span class="comment">//相对而言，slice更加方便一些</span></span><br><span class="line"><span class="comment">//array</span></span><br><span class="line"><span class="keyword">var</span> arrayname [][]<span class="keyword">int</span> /<span class="keyword">float32</span>/<span class="keyword">string</span> /<span class="keyword">bool</span></span><br><span class="line"><span class="comment">//slices</span></span><br><span class="line">silces:=<span class="built_in">make</span>(<span class="keyword">type</span>,length)</span><br><span class="line"><span class="comment">//map dictionary</span></span><br><span class="line">mapName:=<span class="built_in">make</span>(<span class="keyword">map</span>[key-<span class="keyword">type</span>]value-<span class="keyword">type</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><p>控制结构只有三种形式：</p>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> [[initialize][;condition;][caculate]]&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="if-条件"><a href="#if-条件" class="headerlink" title="if 条件"></a>if 条件</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [initialize ;][condition]&#123;</span><br><span class="line"></span><br><span class="line">&#125;[<span class="keyword">else</span> <span class="keyword">if</span>&#123;&#125;][<span class="keyword">else</span>&#123;&#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="switch-条件"><a href="#switch-条件" class="headerlink" title="switch 条件"></a>switch 条件</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> [condition] &#123;</span><br><span class="line">    <span class="keyword">case</span> [result[condition]]:</span><br><span class="line">        [<span class="keyword">break</span>]</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        [<span class="keyword">break</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>通过for 循环语句是使用关键字range 遍历数组/切片/map<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> [key/index[_]] ,value :=<span class="keyword">range</span> mapvar&#123;</span><br><span class="line">    <span class="comment">//todo</span></span><br><span class="line">    <span class="comment">//execute some statement</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数声明形式<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> [<span class="title">funName</span>]<span class="params">()</span> <span class="title">return</span>-<span class="title">type</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>根据函数形式大致为了以下几种：</p>
+<h3 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">plus</span><span class="params">(a,b <span class="keyword">int</span>)</span><span class="title">int</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可变参数函数"><a href="#可变参数函数" class="headerlink" title="可变参数函数"></a>可变参数函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//example</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(nums ...<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    fmt.Print(nums, <span class="string">" "</span>)</span><br><span class="line">    total := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, num := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        total += num</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(total)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example </span></span><br><span class="line">fmt.Println(<span class="string">"the return value is : "</span>, <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> <span class="number">4</span> &#125;())</span><br></pre></td></tr></table></figure>
+<h3 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">initSqu</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span><span class="title">int</span></span> &#123;</span><br><span class="line">    i:=<span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span><span class="title">int</span></span>&#123;</span><br><span class="line">        i++</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//to use </span></span><br><span class="line">nextInit:=initSqu()</span><br><span class="line">nextInit() <span class="comment">//1</span></span><br><span class="line">nextInit() <span class="comment">//2</span></span><br><span class="line"><span class="comment">//because they hava function address</span></span><br></pre></td></tr></table></figure>
+<h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//recusion</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">factorial</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span>==n &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n*factorial(n<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//to use</span></span><br><span class="line">fmt.<span class="built_in">println</span>(<span class="string">"the factorial value is : "</span>,factorial(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="结构体与方法-接口"><a href="#结构体与方法-接口" class="headerlink" title="结构体与方法/接口"></a>结构体与方法/接口</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="keyword">type</span> geometry <span class="keyword">interface</span> &#123;</span><br><span class="line">    area() <span class="keyword">float64</span></span><br><span class="line">    perimeter() <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example </span></span><br><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="keyword">type</span> rect <span class="keyword">struct</span>&#123;</span><br><span class="line">    width,height <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> circle stuct&#123;</span><br><span class="line">    radius <span class="keyword">float64</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 方法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r rect)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float64</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r.width*r.hight</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r rect)</span> <span class="title">perimeter</span> <span class="title">float64</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r.width*<span class="number">2</span> + r.hight*<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c circle)</span> <span class="title">area</span> <span class="title">float64</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> math.Pi * c.radius * c.radius</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c circle)</span> <span class="title">perimeter</span><span class="params">()</span> <span class="title">float64</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * math.Pi * c.radius</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//to use </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">measure</span><span class="params">(g geometry)</span></span>&#123;</span><br><span class="line">    fmt.Println(g.area())</span><br><span class="line">    fmt.Println(g.perimeter())</span><br><span class="line">&#125;</span><br><span class="line">rcValue:=rect&#123;<span class="number">12</span>,<span class="number">2</span>&#125;</span><br><span class="line">measure(rcValue)</span><br></pre></td></tr></table></figure>
+<h2 id="并发关键字go"><a href="#并发关键字go" class="headerlink" title="并发关键字go"></a>并发关键字go</h2><p>  GoLang 使用go 关键字进行多并发操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example 1</span></span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//example 2</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">  fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> hello()</span><br></pre></td></tr></table></figure>
+<h2 id="同步操作-channel"><a href="#同步操作-channel" class="headerlink" title="同步操作: channel"></a>同步操作: channel</h2><p>GoLang 使用Channels 进行多个协程之间进行同步操纵，它更像是一个管道，发送值到管道，再从值取回来</p>
+<h2 id="等待channel-操作-select"><a href="#等待channel-操作-select" class="headerlink" title="等待channel 操作 : select"></a>等待channel 操作 : select</h2><p>go 与 channel 结合select 是一个强大的工作<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">c1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line">c2 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>, <span class="number">1</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">2</span> * time.Second)</span><br><span class="line">  c1 &lt;- <span class="string">"hello"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">  c2 &lt;- <span class="string">"world"</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> index := <span class="number">0</span>; index &lt; <span class="number">2</span>; index++ &#123;</span><br><span class="line">  <span class="keyword">select</span> &#123;</span><br><span class="line">  <span class="keyword">case</span> msg1 := &lt;-c1:</span><br><span class="line">    fmt.Println(<span class="string">"the msg1 value is : "</span>, msg1)</span><br><span class="line">  <span class="keyword">case</span> msg2 := &lt;-c2:</span><br><span class="line">    fmt.Println(<span class="string">"the msg2 value is : "</span>, msg2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h3 id="timeer"><a href="#timeer" class="headerlink" title="timeer"></a>timeer</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只执行指定时间 一次</span></span><br><span class="line">mytime:=time.NewTimer(time.second)</span><br><span class="line">&lt;-mytime.C</span><br><span class="line">mytime.stop()</span><br></pre></td></tr></table></figure>
+<h3 id="ticker"><a href="#ticker" class="headerlink" title="ticker"></a>ticker</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">myticker:=time.NewTicker(time.second)</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">  &lt;-myticker.C</span><br><span class="line">  fmt.Println(time.now())</span><br><span class="line">&#125;</span><br><span class="line">myticker.stop()</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="../../22/Go平衡树/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    平衡树
+                
+            </div>
+        </a>
+    
+    
+        <a href="../../16/一个人的独处1/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">在路上</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            lwb &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>

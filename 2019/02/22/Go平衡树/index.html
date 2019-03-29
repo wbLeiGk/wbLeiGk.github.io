@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>平衡树 | QK</title>
+    
+    
+        <meta name="keywords" content="平衡树">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="本篇使用go语言实现二叉树 二叉树结构二叉树的创建与c/c++创建并无多大的异处。其关键之处还是在于掌握好一级指针和二级指针的使用，go语言同样支持这两种指针 本次使用的数据结构一切从简，不适用sentinel模式12345type TreeNode struct &amp;#123;    Val   int    Left  *TreeNode    Right *TreeNode&amp;#125; 创建1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="平衡树">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/Go平衡树/index.html">
+<meta property="og:site_name" content="QK">
+<meta property="og:description" content="本篇使用go语言实现二叉树 二叉树结构二叉树的创建与c/c++创建并无多大的异处。其关键之处还是在于掌握好一级指针和二级指针的使用，go语言同样支持这两种指针 本次使用的数据结构一切从简，不适用sentinel模式12345type TreeNode struct &amp;#123;    Val   int    Left  *TreeNode    Right *TreeNode&amp;#125; 创建1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-29T04:24:25.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="平衡树">
+<meta name="twitter:description" content="本篇使用go语言实现二叉树 二叉树结构二叉树的创建与c/c++创建并无多大的异处。其关键之处还是在于掌握好一级指针和二级指针的使用，go语言同样支持这两种指针 本次使用的数据结构一切从简，不适用sentinel模式12345type TreeNode struct &amp;#123;    Val   int    Left  *TreeNode    Right *TreeNode&amp;#125; 创建1">
+    
+
+    
+
+    
+        <link rel="icon" href="../../../../favicon.ico">
+    
+
+    <link rel="stylesheet" href="../../../../libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../libs/open-sans/styles.css">
+    <link rel="stylesheet" href="../../../../libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <script src="../../../../libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../../../../libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="../../../../libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="../../../../libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="../../../../index.html" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">QK</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="../../../../index.html">首页</a>
+                
+                    <a class="main-nav-link" href="../../../../about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="../../../../index.html">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="../../../../about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id="categories">
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id="allExpand" href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../../03/18/工具screen/">screen</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            生活杂记
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            一个人的独处
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="../../25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            编程
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            cpp
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL(类对象)
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../../03/27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            go
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            go web
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基本知识
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../17/go概述/">概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            数据结构与算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file active"><a href="">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../../03/18/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/09/路由器数据层/">路由器数据层</a></li>  <li class="file"><a href="../../../../2018/11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP 传输机制/">TCP 传输机制</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            项目构建
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="../../../03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Go平衡树" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/数据结构与算法/">数据结构与算法</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="">
+            <time datetime="2019-02-22T01:26:00.000Z" itemprop="datePublished">2019-02-22</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            平衡树
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉树"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">1.1.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建"><span class="toc-number">1.2.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历"><span class="toc-number">1.3.</span> <span class="toc-text">遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#avl-平衡"><span class="toc-number">2.</span> <span class="toc-text">avl 平衡</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>本篇使用go语言实现二叉树</p>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>二叉树的创建与c/c++创建并无多大的异处。其关键之处还是在于掌握好一级指针和二级指针的使用，go语言同样支持这两种指针</p>
+<p>本次使用的数据结构一切从简，不适用sentinel模式<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val   <span class="keyword">int</span></span><br><span class="line">    Left  *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">func</span> <span class="title">createTree</span><span class="params">(tree **TreeNode, val <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">       Treetmp := &amp;TreeNode&#123;val, <span class="literal">nil</span>, <span class="literal">nil</span>&#125;</span><br><span class="line">       <span class="keyword">if</span> <span class="literal">nil</span> == *tree &#123;</span><br><span class="line">           *tree = Treetmp</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &gt; (*tree).Val &#123;</span><br><span class="line">           createTree(&amp;(*tree).Right, val)</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           createTree(&amp;(*tree).Left, val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里你可能好奇 Treetmp 地址离开了作用域利用消失，此值无效，关于这个答案，我在《The Go Programming Language》</p>
+<ul>
+<li><p>It is perfectly safe for a function to return the address of a local variable</p>
+</li>
+<li><p>…</p>
+</li>
+<li><p>Because the lifetime of a variable is determined only by whether or not it is reachable, a local<br>variable may outlive a single iteration of the enclosing loop. It may continue to exist even after<br>its enclosing function has returned.</p>
+</li>
+</ul>
+<p>因而 ，这也是优化点</p>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">print</span><span class="params">(tree *TreeNode)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">nil</span> != tree &#123;</span><br><span class="line">        fmt.Println(tree.Val)</span><br><span class="line">        <span class="built_in">print</span>(tree.Left)</span><br><span class="line">        <span class="built_in">print</span>(tree.Right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="avl-平衡"><a href="#avl-平衡" class="headerlink" title="avl 平衡"></a>avl 平衡</h1><p>二叉树失衡有四种模式，LL 、LR、RR、RL</p>
+<p>以下实现了两种方式avl:</p>
+<p>基本函数：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LLTree</span><span class="params">(root **TreeNode)</span></span> &#123;</span><br><span class="line">    newRoot := (*root).Left</span><br><span class="line">    oldRight := newRoot.Right</span><br><span class="line"></span><br><span class="line">    newRoot.Right = *root</span><br><span class="line">    (*root).Left = oldRight</span><br><span class="line">    (*root) = newRoot</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">RRTree</span><span class="params">(root **TreeNode)</span></span> &#123;</span><br><span class="line">    newRoot := (*root).Right</span><br><span class="line">    oldLeft := newRoot.Left <span class="comment">//old root will get left node</span></span><br><span class="line"></span><br><span class="line">    newRoot.Left = *root</span><br><span class="line">    (*root).Right = oldLeft</span><br><span class="line">    (*root) = newRoot</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LRTree</span><span class="params">(root **TreeNode)</span></span> &#123;</span><br><span class="line">    RRTree(&amp;(*root).Left)</span><br><span class="line">    LLTree(root)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">RLTree</span><span class="params">(root **TreeNode)</span></span> &#123;</span><br><span class="line">    LLTree(&amp;(*root).Right)</span><br><span class="line">    RRTree(root)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>获取树的深度：<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getMaxDepth</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">nil</span> == root &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    leftDepth := getMaxDepth(root.Left) + <span class="number">1</span></span><br><span class="line">    RightDepth := getMaxDepth(root.Right) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> leftDepth &gt; RightDepth &#123;</span><br><span class="line">        <span class="keyword">return</span> leftDepth</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="keyword">return</span> RightDepth</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>将一颗失衡的数，进行平衡</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">B2Tree</span><span class="params">(root **TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">nil</span> == *root &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    leftDepth := B2Tree(&amp;(*root).Left) + <span class="number">1</span></span><br><span class="line">    RightDepth := B2Tree(&amp;(*root).Right) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> leftDepth-RightDepth &gt;= <span class="number">2</span> &#123;</span><br><span class="line">        <span class="comment">//LX</span></span><br><span class="line">        <span class="keyword">if</span> B2Tree(&amp;(*root).Left) &gt; B2Tree(&amp;(*root).Right) &#123;</span><br><span class="line">            <span class="comment">//LL</span></span><br><span class="line">            LLTree(root)</span><br><span class="line">            <span class="keyword">return</span> getMaxDepth(*root)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//LR</span></span><br><span class="line">            LRTree(root)</span><br><span class="line">            <span class="keyword">return</span> getMaxDepth(*root)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> RightDepth-leftDepth &gt;= <span class="number">2</span> &#123;</span><br><span class="line">        <span class="comment">//RX</span></span><br><span class="line">        <span class="keyword">if</span> B2Tree(&amp;(*root).Left) &gt; B2Tree(&amp;(*root).Right) &#123;</span><br><span class="line">            <span class="comment">//RL</span></span><br><span class="line">            RLTree(root)</span><br><span class="line">            <span class="keyword">return</span> getMaxDepth(*root)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//RR</span></span><br><span class="line">            RRTree(root)</span><br><span class="line">            <span class="keyword">return</span> getMaxDepth(*root)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> leftDepth &gt; RightDepth &#123;</span><br><span class="line">            <span class="keyword">return</span> leftDepth</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> RightDepth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>边插入边平衡</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createTreeBT</span><span class="params">(tree **TreeNode, val <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    Treetmp := &amp;TreeNode&#123;val, <span class="literal">nil</span>, <span class="literal">nil</span>&#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">nil</span> == *tree &#123;</span><br><span class="line">        *tree = Treetmp</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &gt; (*tree).Val &#123;</span><br><span class="line">        createTree(&amp;(*tree).Right, val)</span><br><span class="line">        <span class="keyword">if</span> getMaxDepth((*tree).Right)-getMaxDepth((*tree).Left) &gt;= <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> val &gt; (*tree).Right.Val &#123;</span><br><span class="line">                <span class="comment">//RR</span></span><br><span class="line">                RRTree(tree)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//RL</span></span><br><span class="line">                RLTree(tree)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        createTree(&amp;(*tree).Left, val)</span><br><span class="line">        <span class="keyword">if</span> getMaxDepth((*tree).Left)-getMaxDepth((*tree).Right) &gt; <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> val &gt; (*tree).Left.Val &#123;</span><br><span class="line">                <span class="comment">//LR</span></span><br><span class="line">                LRTree(tree)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//LL</span></span><br><span class="line">                LLTree(tree)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="../../25/一个人的独处2/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    我成为了那个自己讨厌的人了嘛
+                
+            </div>
+        </a>
+    
+    
+        <a href="../../17/go概述/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">概述</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            lwb &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="../../../../libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="../../../../libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="../../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="../../../../js/main.js"></script>
+
+    </div>
+</body>
+</html>
