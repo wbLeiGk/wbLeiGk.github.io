@@ -162,7 +162,7 @@
                             &nbsp;
                             一个人的独处
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  <li class="file"><a href="2019/02/16/一个人的独处1/">在路上</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/02/16/一个人的独处1/">在路上</a></li>  <li class="file"><a href="2019/02/25/一个人的独处2/">我成为了那个自己讨厌的人了嘛</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -187,7 +187,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -205,7 +205,7 @@
                             &nbsp;
                             元编程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/26/cpp特化/">cpp SFINAE</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/26/cpp特化/">cpp SFINAE</a></li>  <li class="file"><a href="2019/03/30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -241,7 +241,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -355,6 +355,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-cpp可变模板variadic-template" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/元编程/">元编程</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/03/30/cpp可变模板variadic-template/">
+            <time datetime="2019-03-30T03:51:39.000Z" itemprop="datePublished">2019-03-30</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/03/30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>英文原版：<a href="https://eli.thegreenplace.net/2014/variadic-templates-in-c/#id5" target="_blank" rel="noopener">https://eli.thegreenplace.net/2014/variadic-templates-in-c/#id5</a></p>
+<p>在 C++11 之前, 编写任意数量的参数的函数的唯一方法是使用不同的函数 (如 printf)、省略号语法 (…) 和伴随的 va _ 家族。如果你曾经用这种方法编写过代码, 你就知道它有多麻烦了。除了类型不安全 (所有类型解析都必须在运行时使用 va _ arg 中的强制转换显式完成) 之外, 正确的方法也很棘手。Va _ 宏执行低级内存操作, 我看到了很多代码, 这些代码会对故障进行分段, 因为它没有足够仔细地使用它们。</p>
+<p>但是, 这种方法总是让我最困扰的是, 把一些在编译时清楚地知道的东西留给了运行时。是的, 当我们编写一个可变函数时, 我们不知道它将被使用的所有方式。但当编译器将整个程序放在一起时, 它确实知道。它非常清楚地看到了整个程序中函数的所有调用, 以及它所传递的所有可能的参数类型 (毕竟类型是在 C++ 中的编译时解析的)</p>
+<h1 id="可变参数模板"><a href="#可变参数模板" class="headerlink" title="可变参数模板"></a>可变参数模板</h1><p>cpp11其中一个新特征就是可变参数模板，最终他以一种任意参数的类型安全形式并且在编译器处理所有参数逻辑解析来写函数，可变参数模板不仅仅运用在函数上，其他任意数量参数的模板上也行（类 etc）</p>
+<p>#基本例子<br>让我们从实现一个可以加上所有参数的模板函数开始<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">addr</span><span class="params">(T t)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T ,<span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function">T <span class="title">addr</span><span class="params">(T first, Args...args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> first + addr(args...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"int sum is :"</span> &lt;&lt; addr(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">7</span>) &lt;&lt; <span class="built_in">endl</span>;;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">string</span> s1 = <span class="string">"x"</span>, s2 = <span class="string">"aa"</span>, s3 = <span class="string">"bb"</span>, s4 = <span class="string">"yy"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"string sum is :"</span> &lt;&lt; addr(s1, s2, s3, s4) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/03/30/cpp可变模板variadic-template/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-vscode-sshFS文件系统" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1116,92 +1202,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/18/工具screen/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-设计模式" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/设计模式/">设计模式</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/03/18/设计模式/">
-            <time datetime="2019-03-18T12:21:20.000Z" itemprop="datePublished">2019-03-18</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/03/18/设计模式/">设计模式</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>开此分类的原因，是因为有人在吃饭的时候向我问起了设计模式</p>
-<p>关于设计模式的几大原则</p>
-<h3 id="1、单一职责原则"><a href="#1、单一职责原则" class="headerlink" title="1、单一职责原则"></a><strong>1、单一职责原则</strong></h3><p>功能职责边界划分清楚，当一个功能crash/uncorrect ,不会影响另一个功能模块</p>
-<h3 id="2、里氏替换原则"><a href="#2、里氏替换原则" class="headerlink" title="2、里氏替换原则"></a><strong>2、里氏替换原则</strong></h3><p>子类继承父类的时候，尽量不去覆盖和重写父类的方法，这样就算，传入参数发生了变动（父类-&gt;子类），也不会影响原对象的功能（父类）</p>
-<h3 id="3、依赖倒置原则"><a href="#3、依赖倒置原则" class="headerlink" title="3、依赖倒置原则"></a><strong>3、依赖倒置原则</strong></h3><p>与面向接口编程很像，设计功能类时，考虑到可扩展性，一般我们在本类中维持一个接口，这样我们不用修改接口，直接通过实现接口，来完成功能的可扩展性</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/03/18/设计模式/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
