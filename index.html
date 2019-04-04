@@ -232,7 +232,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -241,7 +241,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -355,6 +355,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-goGetURL简单开始" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/">go</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/go-web/">go web</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/04/03/goGetURL简单开始/">
+            <time datetime="2019-04-03T10:06:28.000Z" itemprop="datePublished">2019-04-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/04/03/goGetURL简单开始/">goGetURL简单开始</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h1 id="页面爬取与解析"><a href="#页面爬取与解析" class="headerlink" title="页面爬取与解析"></a>页面爬取与解析</h1><p>先上简单的示例<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bytes"</span></span><br><span class="line">	<span class="string">"encoding/xml"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"golang.org/x/net/html"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> per <span class="keyword">struct</span> &#123;</span><br><span class="line">	XMLName xml.Name <span class="string">`xml:"div"`</span></span><br><span class="line">	Name    []<span class="keyword">string</span> <span class="string">`xml:"p"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	resp, err := http.Get(<span class="string">"https://wbleigk.github.io/about/"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"error"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line">	<span class="comment">//io.Copy(os.Stdout, resp.Body)</span></span><br><span class="line">	doc, _ := html.Parse(resp.Body)</span><br><span class="line"></span><br><span class="line">	re := visit(<span class="literal">nil</span>, doc)</span><br><span class="line">	parseXML(strings.Join(re, <span class="string">""</span>), per&#123;&#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">visit</span><span class="params">(links []<span class="keyword">string</span>, n *html.Node)</span> []<span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n.Type == html.ElementNode &amp;&amp; n.Data == <span class="string">"div"</span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> _, a := <span class="keyword">range</span> n.Attr &#123;</span><br><span class="line">			<span class="keyword">if</span> a.Key == <span class="string">"class"</span> &amp;&amp; a.Val == <span class="string">"article-entry"</span> &#123;</span><br><span class="line">				<span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">				w := io.Writer(&amp;buf)</span><br><span class="line">				html.Render(w, n)</span><br><span class="line">				<span class="comment">//fmt.Println(buf.String())</span></span><br><span class="line">				links = <span class="built_in">append</span>(links, buf.String())</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> c := n.FirstChild; c != <span class="literal">nil</span>; c = c.NextSibling &#123;</span><br><span class="line">		links = visit(links, c)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> links</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">parseXML</span><span class="params">(content <span class="keyword">string</span>, v <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	perR := v.(per)</span><br><span class="line">	xml.Unmarshal([]<span class="keyword">byte</span>(content), &amp;perR)</span><br><span class="line">	<span class="keyword">for</span> _, elem := <span class="keyword">range</span> perR.Name &#123;</span><br><span class="line">		fmt.Println(elem)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现步骤：</p>
+<p>1、http.Get() 抓取网页相应页面</p>
+<p>考虑到网页延迟的情况，可以增加WaitForServer函数<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">WaitForServer</span><span class="params">(url <span class="keyword">string</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> timeout = <span class="number">1</span> * time.Minute</span><br><span class="line">	deadline := time.Now().Add(timeout)</span><br><span class="line">	<span class="keyword">for</span> tries := <span class="number">0</span>; time.Now().Before(deadline); tries++ &#123;</span><br><span class="line">		_, err := http.Get(url)</span><br><span class="line">		<span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">nil</span> <span class="comment">// success</span></span><br><span class="line">		&#125;</span><br><span class="line">		log.Printf(<span class="string">"server not responding (%s); retrying..."</span>, err)</span><br><span class="line">        time.Sleep(time.Second)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> fmt.Errorf(<span class="string">"server %s failed to respond after %s"</span>, url, timeout)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、抓取的内容送到html包中解析html.Parse() 解析出html tag node</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/04/03/goGetURL简单开始/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-cpp可变模板variadic-template" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -505,7 +591,7 @@
 <p>第一种方案：<br>1、打开ssh<br>2、打开vim 编辑</p>
 <p>第二种方案：<br>1、打开samba or ftp 服务<br>2、打开映射的文件系统直接编辑</p>
 <p>第三种:<br>我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。</p>
-<p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br>4、connect as workspace folder</p>
+<p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"sshfs.configs"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"host"</span>: <span class="string">"192.168.31.153"</span>,</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"myHost"</span>,</span><br><span class="line">            <span class="attr">"password"</span>: <span class="string">"root"</span>,</span><br><span class="line">            <span class="attr">"root"</span>: <span class="string">"/root"</span>,</span><br><span class="line">            <span class="attr">"username"</span>: <span class="string">"root"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>
                 
             
@@ -1116,92 +1202,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/18/go接口小得/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-工具screen" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/工具/">工具</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/03/18/工具screen/">
-            <time datetime="2019-03-18T14:00:40.000Z" itemprop="datePublished">2019-03-18</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/03/18/工具screen/">screen</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>玩过Linux的多多少少听过 screen 这个玩意~</p>
-<p>sreen 是为了长时间工作的一种会话管理工具，你不用担心你退出终端而中断你的任务</p>
-<p>比如你在公司远程连接了云服务器，但是任务没有做完，怎么办，没关系，我们只要使用screen</p>
-<p>回到家中登上云服务器attach  screen session 就可以，我们完全可以在不同的物理中断上共享</p>
-<p>相同会话进程组~</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/03/18/工具screen/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

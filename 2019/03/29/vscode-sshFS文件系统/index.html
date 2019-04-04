@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="QK">
 <meta property="og:description" content="如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做 第一种方案：1、打开ssh2、打开vim 编辑 第二种方案：1、打开samba or ftp 服务2、打开映射的文件系统直接编辑 第三种:我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。 步骤：1、vscode 搜索插件： ssh fs &amp;amp; in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-29T05:08:24.991Z">
+<meta property="og:updated_time" content="2019-04-03T14:26:57.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode_sshFS文件系统">
 <meta name="twitter:description" content="如果让你编辑Linux/Unix,下的服务器的文件，你会怎么做 第一种方案：1、打开ssh2、打开vim 编辑 第二种方案：1、打开samba or ftp 服务2、打开映射的文件系统直接编辑 第三种:我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。 步骤：1、vscode 搜索插件： ssh fs &amp;amp; in">
@@ -236,7 +236,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -245,7 +245,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -410,9 +410,11 @@
 <p>第一种方案：<br>1、打开ssh<br>2、打开vim 编辑</p>
 <p>第二种方案：<br>1、打开samba or ftp 服务<br>2、打开映射的文件系统直接编辑</p>
 <p>第三种:<br>我要介绍VScode 中的ssh-FS插件，通过over ssh port and server 将文件系统映射到vscode中。</p>
-<p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br>4、connect as workspace folder</p>
+<p>步骤：<br>1、vscode 搜索插件： ssh fs &amp; install<br>2、CTRL + shift + p ,选择创建 配置文件<br>3、编辑配置文件，使用ssh fs: edit configuration<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"sshfs.configs"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"host"</span>: <span class="string">"192.168.31.153"</span>,</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"myHost"</span>,</span><br><span class="line">            <span class="attr">"password"</span>: <span class="string">"root"</span>,</span><br><span class="line">            <span class="attr">"root"</span>: <span class="string">"/root"</span>,</span><br><span class="line">            <span class="attr">"username"</span>: <span class="string">"root"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4、connect as workspace folder</p>
 <p>同样你也可以配合另一个插件，体验更好。<br>plugins name : ssh tooling</p>
 <p>配置文件与ssh的配置文件一致，这个插件的作用就是执行了命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -F ssh.config</span><br></pre></td></tr></table></figure></p>
+<p>ssh.config<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host root</span><br><span class="line">    HostName <span class="number">192.168</span><span class="number">.31</span><span class="number">.153</span></span><br><span class="line">    # LocalForward <span class="number">22</span> <span class="number">192.168</span><span class="number">.31</span><span class="number">.153</span>:<span class="number">22</span></span><br><span class="line">    User root</span><br><span class="line">    # PasswordAuthentication root</span><br></pre></td></tr></table></figure></p>
 <!-- ## 参考资料
 > - []()
 > - []() -->
