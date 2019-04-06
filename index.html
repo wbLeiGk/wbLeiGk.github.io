@@ -203,6 +203,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            boost库
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/04/04/BOOST-ASIO库/">BOOST.ASIO库</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             元编程
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/26/cpp特化/">cpp SFINAE</a></li>  <li class="file"><a href="2019/03/30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a></li>  </ul> 
@@ -355,6 +364,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-BOOST-ASIO库" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/boost库/">boost库</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/04/04/BOOST-ASIO库/">
+            <time datetime="2019-04-04T14:55:42.000Z" itemprop="datePublished">2019-04-04</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/04/04/BOOST-ASIO库/">BOOST.ASIO库</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Asio代表着异步的输入输出，asio库使数据处理成为了可能，异步意味着当操作初始化的时候，初始化程序不需要等待操作的完成，相反，Boost.Asio当操作完成的时候会通知程序，这种方式的优点就是其他操作可以被并发的执行</p>
+<p>Boost.Thread 是另一个并发执行的库，不同之处在于，Boost.Thread 处理程序内部资源，Boost.Asio处理外部资源，举个例子，你需要开发一个时间消耗计算的功能，你运行此功能在一个线程中并且在另一个CPU内核中，Thread允许你使用CPU内核资源，从这个角度看待程序，CPU内核是一个内部资源，如果你想要处理外部资源，你应该使用Boost.Asio库</p>
+<p>网络连接是一个外部资源的例子，如果数据发送或者接收，网卡被告知执行这项操作，对于发送操作，网卡将指向发送缓冲区的数据进行发送，对于接收数据操作，接收缓冲区被填充满时进行接收，因此网卡是一个外部资源对于你的程序而言，他执行操作是独立的，它只需要时间–您可以在程序中使用的时间来执行其他操作，Boost.Asio 允许你更加有效的使用有效的设备通过可并发的能力。</p>
+<p>Boost.Asio利用网络实现发送和接收数据是利用异步的方式，思考异步操作：函数立刻返回，但是没有返回值，这个处理结果在随后的时间给出</p>
+<p>第一步：异步操作开始<br>第二部：程序接到通知当异步操作结束</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/04/04/BOOST-ASIO库/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-goGetURL简单开始" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -1116,92 +1211,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/25/c-加载cppdll/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-go接口小得" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/">go</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/go/基本知识/">基本知识</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/03/18/go接口小得/">
-            <time datetime="2019-03-18T14:52:09.000Z" itemprop="datePublished">2019-03-18</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/03/18/go接口小得/">接口interface心得（1）</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>看到go 语言的接口一个与众不同的地方~</p>
-<p>我的印象中，在go中，基本上是以下这种行为</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> people <span class="keyword">interface</span> &#123;</span><br><span class="line">	getOccupation() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span>  student <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"><span class="keyword">type</span> worker <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(stu student)</span><span class="title">getOccupation</span><span class="params">()</span> <span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"student"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(wk worker)</span><span class="title">getOccupation</span><span class="params">()</span> <span class="title">string</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"worker"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printOccupation</span><span class="params">(pe people)</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"the occupation is : "</span>,pe.getOccupation())</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	printOccupation(student&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于上面的代码没什么出奇的地方</p>
-<p>请看下面一段代码<br><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span>  main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ioreader <span class="keyword">interface</span> &#123;</span><br><span class="line">	MyReader()[]<span class="keyword">byte</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> fileExcute <span class="keyword">interface</span> &#123;</span><br><span class="line">	MyReader()[]<span class="keyword">byte</span></span><br><span class="line">	MyWrite([]<span class="keyword">byte</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MyFlush2</span><span class="params">(io ioreader)</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"code snippet is executing: MyFlush2"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MyFlush</span><span class="params">(io fileExcute)</span></span>&#123;</span><br><span class="line">	MyFlush2(io)</span><br><span class="line">	fmt.Println(<span class="string">"code snippet is executing: MyFlush"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Myfile <span class="keyword">struct</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(file Myfile)</span> <span class="title">MyReader</span><span class="params">()</span> []<span class="title">byte</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> []<span class="keyword">byte</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(fil Myfile)</span> <span class="title">MyWrite</span><span class="params">([]<span class="keyword">byte</span>)</span></span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	MyFlush(Myfile&#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/03/18/go接口小得/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

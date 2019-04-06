@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/04/BOOST-ASIO%E5%BA%93/</loc>
+    
+    <lastmod>2019-04-06T13:24:26.493Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/03/goGetURL%E7%AE%80%E5%8D%95%E5%BC%80%E5%A7%8B/</loc>
     
     <lastmod>2019-04-04T03:25:40.800Z</lastmod>
@@ -198,14 +205,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
