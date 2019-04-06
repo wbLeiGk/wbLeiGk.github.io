@@ -4,7 +4,7 @@
   <url>
     <loc>http://yoursite.com/2019/04/04/BOOST-ASIO%E5%BA%93/</loc>
     
-    <lastmod>2019-04-06T13:24:26.493Z</lastmod>
+    <lastmod>2019-04-06T13:50:31.039Z</lastmod>
     
   </url>
   
@@ -47,20 +47,6 @@
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2019-03-30T12:03:04.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/02/25/%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E7%8B%AC%E5%A4%842/</loc>
-    
-    <lastmod>2019-03-29T04:40:17.479Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/02/16/%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E7%8B%AC%E5%A4%841/</loc>
-    
-    <lastmod>2019-03-29T04:40:10.816Z</lastmod>
     
   </url>
   
@@ -205,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
