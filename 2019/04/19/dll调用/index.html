@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>c#加载cppdll | QK</title>
+    <title>dll调用 | QK</title>
     
     
-        <meta name="keywords" content="c#加载cppdll">
+        <meta name="keywords" content="dll调用">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
+    <meta name="description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c#加载cppdll">
-<meta property="og:url" content="http://yoursite.com/2019/03/25/c-加载cppdll/index.html">
+<meta property="og:title" content="dll调用">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/dll调用/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
+<meta property="og:description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T13:40:10.957Z">
+<meta property="og:updated_time" content="2019-04-19T14:31:15.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c#加载cppdll">
-<meta name="twitter:description" content="来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式 1. cpp/c 封装成dll环境：vs2019项目类型：新建空项目文件类型：c/cppfileContent:123456789101112#include &amp;lt;iostream&amp;gt;using namespace std;extern &quot;C&quot;&amp;#123;    void __declspec(dllexport) my">
+<meta name="twitter:title" content="dll调用">
+<meta name="twitter:description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
     
 
     
@@ -150,7 +150,7 @@
                             &nbsp;
                             工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../29/vscode-sshFS文件系统/">vscode_sshFS文件系统</a></li>  <li class="file"><a href="../../18/工具screen/">screen</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../../03/29/vscode-sshFS文件系统/">vscode_sshFS文件系统</a></li>  <li class="file"><a href="../../../03/18/工具screen/">screen</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -173,7 +173,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file active"><a href="">c#加载cppdll</a></li>  <li class="file"><a href="../../../04/19/dll调用/">dll调用</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file active"><a href="">dll调用</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -182,7 +182,7 @@
                             &nbsp;
                             STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../../03/27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -191,7 +191,7 @@
                             &nbsp;
                             boost库
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../04/04/BOOST-ASIO库/">BOOST.ASIO库</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/BOOST-ASIO库/">BOOST.ASIO库</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -200,7 +200,7 @@
                             &nbsp;
                             元编程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../26/cpp特化/">cpp SFINAE</a></li>  <li class="file"><a href="../../30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/26/cpp特化/">cpp SFINAE</a></li>  <li class="file"><a href="../../../03/30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -209,7 +209,7 @@
                             &nbsp;
                             多线程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -227,7 +227,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../03/goGetURL简单开始/">goGetURL简单开始</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -236,7 +236,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../../03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -247,7 +247,7 @@
                             &nbsp;
                             数据结构与算法
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -256,7 +256,7 @@
                             &nbsp;
                             设计模式
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../18/设计模式/">设计模式</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../../03/18/设计模式/">设计模式</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,9 +276,9 @@
                             &nbsp;
                             项目构建
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/28/Cmake/">Cmake 简单结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file"><a href="../../../03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -349,7 +349,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-c-加载cppdll" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-dll调用" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -367,7 +367,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-03-25T07:44:58.000Z" itemprop="datePublished">2019-03-25</time>
+            <time datetime="2019-04-19T14:06:17.000Z" itemprop="datePublished">2019-04-19</time>
         </a>
     </div>
 
@@ -379,7 +379,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            c#加载cppdll
+            dll调用
         </h1>
     
 
@@ -392,14 +392,23 @@
             
         
         
-            <p>来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式</p>
-<h3 id="1-cpp-c-封装成dll"><a href="#1-cpp-c-封装成dll" class="headerlink" title="1. cpp/c 封装成dll"></a>1. cpp/c 封装成dll</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c/cpp<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> __declspec(dllexport) myPrint()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> __declspec(dllexport) a(<span class="keyword">int</span> b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>项目属性：dll</p>
-<hr>
-<h3 id="2-c-调用端"><a href="#2-c-调用端" class="headerlink" title="2. c# 调用端"></a>2. c# 调用端</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c#控制台程序<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hellocaller</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern void myPrint();</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern int a(int b);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"LoadLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">LoadLibrary</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpLibFileName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"GetProcAddress"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetProcAddress</span><span class="params">(<span class="keyword">int</span> hModule,</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpProcName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"FreeLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">FreeLibrary</span><span class="params">(<span class="keyword">int</span> hModule)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="function">delegate <span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> hModule = LoadLibrary(@<span class="string">"..\\hello\\Release\\hello.dll"</span>);</span><br><span class="line">            <span class="comment">//if(hModule == 0) </span></span><br><span class="line">            <span class="comment">//    return false;</span></span><br><span class="line">            IntPtr intPtr = GetProcAddress(hModule, <span class="string">"a"</span>);</span><br><span class="line">            A a = (A)Marshal.GetDelegateForFunctionPointer(intPtr, typeof(A));</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(a(<span class="number">3</span>));</span><br><span class="line">            <span class="comment">//myPrint();</span></span><br><span class="line">            FreeLibrary(hModule);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>简介：</p>
+<p>在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。</p>
+<p>环境：vs2017</p>
+<p>项目结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DllTest</span><br><span class="line">    |__Libs</span><br><span class="line">    |__DllInvoke</span><br><span class="line">        |__src</span><br><span class="line">            |_main.cpp</span><br><span class="line">    |__DllSrc</span><br><span class="line">        |__src</span><br><span class="line">            |_DllSrc.cpp</span><br><span class="line">        |__include</span><br><span class="line">            |_DllSrc.h</span><br><span class="line"></span><br><span class="line">DllTest  :  解决方案</span><br><span class="line">Libs     :  DllSrc工程生成dll库的目录</span><br><span class="line">DllSrc   :  Dll功能实现工程</span><br><span class="line">DllInvoke:  调用Dll的工程</span><br></pre></td></tr></table></figure>
+<p>DllSrc/include/DllSrc.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CREATDLL_EXPORTS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_EXPORTS</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> CREATDLL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_API __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_API __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CREATDLL_API</span> <span class="title">CCreatDll</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m_nValue;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CCreatDll();</span><br><span class="line">	~CCreatDll();</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">changeValue</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> m_nValue += x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> m_nValue; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !1</span></span></span><br></pre></td></tr></table></figure>
+<p>DllSrc/src/DllSrc.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">#define CREATDLL must before #include"DllSrc.h"</span></span><br><span class="line"><span class="comment">since ,the CREATDLL_API need export dll</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"DllSrc.h"</span></span></span><br><span class="line"><span class="comment">// 这是已导出类的构造函数。</span></span><br><span class="line"><span class="comment">// 有关类定义的信息，请参阅 CreatDll.h</span></span><br><span class="line"></span><br><span class="line">CCreatDll::CCreatDll() &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> CCreatDll::m_nValue = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">CCreatDll::~CCreatDll() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>DllInvoke/src/main.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"../DllSrc/include/DllSrc.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment (lib, <span class="meta-string">"DllSrc.lib"</span>)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	CCreatDll a, b;</span><br><span class="line">	a.changeValue(<span class="number">2</span>);</span><br><span class="line">	b.changeValue(<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a.getValue() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br></pre></td></tr></table></figure>
+<p>vs2017 设置：</p>
+<p>DllSrc工程      ：配置类型设置成dll<br>DllInvoke工程   ：库目录包含libs  -&gt; $(SolutionDir)\Libs</p>
 <!-- ## 参考资料
 > - []()
 > - []() -->
+
             </div>
         
         <footer class="article-footer">
@@ -411,19 +420,10 @@
     
 <nav id="article-nav">
     
-        <a href="../../26/cpp特化/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    cpp SFINAE
-                
-            </div>
-        </a>
     
-    
-        <a href="../../18/go接口小得/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../04/BOOST-ASIO库/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">接口interface心得（1）</div>
+            <div class="article-nav-title">BOOST.ASIO库</div>
         </a>
     
 </nav>

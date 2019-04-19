@@ -169,7 +169,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="2019/04/19/dll调用/">dll调用</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -223,7 +223,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -232,7 +232,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="2019/02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -346,6 +346,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-dll调用" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/DLL交互/">DLL交互</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="2019/04/19/dll调用/">
+            <time datetime="2019-04-19T14:06:17.000Z" itemprop="datePublished">2019-04-19</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="2019/04/19/dll调用/">dll调用</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>简介：</p>
+<p>在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。</p>
+<p>环境：vs2017</p>
+<p>项目结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DllTest</span><br><span class="line">    |__Libs</span><br><span class="line">    |__DllInvoke</span><br><span class="line">        |__src</span><br><span class="line">            |_main.cpp</span><br><span class="line">    |__DllSrc</span><br><span class="line">        |__src</span><br><span class="line">            |_DllSrc.cpp</span><br><span class="line">        |__include</span><br><span class="line">            |_DllSrc.h</span><br><span class="line"></span><br><span class="line">DllTest  :  解决方案</span><br><span class="line">Libs     :  DllSrc工程生成dll库的目录</span><br><span class="line">DllSrc   :  Dll功能实现工程</span><br><span class="line">DllInvoke:  调用Dll的工程</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="2019/04/19/dll调用/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-BOOST-ASIO库" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -406,11 +492,11 @@
                 
                 
                     
-                    <p></p><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Asio代表着异步的输入输出，asio库使数据处理成为了可能，异步意味着当操作初始化的时候，初始化程序不需要等待操作的完成，相反，Boost.Asio当操作完成的时候会通知程序，这种方式的优点就是其他操作可以被并发的执行</p>
+                    <p></p><p>只是看到boost.asio库，于是我看了一下《boost.asio c++ network programing》</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Asio代表着异步的输入输出，asio库使数据处理成为了可能，异步意味着当操作初始化的时候，初始化程序不需要等待操作的完成，相反，Boost.Asio当操作完成的时候会通知程序，这种方式的优点就是其他操作可以被并发的执行</p>
 <p>Boost.Thread 是另一个并发执行的库，不同之处在于，Boost.Thread 处理程序内部资源，Boost.Asio处理外部资源，举个例子，你需要开发一个时间消耗计算的功能，你运行此功能在一个线程中并且在另一个CPU内核中，Thread允许你使用CPU内核资源，从这个角度看待程序，CPU内核是一个内部资源，如果你想要处理外部资源，你应该使用Boost.Asio库</p>
 <p>网络连接是一个外部资源的例子，如果数据发送或者接收，网卡被告知执行这项操作，对于发送操作，网卡将指向发送缓冲区的数据进行发送，对于接收数据操作，接收缓冲区被填充满时进行接收，因此网卡是一个外部资源对于你的程序而言，他执行操作是独立的，它只需要时间–您可以在程序中使用的时间来执行其他操作，Boost.Asio 允许你更加有效的使用有效的设备通过可并发的能力。</p>
 <p>Boost.Asio利用网络实现发送和接收数据是利用异步的方式，思考异步操作：函数立刻返回，但是没有返回值，这个处理结果在随后的时间给出</p>
-<p>第一步：异步操作开始<br>第二部：程序接到通知当异步操作结束</p>
 <p>
                 
             
@@ -1107,92 +1193,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="2019/03/26/cpp特化/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-c-加载cppdll" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="categories/编程/cpp/DLL交互/">DLL交互</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="2019/03/25/c-加载cppdll/">
-            <time datetime="2019-03-25T07:44:58.000Z" itemprop="datePublished">2019-03-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="2019/03/25/c-加载cppdll/">c#加载cppdll</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>来源与前一阵子有一个朋友请教我关于c#调用c/cpp dll 的方式</p>
-<h3 id="1-cpp-c-封装成dll"><a href="#1-cpp-c-封装成dll" class="headerlink" title="1. cpp/c 封装成dll"></a>1. cpp/c 封装成dll</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c/cpp<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> __declspec(dllexport) myPrint()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> __declspec(dllexport) a(<span class="keyword">int</span> b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>项目属性：dll</p>
-<hr>
-<h3 id="2-c-调用端"><a href="#2-c-调用端" class="headerlink" title="2. c# 调用端"></a>2. c# 调用端</h3><p>环境：vs2019<br>项目类型：新建空项目<br>文件类型：c#控制台程序<br>fileContent:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hellocaller</span><br><span class="line">&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern void myPrint();</span></span><br><span class="line">        <span class="comment">//[DllImport(@"..\\hello\\Release\\hello.dll")]</span></span><br><span class="line">        <span class="comment">//private static extern int a(int b);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"LoadLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">LoadLibrary</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpLibFileName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"GetProcAddress"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetProcAddress</span><span class="params">(<span class="keyword">int</span> hModule,</span></span></span><br><span class="line"><span class="function"><span class="params">            [MarshalAs(UnmanagedType.LPStr)] <span class="built_in">string</span> lpProcName)</span></span>;</span><br><span class="line"></span><br><span class="line">        [DllImport(<span class="string">"kernel32.dll"</span>, EntryPoint = <span class="string">"FreeLibrary"</span>)]</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">bool</span> <span class="title">FreeLibrary</span><span class="params">(<span class="keyword">int</span> hModule)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="function">delegate <span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> hModule = LoadLibrary(@<span class="string">"..\\hello\\Release\\hello.dll"</span>);</span><br><span class="line">            <span class="comment">//if(hModule == 0) </span></span><br><span class="line">            <span class="comment">//    return false;</span></span><br><span class="line">            IntPtr intPtr = GetProcAddress(hModule, <span class="string">"a"</span>);</span><br><span class="line">            A a = (A)Marshal.GetDelegateForFunctionPointer(intPtr, typeof(A));</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(a(<span class="number">3</span>));</span><br><span class="line">            <span class="comment">//myPrint();</span></span><br><span class="line">            FreeLibrary(hModule);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="2019/03/25/c-加载cppdll/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

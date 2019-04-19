@@ -169,7 +169,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../2019/04/19/dll调用/">dll调用</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -223,7 +223,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -232,7 +232,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../2019/02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../2019/02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -346,6 +346,92 @@
 </aside>
             
             <section id="main">
+        <article id="post-Go平衡树" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../categories/编程/数据结构与算法/">数据结构与算法</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="../../2019/02/22/Go平衡树/">
+            <time datetime="2019-02-22T01:26:00.000Z" itemprop="datePublished">2019-02-22</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="../../2019/02/22/Go平衡树/">平衡树</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>本篇使用go语言实现二叉树</p>
+<h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>二叉树的创建与c/c++创建并无多大的异处。其关键之处还是在于掌握好一级指针和二级指针的使用，go语言同样支持这两种指针</p>
+<p>本次使用的数据结构一切从简，不适用sentinel模式<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val   <span class="keyword">int</span></span><br><span class="line">    Left  *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">func</span> <span class="title">createTree</span><span class="params">(tree **TreeNode, val <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">       Treetmp := &amp;TreeNode&#123;val, <span class="literal">nil</span>, <span class="literal">nil</span>&#125;</span><br><span class="line">       <span class="keyword">if</span> <span class="literal">nil</span> == *tree &#123;</span><br><span class="line">           *tree = Treetmp</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &gt; (*tree).Val &#123;</span><br><span class="line">           createTree(&amp;(*tree).Right, val)</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           createTree(&amp;(*tree).Left, val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里你可能好奇 Treetmp 地址离开了作用域利用消失，此值无效，关于这个答案，我在《The Go Programming Language》</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="../../2019/02/22/Go平衡树/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-go概述" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
