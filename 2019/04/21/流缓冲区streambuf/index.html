@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>dll调用 | QK</title>
+    <title>流缓冲区streambuf | QK</title>
     
     
-        <meta name="keywords" content="dll调用">
+        <meta name="keywords" content="流缓冲区streambuf">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
+    <meta name="description" content="流本身不用数据的读取和写入，而是委托给了流缓冲区 而一般的接口处理缓冲区是相当简单的  rdbuf() 产生一个指向流缓冲区的指针  流对象构造函数或者rdbuf() 函数可以改变流缓冲区，这两种凡是都必须使用指针   改变流缓冲区的方式可以促使多个流对象指向同一个设备文件，从而进行重定向，与此同时获取不同的流格式 流缓冲区接口对于流缓冲区的使用者来说，流缓冲区仅仅是发送和提取字符串，以下函数是写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dll调用">
-<meta property="og:url" content="http://yoursite.com/2019/04/19/dll调用/index.html">
+<meta property="og:title" content="流缓冲区streambuf">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/流缓冲区streambuf/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
+<meta property="og:description" content="流本身不用数据的读取和写入，而是委托给了流缓冲区 而一般的接口处理缓冲区是相当简单的  rdbuf() 产生一个指向流缓冲区的指针  流对象构造函数或者rdbuf() 函数可以改变流缓冲区，这两种凡是都必须使用指针   改变流缓冲区的方式可以促使多个流对象指向同一个设备文件，从而进行重定向，与此同时获取不同的流格式 流缓冲区接口对于流缓冲区的使用者来说，流缓冲区仅仅是发送和提取字符串，以下函数是写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-19T14:31:15.070Z">
+<meta property="og:updated_time" content="2019-04-24T16:04:28.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dll调用">
-<meta name="twitter:description" content="简介： 在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。 环境：vs2017 项目结构： 123456789101112131415DllTest    |__Libs    |__DllInvoke        |__src            |_main.cpp    |__DllSrc        |__src            |_D">
+<meta name="twitter:title" content="流缓冲区streambuf">
+<meta name="twitter:description" content="流本身不用数据的读取和写入，而是委托给了流缓冲区 而一般的接口处理缓冲区是相当简单的  rdbuf() 产生一个指向流缓冲区的指针  流对象构造函数或者rdbuf() 函数可以改变流缓冲区，这两种凡是都必须使用指针   改变流缓冲区的方式可以促使多个流对象指向同一个设备文件，从而进行重定向，与此同时获取不同的流格式 流缓冲区接口对于流缓冲区的使用者来说，流缓冲区仅仅是发送和提取字符串，以下函数是写">
     
 
     
@@ -167,22 +167,22 @@
                             cpp
                         </a>
                          <ul class="unstyled" id="tree"> 
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            DLL交互
-                        </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file active"><a href="">dll调用</a></li>  </ul> 
-                    </li> 
-                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            DLL交互
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../19/dll调用/">dll调用</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
                             STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/04/cpp缓冲与流对象/">缓冲与流对象</a></li>  <li class="file"><a href="../../../03/27/任务重新开始/">retry task in cpp &golang</a></li>  <li class="file"><a href="../../21/流缓冲区streambuf/">流缓冲区streambuf</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/04/cpp缓冲与流对象/">缓冲与流对象</a></li>  <li class="file"><a href="../../../03/27/任务重新开始/">retry task in cpp &golang</a></li>  <li class="file active"><a href="">流缓冲区streambuf</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -349,7 +349,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-dll调用" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-流缓冲区streambuf" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -359,7 +359,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/cpp/DLL交互/">DLL交互</a>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/cpp/">cpp</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/cpp/STL-类对象/">STL(类对象)</a>
     </div>
 
                         
@@ -367,7 +367,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-04-19T14:06:17.000Z" itemprop="datePublished">2019-04-19</time>
+            <time datetime="2019-04-21T06:51:47.000Z" itemprop="datePublished">2019-04-21</time>
         </a>
     </div>
 
@@ -379,7 +379,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            dll调用
+            流缓冲区streambuf
         </h1>
     
 
@@ -392,22 +392,82 @@
             
         
         
-            <p>简介：</p>
-<p>在同一个解决方案下，部分工程负责生成DLL，部分负责调用DLL，部分负责逻辑，做到功能分离。</p>
-<p>环境：vs2017</p>
-<p>项目结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DllTest</span><br><span class="line">    |__Libs</span><br><span class="line">    |__DllInvoke</span><br><span class="line">        |__src</span><br><span class="line">            |_main.cpp</span><br><span class="line">    |__DllSrc</span><br><span class="line">        |__src</span><br><span class="line">            |_DllSrc.cpp</span><br><span class="line">        |__include</span><br><span class="line">            |_DllSrc.h</span><br><span class="line"></span><br><span class="line">DllTest  :  解决方案</span><br><span class="line">Libs     :  DllSrc工程生成dll库的目录</span><br><span class="line">DllSrc   :  Dll功能实现工程</span><br><span class="line">DllInvoke:  调用Dll的工程</span><br></pre></td></tr></table></figure>
-<p>DllSrc/include/DllSrc.h</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CREATDLL_EXPORTS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_EXPORTS</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> CREATDLL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_API __declspec(dllexport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL_API __declspec(dllimport)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CREATDLL_API</span> <span class="title">CCreatDll</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m_nValue;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CCreatDll();</span><br><span class="line">	~CCreatDll();</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">changeValue</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> m_nValue += x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> m_nValue; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !1</span></span></span><br></pre></td></tr></table></figure>
-<p>DllSrc/src/DllSrc.cpp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">#define CREATDLL must before #include"DllSrc.h"</span></span><br><span class="line"><span class="comment">since ,the CREATDLL_API need export dll</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CREATDLL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"DllSrc.h"</span></span></span><br><span class="line"><span class="comment">// 这是已导出类的构造函数。</span></span><br><span class="line"><span class="comment">// 有关类定义的信息，请参阅 CreatDll.h</span></span><br><span class="line"></span><br><span class="line">CCreatDll::CCreatDll() &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> CCreatDll::m_nValue = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">CCreatDll::~CCreatDll() &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>DllInvoke/src/main.cpp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"../DllSrc/include/DllSrc.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment (lib, <span class="meta-string">"DllSrc.lib"</span>)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	CCreatDll a, b;</span><br><span class="line">	a.changeValue(<span class="number">2</span>);</span><br><span class="line">	b.changeValue(<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; a.getValue() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br></pre></td></tr></table></figure>
-<p>vs2017 设置：</p>
-<p>DllSrc工程      ：配置类型设置成dll<br>DllInvoke工程   ：库目录包含libs  -&gt; $(SolutionDir)\Libs</p>
-<!-- ## 参考资料
-> - []()
-> - []() -->
+            <p>流本身不用数据的读取和写入，而是委托给了流缓冲区</p>
+<p>而一般的接口处理缓冲区是相当简单的</p>
+<ul>
+<li><p>rdbuf() 产生一个指向流缓冲区的指针</p>
+</li>
+<li><p>流对象构造函数或者rdbuf() 函数可以改变流缓冲区，这两种凡是都必须使用指针</p>
+</li>
+</ul>
+<p>改变流缓冲区的方式可以促使多个流对象指向同一个设备文件，从而进行重定向，与此同时获取不同的流格式</p>
+<h1 id="流缓冲区接口"><a href="#流缓冲区接口" class="headerlink" title="流缓冲区接口"></a>流缓冲区接口</h1><p>对于流缓冲区的使用者来说，流缓冲区仅仅是发送和提取字符串，以下函数是写入字符串</p>
+<ul>
+<li><p>sputc(c) :sends the character c to the stream buffer</p>
+</li>
+<li><p>sputn(s,n) :sends n characters from the sequence s to the stream buffer</p>
+</li>
+</ul>
+<p>在遇到错误，sputc()返回traits_type::eof() ，traits_type 是basic_streambuf 中的类型定义。sputn() 写入流缓冲区n个字符，除非流缓冲区不能在被写入。缓冲区并不关心空字符。sputn()返回写入缓冲区字符的数量。</p>
+<p>从流缓冲区读取字符有点复杂，读取一个字符，而不进行消耗；当进行字符解析时，将字符放回缓冲区。 因此流缓冲区提供了对应的函数。</p>
+<ul>
+<li><p>in_avail() : returns a lower bound on the characters available</p>
+</li>
+<li><p>sgetc()    : return the current character without consuming it</p>
+</li>
+<li><p>sbumpc()   : return the current character and consumes it</p>
+</li>
+<li><p>snextc()   : comsums the current character and returns the next character</p>
+</li>
+<li><p>sgetn(b,n) :read n characters and stores them buffer</p>
+</li>
+<li><p>sputbackc(c) : return the character c to the stream buffer</p>
+</li>
+<li><p>sungetc() : moves one step back to the previous character</p>
+</li>
+</ul>
+<p>in_avail()被用来确定至少有多少字符有效，举个例子，以确保在从键盘读入的时候不会阻塞，然而可能有更多的字符有效。</p>
+<p>直到流缓冲区抵达了流的最后，否则就有当前字符位置，sgetc()被用来获取当前字符，但是并不移动到下一个字符上。sbumpc() 读取字符并且移动到下一个字符上，产生新的字符。snextc()获取下一个字符。一旦显示错误，这3个函数都返回traits_type::eof()。</p>
+<p>sputbackc() 和 sungetc() 都被用来会退一步。sputbackc(c)可以被用来取代当前位置的上一个字符。</p>
+<p>下面这些函数用来处理local 对象，改变位置，影响缓冲区</p>
+<ul>
+<li><p>pubimbue(loc) :imbue the stream buffer with the local loc</p>
+</li>
+<li><p>getloc()   : return current local</p>
+</li>
+<li><p>pubseekoff(pos) : reposition the current position to an absolute position</p>
+</li>
+<li><p>pubseekoff(pos,which) : same with specify the i/o direction</p>
+</li>
+<li><p>pubseekoff(offset,repos) :reposition the current position relative to another position</p>
+</li>
+<li><p>pubseekoff(offset,rpos,which) : same with specify the I/O direction</p>
+</li>
+<li><p>pubsetbuf(buf,n)  :influence buffering</p>
+</li>
+</ul>
+<h1 id="流缓冲区迭代器"><a href="#流缓冲区迭代器" class="headerlink" title="流缓冲区迭代器"></a>流缓冲区迭代器</h1><p>使用没有格式化的I/O的成员函数，一种可替换的方式就是使用流缓冲区迭代器。这些类提供了输入/输出迭代器对应输入/输出操作，适用于C++ 标准库中的算法中的字符层次的操作。</p>
+<p>istreambuf_iterator&lt;&gt; 于ostreambuf_iterator&lt;&gt; 适用于 basic_streambbuf&lt;&gt; ,这些类被定义在iterator头文件中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> charT ,<span class="keyword">typename</span> traits =char_traits&lt;charT&gt;&gt;</span><br><span class="line">class ostreambuf_iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> charT ,<span class="keyword">typename</span> traits =char_traits&lt;charT&gt;&gt;</span><br><span class="line">class istreambuf_iterator;</span><br></pre></td></tr></table></figure>
+<p>这些迭代器时特殊的流迭代器，唯一不同的地方在于他们处理的元素是字符</p>
+<h2 id="输出流迭代器"><a href="#输出流迭代器" class="headerlink" title="输出流迭代器"></a>输出流迭代器</h2><p>以下是流迭代器的构造函数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ostreambuf_iterator&lt;<span class="keyword">char</span>&gt;(ostream);</span><br><span class="line"></span><br><span class="line">ostreambuf_iterator&lt;<span class="keyword">char</span>&gt;(buffter_ptr);</span><br><span class="line"></span><br><span class="line">istreambuf_iterator&lt;<span class="keyword">char</span>&gt;(ostream);</span><br><span class="line"></span><br><span class="line">istreambuf_iterator&lt;<span class="keyword">char</span>&gt;(buffter_ptr);</span><br></pre></td></tr></table></figure>
+<p>Example :</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"hello world"</span>)</span></span>;</span><br><span class="line">	ostreambuf_iterator&lt;<span class="keyword">char</span>&gt; _out(<span class="built_in">cout</span>);</span><br><span class="line">	<span class="built_in">std</span>::copy(str.cbegin(),str.cend(),_out);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">funTest2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	istreambuf_iterator&lt;<span class="keyword">char</span>&gt; _in(<span class="built_in">cin</span>);</span><br><span class="line">	istreambuf_iterator&lt;<span class="keyword">char</span>&gt; _end;</span><br><span class="line">	ostreambuf_iterator&lt;<span class="keyword">char</span>&gt; _out(<span class="built_in">cout</span>);</span><br><span class="line">	<span class="keyword">while</span> (_in != _end)</span><br><span class="line">	&#123;</span><br><span class="line">		*_out = *_in;</span><br><span class="line">		++_in;</span><br><span class="line">		++_out;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="自定义缓冲区"><a href="#自定义缓冲区" class="headerlink" title="自定义缓冲区"></a>自定义缓冲区</h1><p>对于basic_streambuf&lt;&gt;的char和wchar特化版本streambuf、wstreambuf,这些类用来实现特俗的I/O通道。</p>
+<p>输入/输出缓冲区接口都各有三个指针，指针通过三个函数返回：</p>
+<p>readbuf:</p>
+<p>eback()、gptr()、egptr()</p>
+<p>writebuf:</p>
+<p>pbase() :(“put base”) is the beginning of the current buffer</p>
+<p>pptr() :(“put pointer”) is the current write position</p>
+<p>epptr() :(“end put pointer”) is the end if the out of output buffer .This means that epptr() points to one past the last character that can be bufferd</p>
+<p>字符范围在pbase() 与 pptr() 的范围内，但是不包括pptr()当前所指的位置。被写入但是还没有被传输或者flushed到相对应的输出通道。</p>
+<p>使用成员函数sputc() 函数向缓冲区当前位置写入一个字符(如果缓冲区还有空间)，如果缓冲区是满的(pptr()==epptr())，通过调用虚函数overflow()将输出缓冲区发送到相应的输出通道。这个函数负责发送字符到一些“外部设备”，他们可能是内部，比如说string streams，overflow()在基类basic_streambuf&lt;&gt;中仅仅返回end-of-file ,他表示不能有更多的字符可以写入啦</p>
+<p>成员函数sputn()被用来写入一次性写入多个字符。这个函数把工作委托给了虚函数xsputn(),其内部直接调用xsputn(),它可以通过多个字符的写入实现更有效率.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;streambuf&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;locale&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">outbuf</span> :</span> <span class="keyword">public</span> <span class="built_in">std</span>::streambuf &#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> int_type <span class="title">overflow</span><span class="params">(int_type c)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (c != EOF) &#123;</span><br><span class="line">			c = <span class="built_in">std</span>::<span class="built_in">toupper</span>(c, getloc());</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">std</span>::<span class="built_in">putchar</span>(c) == EOF)</span><br><span class="line">				<span class="keyword">return</span> EOF;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> c;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argv, <span class="keyword">char</span> *args[])</span> </span>&#123;</span><br><span class="line">	outbuf _out;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"hello"</span>)</span></span>;</span><br><span class="line">	<span class="function">ostream <span class="title">out</span><span class="params">(&amp;_out)</span></span>;</span><br><span class="line">	out &lt;&lt; str;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的例子，每一个发送给缓冲区的使用putchar()函数处理。getloc()被用来和获取本地local</p>
+<p>本例中streambuf是basic_streambuf&lt;&gt;特化char</p>
 
             </div>
         
@@ -420,19 +480,19 @@
     
 <nav id="article-nav">
     
-        <a href="../../21/流缓冲区streambuf/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="../../../06/16/goLang/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    流缓冲区streambuf
+                    goLang
                 
             </div>
         </a>
     
     
-        <a href="../../04/BOOST-ASIO库/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../19/dll调用/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">BOOST.ASIO库</div>
+            <div class="article-nav-title">dll调用</div>
         </a>
     
 </nav>

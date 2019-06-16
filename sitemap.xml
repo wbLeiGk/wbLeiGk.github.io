@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/06/16/goLang/</loc>
+    
+    <lastmod>2019-06-16T15:57:51.209Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/21/%E6%B5%81%E7%BC%93%E5%86%B2%E5%8C%BAstreambuf/</loc>
+    
+    <lastmod>2019-04-24T16:04:28.518Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/26/cpp%E7%89%B9%E5%8C%96/</loc>
+    
+    <lastmod>2019-04-22T23:55:32.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/04/cpp%E7%BC%93%E5%86%B2%E4%B8%8E%E6%B5%81%E5%AF%B9%E8%B1%A1/</loc>
+    
+    <lastmod>2019-04-21T06:56:58.825Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/19/dll%E8%B0%83%E7%94%A8/</loc>
     
     <lastmod>2019-04-19T14:31:15.070Z</lastmod>
@@ -163,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/04/cpp%E7%BC%93%E5%86%B2%E4%B8%8E%E6%B5%81%E5%AF%B9%E8%B1%A1/</loc>
-    
-    <lastmod>2019-03-26T13:44:55.069Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/12/05/android-NDK/</loc>
     
     <lastmod>2019-03-26T13:40:31.917Z</lastmod>
@@ -180,13 +201,6 @@
     <loc>http://yoursite.com/2019/03/25/c-%E5%8A%A0%E8%BD%BDcppdll/</loc>
     
     <lastmod>2019-03-26T13:40:10.957Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/26/cpp%E7%89%B9%E5%8C%96/</loc>
-    
-    <lastmod>2019-03-26T13:39:24.753Z</lastmod>
     
   </url>
   

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="QK">
 <meta property="og:description" content="cpp 模板SFINAE(“Substitution Failure Is Not An Error”) 下面是一段引文，来自网站 https://en.cppreference.com/w/ 123This rule applies during overload resolution of function templates: When substituting the explicitly">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T13:39:24.753Z">
+<meta property="og:updated_time" content="2019-04-22T23:55:32.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cpp SFINAE">
 <meta name="twitter:description" content="cpp 模板SFINAE(“Substitution Failure Is Not An Error”) 下面是一段引文，来自网站 https://en.cppreference.com/w/ 123This rule applies during overload resolution of function templates: When substituting the explicitly">
@@ -173,7 +173,7 @@
                             &nbsp;
                             DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../../04/19/dll调用/">dll调用</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../25/c-加载cppdll/">c#加载cppdll</a></li>  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../04/19/dll调用/">dll调用</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -182,7 +182,7 @@
                             &nbsp;
                             STL(类对象)
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">cpp缓冲与流对象</a></li>  <li class="file"><a href="../../27/任务重新开始/">retry task in cpp &golang</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../04/cpp缓冲与流对象/">缓冲与流对象</a></li>  <li class="file"><a href="../../27/任务重新开始/">retry task in cpp &golang</a></li>  <li class="file"><a href="../../../04/21/流缓冲区streambuf/">流缓冲区streambuf</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -227,7 +227,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../03/goWeb/">GoWeb <1></1></a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -236,7 +236,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  <li class="file"><a href="../../01/go数据类型/">数据类型</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -278,7 +278,7 @@
                         </a>
                          <ul class="unstyled" id="tree">  <li class="file"><a href="../../28/Cmake/">Cmake 简单结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
+                     <li class="file"><a href="../../../06/16/goLang/">goLang</a></li>  <li class="file"><a href="../../02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -397,6 +397,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This rule applies during overload resolution of function templates: When substituting the explicitly specified <span class="keyword">or</span> deduced type <span class="keyword">for</span> the <span class="keyword">template</span> parameter fails, the specialization is discarded from the overload <span class="built_in">set</span> instead of causing a compile error.</span><br><span class="line"></span><br><span class="line">This feature is used in <span class="keyword">template</span> metaprogramming.</span><br></pre></td></tr></table></figure>
 <p>推断辅助函数：decay_t / decltype</p>
 <p>涉及：函数重载（overload） / 参数计算后进栈</p>
+<p>一般特化的时候，其特化参数小于等于模板参数，这是因为特化参数对应模板参数进行 ”赋值“行为</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// this overload is always in the set of overloads</span></span><br><span class="line"><span class="comment">// ellipsis parameter has the lowest ranking for overload resolution</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(...)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Catch-all overload called\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// this overload is added to the set of overloads if</span></span><br><span class="line">    <span class="comment">// C is a reference-to-class type and F is a pointer to member function of C</span></span><br><span class="line">    <span class="comment">// (void)(c.*f)(), void() </span></span><br><span class="line">    <span class="comment">// the return type is void()</span></span><br><span class="line">    <span class="comment">// but (void)(c.*f)(), void() execute comma </span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">C</span>, <span class="title">class</span> <span class="title">F</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">auto</span> <span class="title">test</span>(<span class="title">C</span> <span class="title">c</span>, <span class="title">F</span> <span class="title">f</span>) -&gt; <span class="title">decltype</span>((<span class="title">void</span>)(<span class="title">c</span>.*<span class="title">f</span>)(), <span class="title">void</span>())</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Reference overload called\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// this overload is added to the set of overloads if</span></span><br><span class="line">    <span class="comment">// C is a pointer-to-class type and F is a pointer to member function of C</span></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">C</span>, <span class="title">class</span> <span class="title">F</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">auto</span> <span class="title">test</span>(<span class="title">C</span> <span class="title">c</span>, <span class="title">F</span> <span class="title">f</span>) -&gt; <span class="title">decltype</span>((<span class="title">void</span>)((<span class="title">c</span>-&gt;*<span class="title">f</span>)()), <span class="title">void</span>())</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Pointer overload called\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">X</span> &#123;</span> <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125; &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    X x;</span><br><span class="line">    test( x, &amp;X::f);</span><br><span class="line">    test(&amp;x, &amp;X::f);</span><br><span class="line">    test(<span class="number">42</span>, <span class="number">1337</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//output</span></span><br><span class="line">    <span class="comment">// Reference overload called</span></span><br><span class="line">    <span class="comment">// Pointer overload called</span></span><br><span class="line">    <span class="comment">// Catch-all overload called</span></span><br></pre></td></tr></table></figure>
 
             </div>
