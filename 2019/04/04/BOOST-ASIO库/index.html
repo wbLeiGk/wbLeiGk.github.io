@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="QK">
 <meta property="og:description" content="只是看到boost.asio库，于是我看了一下《boost.asio c++ network programing》 概述Asio代表着异步的输入输出，asio库使数据处理成为了可能，异步意味着当操作初始化的时候，初始化程序不需要等待操作的完成，相反，Boost.Asio当操作完成的时候会通知程序，这种方式的优点就是其他操作可以被并发的执行 Boost.Thread 是另一个并发执行的库，不同之处">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T00:35:05.534Z">
+<meta property="og:updated_time" content="2019-07-11T15:38:48.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOOST.ASIO库">
 <meta name="twitter:description" content="只是看到boost.asio库，于是我看了一下《boost.asio c++ network programing》 概述Asio代表着异步的输入输出，asio库使数据处理成为了可能，异步意味着当操作初始化的时候，初始化程序不需要等待操作的完成，相反，Boost.Asio当操作完成的时候会通知程序，这种方式的优点就是其他操作可以被并发的执行 Boost.Thread 是另一个并发执行的库，不同之处">
@@ -227,7 +227,7 @@
                             &nbsp;
                             go web
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../../06/16/goLang/">goLang & c++ select 同步实现方式</a></li>  <li class="file"><a href="../../../03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../../03/03/goWeb/">GoWeb <1></1></a></li>  <li class="file"><a href="../../../06/16/goLang/">goLang & c++ select 同步实现方式</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -236,7 +236,7 @@
                             &nbsp;
                             基本知识
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  <li class="file"><a href="../../../03/01/go数据类型/">数据类型</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../../02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -247,7 +247,7 @@
                             &nbsp;
                             数据结构与算法
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -399,6 +399,8 @@
 <p>Boost.Asio利用网络实现发送和接收数据是利用异步的方式，思考异步操作：函数立刻返回，但是没有返回值，这个处理结果在随后的时间给出</p>
 <p>第一步：异步操作开始<br>第二部：程序接到通知当异步操作结束</p>
 <p>由于操作是隔离的，因为这使处理外部资源没有阻塞的进行</p>
+<h1 id="对比图endpoint"><a href="#对比图endpoint" class="headerlink" title="对比图endpoint"></a>对比图endpoint</h1><table border="3"><br>  <tr><br>    <th></th><br>    <th>boost asio</th><br>    <th>raw</th><br>  </tr><br>  <tr><br>    <td>endpoint</td><br>    <td>包含属性（对象endpoint）：<br>        <li>传输协议TCP/UDP…<br>        </li><li>IP<br>        </li><li>port<br>    </li></td><br>    <td>包含属性(对象socket&amp;sockaddr_in)：<br>        <li>传输协议stream/DGRAM<br>        </li><li>IP/IP协议族<br>        </li><li>port<br>    </li></td><br>  </tr><br>  <tr><br>  </tr><br></table>
+
 <h1 id="I-O-服务-和-I-O-对象"><a href="#I-O-服务-和-I-O-对象" class="headerlink" title="I/O 服务 和 I/O 对象"></a>I/O 服务 和 I/O 对象</h1><p>程序使用Boost.Asio进行异步数据处理是基于I/O服务和I/O对象，I/O服务是操作系统异步处理数据的抽象接口，I/O对象初始化了异步操作，这两个概念是将任务清晰地分开：1) I/O服务着眼于操作系统API ，2) I/O对象着眼于任务开发者需要去做</p>
 <p>作为Boost.Asio用户，正常来说你不用直接连接I/O服务，I/O服务被I/O服务对象管理，一个I/O服务对象像一个注册器（I/O服务去注册），每一个I/O对象知道它的I/O服务并且通过I/O服务对象处理他的I/O服务</p>
 <p>Boost.Asio 定义boost::asio::io_service,一个对于I/O服务对象单例类，每个程序基于Boost.Asio 中Boost::asio::io_service 的服务对象，这可以是一个全局变量。</p>
