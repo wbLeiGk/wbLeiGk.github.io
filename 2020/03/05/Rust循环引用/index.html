@@ -3,23 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>生活小记 | QK</title>
+    <title>RC指针 | QK</title>
     
     
-        <meta name="keywords" content="生活小记">
+        <meta name="keywords" content="RC指针">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="2019 / 2 / 16  乌鲁木齐机场 打开电脑随手写下了这篇文章，就想到哪写到哪了  [ 02 / 16 上午] 与昨日，我与母亲倾诉了内心的想法：我到底改往何方 母亲回了我一句：去年我曾劝过你，留在事业单位，现在你后悔嘛 我愣了一下  [ 02 / 15 下午] 在乌市出发前碰到了我儿时的同学 【张】 于是开玩笑道：给我5元钱，我帮你承担 [考研] 成绩的压力 晚上，我们在一起吃了个饭，我">
-<meta property="og:type" content="article">
-<meta property="og:title" content="生活小记">
-<meta property="og:url" content="http://yoursite.com/2019/02/16/myselfprinciple/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="RC指针">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/Rust循环引用/index.html">
 <meta property="og:site_name" content="QK">
-<meta property="og:description" content="2019 / 2 / 16  乌鲁木齐机场 打开电脑随手写下了这篇文章，就想到哪写到哪了  [ 02 / 16 上午] 与昨日，我与母亲倾诉了内心的想法：我到底改往何方 母亲回了我一句：去年我曾劝过你，留在事业单位，现在你后悔嘛 我愣了一下  [ 02 / 15 下午] 在乌市出发前碰到了我儿时的同学 【张】 于是开玩笑道：给我5元钱，我帮你承担 [考研] 成绩的压力 晚上，我们在一起吃了个饭，我">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-17T03:04:00.894Z">
+<meta property="og:updated_time" content="2020-03-05T13:35:47.790Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生活小记">
-<meta name="twitter:description" content="2019 / 2 / 16  乌鲁木齐机场 打开电脑随手写下了这篇文章，就想到哪写到哪了  [ 02 / 16 上午] 与昨日，我与母亲倾诉了内心的想法：我到底改往何方 母亲回了我一句：去年我曾劝过你，留在事业单位，现在你后悔嘛 我愣了一下  [ 02 / 15 下午] 在乌市出发前碰到了我儿时的同学 【张】 于是开玩笑道：给我5元钱，我帮你承担 [考研] 成绩的压力 晚上，我们在一起吃了个饭，我">
+<meta name="twitter:title" content="RC指针">
     
 
     
@@ -148,43 +145,88 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            algorithm
+                            工具
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/10/task-shchedule-weight/">基于权重的任务调度</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            network
-                        </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/13/TCP-IP-demultipexing-multiplexing/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/11/15/TCP-transport-institution/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/12/09/router-data-plane/">路由器数据层</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/26/git简单使用/">git简单使用</a></li>  <li class="file"><a href="../../../../2019/03/29/vscode-sshFS文件系统/">vscode_sshFS文件系统</a></li>  <li class="file"><a href="../../../../2019/03/18/工具screen/">screen</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            个人生活
+                            编程
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">生活小记</a></li>  </ul> 
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Rust
+                        </a>
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            循环引用
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file active"><a href="">RC指针</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            编程语言
+                            cpp
                         </a>
                          <ul class="unstyled" id="tree"> 
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            android
+                            DLL交互
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/12/05/android-NDK/">android NDK</a></li>  <li class="file"><a href="../../../../2019/04/19/dll调用/">dll调用</a></li>  <li class="file"><a href="../../../../2019/03/25/c-加载cppdll/">c#加载cppdll</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            STL(类对象)
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/04/cpp缓冲与流对象/">缓冲与流对象</a></li>  <li class="file"><a href="../../../../2019/03/27/任务重新开始/">retry task in cpp &golang</a></li>  <li class="file"><a href="../../../../2019/04/21/流缓冲区streambuf/">流缓冲区streambuf</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            boost库
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/04/04/BOOST-ASIO库/">BOOST.ASIO库</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            元编程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/26/cpp特化/">cpp SFINAE</a></li>  <li class="file"><a href="../../../../2019/03/30/cpp可变模板variadic-template/">cpp可变模板variadic_template</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            多线程
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/05/cpp11线程/">cpp11线程概述</a></li>  </ul> 
+                    </li> 
+                     </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -193,11 +235,65 @@
                             &nbsp;
                             go
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../17/goGoroutine/">(2) go并发概述 1</a></li>  <li class="file"><a href="../../17/gonovice/">(1) go初识</a></li>  <li class="file"><a href="../../22/GoTree/">实现二叉树平衡</a></li>  </ul> 
+                         <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            go web
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/04/03/goGetURL简单开始/">goGetURL简单开始</a></li>  <li class="file"><a href="../../../../2019/06/16/goLang/">goLang & c++ select 同步实现方式</a></li>  <li class="file"><a href="../../../../2019/03/03/goWeb/">GoWeb <1></1></a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基本知识
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/18/go接口小得/">接口interface心得（1）</a></li>  <li class="file"><a href="../../../../2019/03/01/go数据类型/">数据类型</a></li>  <li class="file"><a href="../../../../2019/02/17/go概述/">概述</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据结构与算法
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/12/CPP拓扑排序/">拓扑排序</a></li>  <li class="file"><a href="../../../../2019/02/22/Go平衡树/">平衡树</a></li>  <li class="file"><a href="../../../../2018/12/10/求二叉树的路径和/">求二叉树的路径和(path sum)</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/27/单例模式/">单例模式</a></li>  <li class="file"><a href="../../../../2019/03/18/设计模式/">设计模式</a></li>  </ul> 
+                    </li> 
                      </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            计算机网络
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2018/11/15/TCP 传输机制/">TCP 传输机制</a></li>  <li class="file"><a href="../../../../2018/11/13/复路分解与多复路/">复路分解与多复路</a></li>  <li class="file"><a href="../../../../2018/12/09/路由器数据层/">路由器数据层</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            项目构建
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="../../../../2019/03/28/Cmake/">Cmake 简单结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="../../../../2019/03/02/个人博客简介/">个人博客简介</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -268,7 +364,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-myselfprinciple" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-Rust循环引用" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -278,7 +374,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="../../../../categories/个人生活/">个人生活</a>
+        <a class="article-category-link" href="../../../../categories/编程/">编程</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/Rust/">Rust</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="../../../../categories/编程/Rust/循环引用/">循环引用</a>
     </div>
 
                         
@@ -286,7 +382,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="">
-            <time datetime="2019-02-16T00:38:45.000Z" itemprop="datePublished">2019-02-16</time>
+            <time datetime="2020-03-05T13:32:17.000Z" itemprop="datePublished">2020-03-05</time>
         </a>
     </div>
 
@@ -298,7 +394,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            生活小记
+            RC指针
         </h1>
     
 
@@ -311,34 +407,9 @@
             
         
         
-            <p>2019 / 2 / 16  乌鲁木齐机场</p>
-<p>打开电脑随手写下了这篇文章，就想到哪写到哪了</p>
-<hr>
-<p>[ 02 / 16 上午]</p>
-<p>与昨日，我与母亲倾诉了内心的想法：我到底改往何方</p>
-<p>母亲回了我一句：去年我曾劝过你，留在事业单位，现在你后悔嘛</p>
-<p>我愣了一下</p>
-<hr>
-<p>[ 02 / 15 下午]</p>
-<p>在乌市出发前碰到了我儿时的同学 【张】</p>
-<p>于是开玩笑道：给我5元钱，我帮你承担 [考研] 成绩的压力</p>
-<p>晚上，我们在一起吃了个饭，我问他想去哪</p>
-<p>他话语间流露，想要出去走走，不想呆在新疆了，他说这个地方他呆够了，现在他特别想到处逛逛</p>
-<p>“你准备在成家？”</p>
-<p>他说：“在江苏吧，也许其他地方…”</p>
-<p>晚上的《流浪地球》挺好看的</p>
-<hr>
-<p>晚上，继昨天一样，失眠了</p>
-<p>我已经不记得儿时曾经发过什么誓言，想要成为什么样的人</p>
-<p>我也不知道我是不是成为了自己讨厌的人</p>
-<p>. . .</p>
-<hr>
-<p>今年我26 ，而我的路，我不知道该向哪里</p>
-<p>甚至看书，有时候都在发呆</p>
-<p>我不知道您是否被这么一句话所影响 :  走正确的路</p>
-<p>什么是正确的路啊</p>
-<p>蒙上眼睛，走那个方向都是前方</p>
-<p>. . .</p>
+            <!-- ## 参考资料
+> - []()
+> - []() -->
 
             </div>
         
@@ -351,19 +422,10 @@
     
 <nav id="article-nav">
     
-        <a href="../../17/gonovice/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    (1) go初识
-                
-            </div>
-        </a>
     
-    
-        <a href="../../../../2018/12/10/task-shchedule-weight/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../../../../2019/06/16/goLang/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">基于权重的任务调度</div>
+            <div class="article-nav-title">goLang &amp; c++ select 同步实现方式</div>
         </a>
     
 </nav>
@@ -387,7 +449,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            lwb &copy; 2019 
+            lwb &copy; 2020 
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             

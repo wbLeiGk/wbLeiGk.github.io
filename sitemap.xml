@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/03/05/Rust%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8/</loc>
+    
+    <lastmod>2020-03-05T13:35:47.790Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/04/BOOST-ASIO%E5%BA%93/</loc>
     
     <lastmod>2019-07-11T15:38:48.875Z</lastmod>
@@ -212,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-11-30T03:26:01.000Z</lastmod>
     
